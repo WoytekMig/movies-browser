@@ -35,7 +35,6 @@ export const Name = styled.span`
   font-size: 22px;
 
   @media (max-width: ${({ theme }) => theme.common.breakPoint}) {
-    font-family: Poppins;
     font-size: 14px;
   }
 `;
