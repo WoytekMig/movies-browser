@@ -8,19 +8,43 @@ export const Wrapper = styled.div`
   max-height: 339px;
   padding: 16px;
   text-align: center;
+  background-color: ${({ theme }) => theme.colors.white};
+  box-shadow: ${({ theme }) => theme.common.boxShadow};
+
+  @media (max-width: ${({ theme }) => theme.common.breakPoint}) {
+    max-width: 136px;
+    max-height: 245px;
+    padding: 8px;
+    border-radius: 5px;
+  }
 `;
 
 export const Picture = styled.img`
   max-width: 176px;
   max-height: 231px;
   border-radius: 5px;
+
+  @media (max-width: ${({ theme }) => theme.common.breakPoint}) {
+    max-width: 120px;
+    max-height: 178px;
+  }
 `;
 
 export const Name = styled.span`
   font-weight: 500;
   font-size: 22px;
+
+  @media (max-width: ${({ theme }) => theme.common.breakPoint}) {
+    font-family: Poppins;
+    font-size: 14px;
+  }
 `;
 
 export const Role = styled.span`
   font-size: 18px;
+  color: ${({ theme }) => theme.colors.waterloo};
+
+  @media (max-width: ${({ theme }) => theme.common.breakPoint}) {
+    font-size: 13px;
+  }
 `;
