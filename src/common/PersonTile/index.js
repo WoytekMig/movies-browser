@@ -2,7 +2,7 @@ import { Name, Picture, Role, Wrapper } from "./styled";
 
 const PersonTile = ({ picture, name, role }) => (
   <Wrapper>
-    <Picture>{picture}</Picture>
+    <Picture src={picture} />
     <Name>{name}</Name>
     <Role>{role}</Role>
   </Wrapper>
