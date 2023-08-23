@@ -16,7 +16,7 @@ export const GlobalStyles = createGlobalStyle`
   margin: 0;
   word-break: break-word;
   background: ${({ theme }) => theme.colors.whisper};
-  padding: 16px;
+  
   color: ${({ theme }) => theme.colors.black};
 }
 
