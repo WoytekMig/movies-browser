@@ -1,5 +1,8 @@
 import MoviesBrowser from "./features/MoviesBrowser";
+import Navigation from "./common/Navigation";
 
-const App = () => <MoviesBrowser />;
+const App = () => 
+<Navigation />;
+<MoviesBrowser />;
 
 export default App;
