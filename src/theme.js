@@ -6,6 +6,6 @@ export const theme = {
   },
   common: {
     boxShadow: "0px 4px 12px 0px #BAC7D580",
-    breakPoint: "767px",
+    breakpoint: "767px",
   },
 };
