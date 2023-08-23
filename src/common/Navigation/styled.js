@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { ReactComponent as Logo } from "./logo.svg";
+import { ReactComponent as Logo } from "../../images/logo.svg";
 import { NavLink } from "react-router-dom";
 
 export const Container = styled.div`

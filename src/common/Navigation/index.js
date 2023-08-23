@@ -1,5 +1,4 @@
 import { Search } from "./Search";
-import React from "react";
 import {
   StyledLogo,
   StyledNavigation,
