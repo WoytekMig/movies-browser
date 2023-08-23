@@ -1,13 +1,14 @@
 export const theme = {
   colors: {
-    white: "#ffffff",
-    whisper: "#f5f5fa",
     black: "#000000",
     mystic: "#e4e6f0",
     woodSmoke: "#18181B",
+    whisper: "#F5F5FA",
     waterloo: "#7E839A",
+    white: "#FFFFFF",
   },
-  breakpoint: {
-    mobileMax: 768,
+  common: {
+    boxShadow: "0px 4px 12px 0px #BAC7D580",
+    breakpoint: "767px",
   },
 };
