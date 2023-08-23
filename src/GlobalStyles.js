@@ -11,15 +11,6 @@ export const GlobalStyles = createGlobalStyle`
     box-sizing: inherit;
   }
 
-  body {
-  font-family: 'Poppins', sans-serif;
-  margin: 0;
-  word-break: break-word;
-  background: ${({ theme }) => theme.colors.whisper};
-  
-  color: ${({ theme }) => theme.colors.black};
-}
-
   #root {
     font-family: "Poppins", sans-serif;
     background-color: ${({ theme }) => theme.colors.whisper};
