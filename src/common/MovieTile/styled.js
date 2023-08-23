@@ -5,19 +5,17 @@ export const Wrapper = styled.div`
     max-width: 324px;
     height: 650px;
     padding: 16px;
+    gap: 16px;
     justify-content: left;
     background: ${({ theme }) => theme.colors.white};   
     box-shadow: ${({ theme }) => theme.common.boxShadow};  
 
-
-
     @media (max-width : ${({ theme }) => theme.common.breakpoint}) {
         max-width: 100%;
         height: 201px;
-
         align-items: center;
         display: flex;
-    flex-flow: nowrap; 
+        flex-flow: nowrap; 
     }
 `;
 
@@ -26,7 +24,6 @@ export const Poster = styled.div`
     height: 434px;
     border-radius: 5px;
     background-color: green; // it's temporary - here will be poster from API //
-    margin-bottom: 16px;
 
     @media (max-width : ${({ theme }) => theme.common.breakpoint}) {
         width: 114px;
@@ -36,10 +33,14 @@ export const Poster = styled.div`
 
 export const DescriptionBox = styled.div`
     width: 292px;
+    height: 200px;
+    position: relative; 
+    padding-top: inherit;
+    padding-bottom: inherit;
 
     @media (max-width : ${({ theme }) => theme.common.breakpoint}) {
         width: auto;
-
+        position: inherit;
     }
 `;
 
@@ -73,6 +74,7 @@ export const Year = styled.span`
 
 export const GenreBox = styled.div`
     display: flex;
+    flex-wrap: wrap;
     gap: 10px;
     font-size: 14px;
     font-style: normal;
@@ -99,13 +101,15 @@ export const GenreTile = styled.div`
 `;
 
 export const RatingBox = styled.div`
-    display : flex;
+    position: absolute; 
+    bottom: 0px;
+    display: flex;
     gap: 12px; 
-    padding-top: 39px;
     align-items: center;
         
     @media (max-width : ${({ theme }) => theme.common.breakpoint}) {
         gap: 8px; 
+        position: inherit; 
     }
 `;
 
