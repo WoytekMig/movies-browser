@@ -1,12 +1,19 @@
 import styled from "styled-components";
-import { ReactComponent as YellowStar } from "../../images/shape-star.svg";
+import { ReactComponent as YellowStar } from "./images/shape-star.svg";
 
 export const Wrapper = styled.div`
     max-width: 324px;
     max-height: 650px;
     padding: 16px;
     justify-content: left;
-    background: ${({ theme }) => theme.colors.white};     
+    background: ${({ theme }) => theme.colors.white};   
+    box-shadow: ${({ theme }) => theme.common.boxShadow};  
+
+    @media (max-width : ${({ theme }) => theme.common.breakpoint.mobilemax}) {
+        max-width: fit-content;
+        height: 201px;
+
+    }
 `;
 
 export const Poster = styled.div`
@@ -15,6 +22,11 @@ export const Poster = styled.div`
     border-radius: 5px;
     background-color: green; // it's temporary - here will be poster from API //
     margin-bottom: 16px;
+
+    @media (max-width : ${({ theme }) => theme.common.breakpoint.mobilemax}) {
+        width: 114px;
+        height: 169px;
+    }
 `;
 
 export const Title = styled.span`
@@ -23,6 +35,10 @@ export const Title = styled.span`
     font-weight: 500;
     line-height: 130%;
     ${({ theme }) => theme.colors.black};
+
+    @media (max-width : ${({ theme }) => theme.common.breakpoint.mobilemax}) {
+        font-size: 16px;
+    }
 `;
 
 export const Year = styled.span`
@@ -34,11 +50,26 @@ export const Year = styled.span`
     color: ${({ theme }) => theme.colors.waterloo};    
     margin-top: 8px;
     margin-bottom: 8px;
+    
+    @media (max-width : ${({ theme }) => theme.breakpoint.mobile2}px) {
+        font-size: 13px;
+        line-height: 130%;
+    }
 `;
 
 export const GenreBox = styled.div`
     display: flex;
     gap: 10px;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 140%;
+        
+    @media (max-width : ${({ theme }) => theme.breakpoint.mobile2}px) {
+        gap: 8px;
+        font-size: 10px;
+        line-height: 110%
+    }
 `;
 
 export const GenreTile = styled.div`
@@ -47,6 +78,10 @@ export const GenreTile = styled.div`
     align-items: center;
     color: ${({ theme }) => theme.colors.woodSmoke};
     padding: 8px 16px;
+        
+    @media (max-width : ${({ theme }) => theme.breakpoint.mobile2}px) {
+        padding: 4px 8px;
+    }
 `;
 
 export const RatingBox = styled.div`
@@ -54,11 +89,20 @@ export const RatingBox = styled.div`
     gap: 12px; 
     padding-top: 39px;
     align-items: center;
+        
+    @media (max-width : ${({ theme }) => theme.breakpoint.mobile2}px) {
+        gap: 8px; 
+    }
 `;
 
 export const StarImage = styled(YellowStar)`
     width: 24px;
     height: 24px;
+            
+    @media (max-width : ${({ theme }) => theme.breakpoint.mobile2}px) {
+        width: 16px;
+        height: 16px;
+    }
 `;
 
 export const Rating = styled.p`
@@ -66,7 +110,12 @@ export const Rating = styled.p`
     font-style: normal;
     font-weight: 600;
     line-height: 150%;
-    color: ${({ theme }) => theme.colors.woodSmoke};        
+    color: ${({ theme }) => theme.colors.woodSmoke}; 
+                
+    @media (max-width : ${({ theme }) => theme.breakpoint.mobile2}px) {
+        font-size: 13px;
+        line-height: 130%;
+    }         
 `;
 
 export const Votes = styled.p`
@@ -75,4 +124,9 @@ export const Votes = styled.p`
     font-weight: 400;
     line-height: 150%;
     color: ${({ theme }) => theme.colors.waterloo};    
+                    
+    @media (max-width : ${({ theme }) => theme.breakpoint.mobile2}px) {
+        font-size: 13px;
+        line-height: 130%;
+    }     
 `;
