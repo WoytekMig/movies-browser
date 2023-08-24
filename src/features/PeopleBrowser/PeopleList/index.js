@@ -4,7 +4,7 @@ import { MainHeader } from "../../../common/MainHeader";
 export const PeopleList = () => {
   return (
     <MainContainer>
-      <MainHeader title="Popular People" />
+      <MainHeader title={"Popular People"} />
     </MainContainer>
   );
 };
