@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { ReactComponent as YellowStar } from "./images/shape-star.svg";
+import { ReactComponent as YellowStar } from "../images/shape-star.svg";
 
 export const Wrapper = styled.div`
     max-width: 324px;
@@ -11,7 +11,7 @@ export const Wrapper = styled.div`
     box-shadow: ${({ theme }) => theme.common.boxShadow};  
 
     @media (max-width : ${({ theme }) => theme.common.breakpoint}) {
-        max-width: 100%;
+        max-width: 350px;
         height: 201px;
         align-items: center;
         display: flex;
