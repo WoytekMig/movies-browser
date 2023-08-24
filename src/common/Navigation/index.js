@@ -14,8 +14,8 @@ const Navigation = () => {
       <Container>
         <StyledLogo />
         <StyledDiv>
-          <StyledNavLink>Movies</StyledNavLink>
-          <StyledNavLink>People</StyledNavLink>
+          <StyledNavLink to="/movies">Movies</StyledNavLink>
+          <StyledNavLink to="/people">People</StyledNavLink>
         </StyledDiv>
       </Container>
       <Search />
