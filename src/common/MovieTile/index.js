@@ -12,22 +12,20 @@ import {
     DescriptionBox
 } from "./styled";
 
-const MovieTile = () => (
+const MovieTile = ({ title, year, tag, rating, votes }) => (
 
     <Wrapper>
         <Poster />
         <DescriptionBox>
-            <Title> Mulan </Title>
-            <Year>2020</Year>
+            <Title> {title}</Title>
+            <Year>{year}</Year>
             <GenreBox>
-                <GenreTile>Action</GenreTile>
-                <GenreTile>Drama</GenreTile>
-                <GenreTile>Poema</GenreTile>
+                <GenreTile>{tag}</GenreTile>
             </GenreBox>
             <RatingBox>
                 <StarImage></StarImage>
-                <Rating>7,8</Rating>
-                <Votes>35 votes</Votes>
+                <Rating>{rating}</Rating>
+                <Votes>{votes}</Votes>
             </RatingBox>
         </DescriptionBox>
     </Wrapper>
