@@ -11,7 +11,7 @@ export const Wrapper = styled.div`
     box-shadow: ${({ theme }) => theme.common.boxShadow};  
 
     @media (max-width : ${({ theme }) => theme.common.breakpoint}) {
-        max-width: 350px;
+        max-width: 100%;
         height: 201px;
         align-items: center;
         display: flex;
