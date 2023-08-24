@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { ReactComponent as YellowStar } from "../images/shape-star.svg";
+import { ReactComponent as YellowStar } from "../../images/shape-star.svg";
 
 export const Wrapper = styled.div`
     max-width: 324px;
