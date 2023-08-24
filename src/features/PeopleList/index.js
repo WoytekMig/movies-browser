@@ -1,5 +1,5 @@
-import { MainContainer } from "../../../common/Container";
-import { MainHeader } from "../../../common/MainHeader";
+import { MainContainer } from "../../common/Container";
+import { MainHeader } from "../../common/MainHeader";
 
 export const PeopleList = () => {
   return (
