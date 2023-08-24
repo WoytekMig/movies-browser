@@ -1,3 +1,11 @@
-import { styled } from "styled-components";
+import { Name, Picture, Role, Wrapper } from "./styled";
 
-export const PersonTile = styled.div``;
+const PersonTile = ({ picture, name, role }) => (
+  <Wrapper>
+    <Picture src={picture} />
+    <Name>{name}</Name>
+    <Role>{role}</Role>
+  </Wrapper>
+);
+
+export default PersonTile;
