@@ -1,10 +1,12 @@
-import { MainContainer } from "../../common/Container";
+import { StyledContainer } from "../../common/Container/styled";
 import { MainHeader } from "../../common/MainHeader";
 
 export const PeopleList = () => {
   return (
-    <MainContainer>
+    <StyledContainer>
       <MainHeader title={"Popular People"} />
-    </MainContainer>
+    </StyledContainer>
+      
+    
   );
 };
