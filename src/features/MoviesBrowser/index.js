@@ -1,7 +1,3 @@
-import MovieTile from "../../common/MovieTile";
-
-const MoviesBrowser = () => <>
-
-</>;
+const MoviesBrowser = () => <></>;
 
 export default MoviesBrowser;
