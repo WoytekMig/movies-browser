@@ -46,7 +46,6 @@ export const DescriptionBox = styled.div`
 
 export const Title = styled.span`
     font-size: 22px;
-    font-style: normal;
     font-weight: 500;
     line-height: 130%;
     ${({ theme }) => theme.colors.black};
@@ -59,7 +58,6 @@ export const Title = styled.span`
 export const Year = styled.span`
     display: block;
     font-size: 16px;
-    font-style: normal;
     font-weight: 400;
     line-height: 150%;
     color: ${({ theme }) => theme.colors.waterloo};    
@@ -77,7 +75,6 @@ export const GenreBox = styled.div`
     flex-wrap: wrap;
     gap: 10px;
     font-size: 14px;
-    font-style: normal;
     font-weight: 400;
     line-height: 140%;
         
@@ -125,7 +122,6 @@ export const StarImage = styled(YellowStar)`
 
 export const Rating = styled.p`
     font-size: 16px;
-    font-style: normal;
     font-weight: 600;
     line-height: 150%;
     color: ${({ theme }) => theme.colors.woodSmoke}; 
@@ -138,7 +134,6 @@ export const Rating = styled.p`
 
 export const Votes = styled.p`
     font-size: 16px;
-    font-style: normal;
     font-weight: 400;
     line-height: 150%;
     color: ${({ theme }) => theme.colors.waterloo};    
