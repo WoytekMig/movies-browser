@@ -2,7 +2,8 @@ import MoviesBrowser from "./features/MoviesBrowser";
 import Navigation from "./common/Navigation";
 import React from "react";
 import { BrowserRouter } from "react-router-dom";
-import { PeopleList } from "./features/PeopleBrowser/PeopleList/index";
+import { PeopleList } from "./features/PeopleBrowser/PeopleList";
+
 
 const App = () => (
   <BrowserRouter>
@@ -10,7 +11,7 @@ const App = () => (
       <Navigation />
       </div>
       <div>
-      <PeopleList />Popular People
+      <PeopleList />
       </div>
       <MoviesBrowser />
     
