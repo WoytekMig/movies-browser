@@ -19,7 +19,8 @@ export const List = styled.ul`
 `;
 
 export const ListItem = styled.li`
-
+  list-style: none;
+  height: 100%;
 `;
 
 export const StyledLink = styled(Link)`
