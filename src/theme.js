@@ -7,8 +7,14 @@ export const theme = {
     waterloo: "#7E839A",
     white: "#FFFFFF",
   },
+
+  breakpoints: {
+    tablet: "1200px",
+    defaultMobile: "767px",
+    smallMobile: "320px",
+  },
+
   common: {
     boxShadow: "0px 4px 12px 0px #BAC7D580",
-    breakpoint: "767px",
   },
 };
