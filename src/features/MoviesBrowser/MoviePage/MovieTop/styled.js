@@ -7,6 +7,18 @@ export const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   height: 81vh;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
+    height: 600px;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.defaultMobile}) {
+    height: 400px;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.smallMobile}) {
+    height: 148px;
+  }
 `;
 
 export const Poster = styled.div`
@@ -53,6 +65,52 @@ export const Poster = styled.div`
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.defaultMobile}) {
+    background: linear-gradient(
+        192.09deg,
+        rgba(0, 0, 0, 0) 65%,
+        rgba(0, 0, 0, 0.106473) 69.25%,
+        rgba(0, 0, 0, 0.235359) 74.4%,
+        rgba(0, 0, 0, 0.492821) 82.77%,
+        rgba(0, 0, 0, 0.740286) 89.82%,
+        #000000 96.18%
+      ),
+      linear-gradient(
+        269.75deg,
+        #000000 8.69%,
+        rgba(0, 0, 0, 0.873268) 10.09%,
+        rgba(0, 0, 0, 0.720529) 12.16%,
+        rgba(0, 0, 0, 0.294577) 17.19%,
+        rgba(0, 0, 0, 0.159921) 19.93%,
+        rgba(0, 0, 0, 0) 25.43%
+      ),
+      linear-gradient(
+        90.09deg,
+        #000000 8.05%,
+        rgba(0, 0, 0, 0.984059) 9.4%,
+        rgba(0, 0, 0, 0.967732) 10.59%,
+        rgba(0, 0, 0, 0.865569) 11.79%,
+        rgba(0, 0, 0, 0.230315) 20.89%,
+        rgba(0, 0, 0, 0) 26.12%
+      ),
+      linear-gradient(
+        180deg,
+        #000000 -2.7%,
+        rgba(0, 0, 0, 0.689555) 2.36%,
+        rgba(0, 0, 0, 0.439033) 7.46%,
+        rgba(0, 0, 0, 0.20628) 13.79%,
+        rgba(0, 0, 0, 0) 23.65%
+      ),
+      url(${mulan});
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+  @media (max-width: ${({ theme }) => theme.breakpoints.smallMobile}) {
+    flex-basis: 148px;
+    padding-bottom: 8px;
+  }
 `;
 
 export const Details = styled.div`
@@ -61,12 +119,40 @@ export const Details = styled.div`
   grid-gap: 17.5px;
   max-width: 503px;
   margin: 0 276px;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
+    margin: 0 100px;
+    grid-gap: 15px;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.defaultMobile}) {
+    margin: 0 32px;
+    grid-gap: 12px;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.smallMobile}) {
+    grid-gap: 8px;
+    margin: 0 16px;
+    max-width: 214px;
+  }
 `;
 
 export const Title = styled.span`
   font-size: 64px;
   font-weight: 600;
   margin-bottom: 8px;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
+    font-size: 48px;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.defaultMobile}) {
+    font-size: 32px;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.smallMobile}) {
+    font-size: 24px;
+  }
 `;
 
 export const Rating = styled.div`
@@ -81,6 +167,14 @@ export const Rate = styled.span`
   font-weight: 500;
   margin: 0 8px;
   line-height: 39px;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.defaultMobile}) {
+    font-size: 24px;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.smallMobile}) {
+    font-size: 14px;
+  }
 `;
 
 export const StyledScale = styled(Scale)`
