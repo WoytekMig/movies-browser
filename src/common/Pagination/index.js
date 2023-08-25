@@ -8,14 +8,21 @@ import {
   Wrapper,
 } from "./styled";
 
-const Pagination = ({ currentPage, totalPages }) => {
+const Pagination = ({
+  currentPage,
+  totalPages,
+  onFirstPage,
+  onPrevPage,
+  onNextPage,
+  onLastPage,
+}) => {
   return (
     <Wrapper>
-      <Button>
+      <Button onClick={onFirstPage} disabled={currentPage === 1}>
         <ArrowLeft />
         <ButtonText>First</ButtonText>
       </Button>
-      <Button>
+      <Button onClick={onPrevPage} disabled={currentPage === 1}>
         <ArrowLeft />
         <ButtonText>Previous</ButtonText>
       </Button>
@@ -25,11 +32,11 @@ const Pagination = ({ currentPage, totalPages }) => {
           of <PageNumber>{totalPages}</PageNumber>
         </PageCounter>
       </Button>
-      <Button>
+      <Button onClick={onNextPage} disabled={currentPage === totalPages}>
         <ArrowRight />
         <ButtonText>Next</ButtonText>
       </Button>
-      <Button>
+      <Button onClick={onLastPage} disabled={currentPage === totalPages}>
         <ArrowRight />
         <ButtonText>Last</ButtonText>
       </Button>
