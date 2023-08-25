@@ -5,7 +5,7 @@ import { ReactComponent as IconLeft } from "../../images/vectorLeft.svg";
 export const Wrapper = styled.div`
   display: flex;
   justify-content: center;
-  margin: 40px 0 103px 0;
+  margin: 400px 0 103px 0; // 400px na potrzeby wizualizacji :-)
   gap: 12px;
 
   @media (max-width: ${({ theme }) => theme.common.breakpoint}) {
@@ -40,12 +40,58 @@ export const Button = styled.button`
   }
 `;
 
-export const ButtonText = styled.span``;
+export const ButtonText = styled.span`
+  font-size: 14px;
+  line-height: 140%;
+  color: ${({ theme }) => theme.colors.woodSmoke};
 
-export const ArrowLeft = styled(IconLeft)``;
+  @media (max-width: ${({ theme }) => theme.common.breakpoint}) {
+    display: none;
+  }
+`;
 
-export const ArrowRight = styled(IconRight)``;
+export const ArrowLeft = styled(IconLeft)`
+  color: ${({ theme }) => theme.colors.scienceBlue};
 
-export const PageCounter = styled.div``;
+  ${Button}:disabled & {
+    color: ${({ theme }) => theme.colors.darkerGrey};
+  }
 
-export const PageNumber = styled.span``;
+  @media (max-width: ${({ theme }) => theme.common.breakpoint}) {
+    width: 5px;
+    height: 8px;
+  }
+`;
+
+export const ArrowRight = styled(IconRight)`
+  color: ${({ theme }) => theme.colors.scienceBlue};
+
+  ${Button}:disabled & {
+    color: ${({ theme }) => theme.colors.darkerGrey};
+  }
+
+  @media (max-width: ${({ theme }) => theme.common.breakpoint}) {
+    width: 5px;
+    height: 8px;
+  }
+`;
+
+export const PageCounter = styled.div`
+  display: flex;
+  align-items: center;
+  font-size: 16px;
+  gap: 8px;
+  color: ${({ theme }) => theme.colors.darkerGrey};
+  margin: 0 12px 0 12px;
+
+  @media (max-width: ${({ theme }) => theme.common.breakpoint}) {
+    gap: 2px;
+    font-size: 10px;
+    margin: 0;
+  }
+`;
+
+export const PageNumber = styled.span`
+  font-weight: 600;
+  color: ${({ theme }) => theme.colors.woodSmoke};
+`;
