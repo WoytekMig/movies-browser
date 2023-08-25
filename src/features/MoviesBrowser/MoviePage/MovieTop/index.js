@@ -1,3 +1,4 @@
+import Star from "../../../../common/Star";
 import {
   Details,
   Poster,
@@ -9,15 +10,13 @@ import {
   Wrapper,
 } from "./styled";
 
-import { ReactComponent as Star } from "../../../../images/star.svg";
-
 const MovieTop = () => (
   <Wrapper>
     <Poster>
       <Details>
         <Title>Mulan long title</Title>
         <Rating>
-          <Star />
+          <Star poster />
           <Rate>7,8</Rate>
           <StyledScale />
         </Rating>
