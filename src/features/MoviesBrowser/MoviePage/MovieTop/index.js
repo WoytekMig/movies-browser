@@ -1,7 +1,15 @@
-import { Details, Poster, Rate, Rating, Title, Votes, Wrapper } from "./styled";
+import {
+  Details,
+  Poster,
+  Rate,
+  Rating,
+  StyledScale,
+  Title,
+  Votes,
+  Wrapper,
+} from "./styled";
 
 import { ReactComponent as Star } from "../../../../images/star.svg";
-import { ReactComponent as Scale } from "../../../../images/rating.svg";
 
 const MovieTop = () => (
   <Wrapper>
@@ -11,7 +19,7 @@ const MovieTop = () => (
         <Rating>
           <Star />
           <Rate>7,8</Rate>
-          <Scale />
+          <StyledScale />
         </Rating>
         <Votes>335 votes</Votes>
       </Details>
