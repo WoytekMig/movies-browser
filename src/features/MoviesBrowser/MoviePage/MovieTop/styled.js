@@ -116,6 +116,7 @@ export const Poster = styled.div`
 export const Details = styled.div`
   color: ${({ theme }) => theme.colors.white};
   display: grid;
+  grid-template-columns: 1fr;
   grid-gap: 17.5px;
   max-width: 503px;
   margin: 0 276px;
@@ -131,9 +132,10 @@ export const Details = styled.div`
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.smallMobile}) {
-    grid-gap: 8px;
+    grid-gap: 0px;
     margin: 0 16px;
     max-width: 214px;
+    grid-template-columns: 1fr 1fr;
   }
 `;
 
@@ -152,20 +154,25 @@ export const Title = styled.span`
 
   @media (max-width: ${({ theme }) => theme.breakpoints.smallMobile}) {
     font-size: 24px;
+    grid-column: 1 / 3;
   }
 `;
 
 export const Rating = styled.div`
   max-width: 126px;
   display: flex;
+  gap: 8px;
   align-items: center;
   align-content: center;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.smallMobile}) {
+    gap: 4px;
+  }
 `;
 
 export const Rate = styled.span`
   font-size: 30px;
   font-weight: 500;
-  margin: 0 8px;
   line-height: 39px;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.defaultMobile}) {
@@ -180,8 +187,23 @@ export const Rate = styled.span`
 export const StyledScale = styled(Scale)`
   align-self: end;
   margin-bottom: 6px;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.smallMobile}) {
+    width: 17px;
+    height: 12px;
+    align-self: center;
+    margin: 0;
+  }
 `;
 
 export const Votes = styled.span`
   font-size: 16px;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.smallMobile}) {
+    font-size: 10px;
+    display: inline-block;
+    width: 150px;
+    align-self: center;
+    margin: 3px 0 0 8px;
+  }
 `;
