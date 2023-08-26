@@ -3,18 +3,18 @@ import { ReactComponent as Star } from "../../images/star.svg";
 
 export const StyledStar = styled(Star)`
   width: 24px;
-  height: 23px;
+  height: 24px;
 
   ${({ $poster }) =>
     $poster &&
     css`
       width: 40px;
-      height: 38px;
+      height: 40px;
     `}
 
   @media (max-width: ${({ theme }) => theme.breakpoints.defaultMobile}) {
     width: 20px;
-    height: 19px;
+    height: 20px;
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.smallMobile}) {
