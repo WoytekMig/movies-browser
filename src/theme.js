@@ -6,6 +6,7 @@ export const theme = {
     whisper: "#F5F5FA",
     waterloo: "#7E839A",
     white: "#FFFFFF",
+    stormGray: "#74788B",
   },
 
   breakpoints: {
