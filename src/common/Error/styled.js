@@ -1,5 +1,5 @@
 import { styled } from "styled-components";
-import { ReacComponent as ErrorIcon } from "../../images";
+import { ReacComponent as ErrorIcon } from "../../images/danger.svg";
 import { Link } from "react-router-dom"
 
 export const Wrapper = styled.div`
