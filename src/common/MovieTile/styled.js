@@ -24,7 +24,7 @@ export const Poster = styled.div`
     width: 292px;
     height: 434px;
     border-radius: 5px;
-    background-image: url(${props => props.imageUrl});   
+    background-image: url(${props => props.imageurl});   
     background-position: center;
     background-size: contain ;
 

@@ -21,7 +21,7 @@ const MovieTile = ({ posterPath, title, year, tag, rating, votes }) => {
 
     return (
         <Wrapper>
-            <Poster imageUrl={fullUrl} />
+            <Poster imageurl={fullUrl} />
             <DescriptionBox>
                 <Title> {title}</Title>
                 <Year>{year}</Year>
@@ -29,7 +29,7 @@ const MovieTile = ({ posterPath, title, year, tag, rating, votes }) => {
                     {tag.map(element => {
                         const matchingGenre = genres.find(genreElement => element === genreElement.id);
                         if (matchingGenre) {
-                            return <GenreTile>{matchingGenre.name}</GenreTile>;
+                            return <GenreTile key={matchingGenre.id}>{matchingGenre.name}</GenreTile>;
                         }
                         return null;
                     })}
