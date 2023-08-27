@@ -3,6 +3,7 @@ import Navigation from "./common/Navigation";
 import React from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import { PeopleList } from "./features/PeopleList";
+import Pagination from "./common/Pagination";
 
 const App = () => (
   <BrowserRouter>
@@ -13,6 +14,7 @@ const App = () => (
         <Route path="/people" component={PeopleList} />
       </Switch>
     </div>
+    <Pagination />
     <MoviesBrowser />
   </BrowserRouter>
 );
