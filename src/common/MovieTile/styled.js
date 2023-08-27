@@ -3,10 +3,11 @@ import { ReactComponent as YellowStar } from "../../images/shape-star.svg";
 
 export const Wrapper = styled.div`
     max-width: 324px;
-    height: 650px;
+   /*  min-height: 650px; */
     padding: 16px;
     gap: 16px;
     justify-content: left;
+    box-sizing: unset;
     background: ${({ theme }) => theme.colors.white};   
     box-shadow: ${({ theme }) => theme.common.boxShadow};  
 
@@ -38,7 +39,7 @@ export const DescriptionBox = styled.div`
     height: 200px;
     position: relative; 
     padding-top: inherit;
-    padding-bottom: inherit;
+    padding-bottom: inherit; 
 
     @media (max-width : ${({ theme }) => theme.common.breakpoint}) {
         width: auto;
@@ -79,6 +80,7 @@ export const GenreBox = styled.div`
     font-size: 14px;
     font-weight: 400;
     line-height: 140%;
+    padding-bottom: 10px;
         
     @media (max-width : ${({ theme }) => theme.common.breakpoint}) {
         gap: 8px;
@@ -101,10 +103,12 @@ export const GenreTile = styled.div`
 
 export const RatingBox = styled.div`
     position: absolute; 
-    bottom: 0px;
+    bottom: -16px;
     display: flex;
     gap: 12px; 
     align-items: center;
+    padding-top: 10px;
+
         
     @media (max-width : ${({ theme }) => theme.common.breakpoint}) {
         gap: 8px; 
