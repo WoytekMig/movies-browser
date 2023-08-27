@@ -31,12 +31,12 @@ const Pagination = ({
         of <PageNumber>{totalPages}</PageNumber>
       </PageCounter>
       <Button onClick={onNextPage} disabled={currentPage === totalPages}>
-        <ArrowRight />
         <ButtonText>Next</ButtonText>
+        <ArrowRight />
       </Button>
       <Button onClick={onLastPage} disabled={currentPage === totalPages}>
-        <ArrowRight />
         <ButtonText>Last</ButtonText>
+        <ArrowRight />
       </Button>
     </Wrapper>
   );
