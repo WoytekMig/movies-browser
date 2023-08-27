@@ -5,7 +5,7 @@ import { ReactComponent as IconLeft } from "../../images/vectorLeft.svg";
 export const Wrapper = styled.div`
   display: flex;
   justify-content: center;
-  margin: 400px 0 103px 0; // 400px na potrzeby wizualizacji :-)
+  margin: 40px 0 103px 0;
   gap: 12px;
 
   @media (max-width: ${({ theme }) => theme.common.breakpoint}) {
