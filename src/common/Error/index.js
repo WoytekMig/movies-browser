@@ -9,7 +9,7 @@ import {
 const Error = () => (
   <Wrapper>
     <StyledImg />
-    <StyledHeader>Ooops! Something went wrong... </StyledHeader>
+    <StyledHeader>Ooops! Something went wrong...</StyledHeader>
     <StyledText>Please check your network connection and try again</StyledText>
     <StyledButton to={"/"}>Back to home page</StyledButton>
   </Wrapper>
