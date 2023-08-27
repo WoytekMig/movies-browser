@@ -8,15 +8,14 @@ import {
 } from "./styled";
 
 const Navigation = () => {
-  const toMovies = "/movies";
-  const toPeople = "/people";
+  
   return (
     <StyledNavigation>
       <Container>
         <StyledLogo />
         <StyledDiv>
-          <StyledNavLink to={toMovies}>Movies</StyledNavLink>
-          <StyledNavLink to={toPeople}>People</StyledNavLink>
+          <StyledNavLink to="/movies">Movies</StyledNavLink>
+          <StyledNavLink to="/people">People</StyledNavLink>
         </StyledDiv>
       </Container>
       <Search />
