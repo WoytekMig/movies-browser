@@ -20,7 +20,7 @@ export const MoviesList = () => {
                         <MovieTile
                             posterPath={element.poster_path}
                             title={element.title}
-                            year={element.release_date}
+                            year={new Date(element.release_date).getFullYear()}
                             rating={element.vote_average}
                             votes={element.vote_count}
                             tag={element.genre_ids}
