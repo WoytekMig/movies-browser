@@ -12,11 +12,12 @@ export const Wrapper = styled.div`
     box-shadow: ${({ theme }) => theme.common.boxShadow};  
 
     @media (max-width : ${({ theme }) => theme.common.breakpoint}) {
-        max-width: 100%;
+        width: 100%;
         height: 201px;
         align-items: center;
         display: flex;
         flex-flow: nowrap; 
+        padding: 0 16px;
     }
 `;
 
@@ -24,9 +25,11 @@ export const Poster = styled.div`
     width: 292px;
     height: 434px;
     border-radius: 5px;
+    background-repeat: no-repeat;
     background-image: url(${props => props.imageurl});   
-    background-position: center;
-    background-size: contain ;
+    background-position: center center;
+    background-size: cover;
+    flex-shrink: 0;
 
     @media (max-width : ${({ theme }) => theme.common.breakpoint}) {
         width: 114px;
@@ -43,7 +46,10 @@ export const DescriptionBox = styled.div`
 
     @media (max-width : ${({ theme }) => theme.common.breakpoint}) {
         width: auto;
-        position: inherit;
+        height: 169px;
+        position: unset;
+        padding-top: inherit;
+        padding-bottom: inherit; 
     }
 `;
 
@@ -112,7 +118,7 @@ export const RatingBox = styled.div`
         
     @media (max-width : ${({ theme }) => theme.common.breakpoint}) {
         gap: 8px; 
-        position: inherit; 
+        position: unset; 
     }
 `;
 
