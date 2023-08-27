@@ -18,10 +18,12 @@ export const MoviesList = () => {
                 moviesData.results.map(element => (
                     <React.Fragment key={element.id}>
                         <MovieTile
+                            posterPath={element.poster_path}
                             title={element.title}
                             year={element.release_date}
                             rating={element.vote_average}
                             votes={element.vote_count}
+                            tag={element.genre_ids}
                         />
                     </React.Fragment>
                 )))}

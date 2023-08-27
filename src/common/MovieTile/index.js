@@ -12,14 +12,19 @@ import {
     DescriptionBox
 } from "./styled";
 
-const MovieTile = ({ title, year, tag, rating, votes }) => {
+const MovieTile = ({ posterPath, title, year, tag, rating, votes }) => {
+
+    const basePostersPath = "https://image.tmdb.org/t/p/w500";
+    const poster1Path = posterPath;
+    const fullUrl = basePostersPath + poster1Path;
+
     return (
         <Wrapper>
-            <Poster />
+            <Poster imageUrl={fullUrl} />
             <DescriptionBox>
                 <Title> {title}</Title>
                 <Year>{year}</Year>
-                <GenreBox>
+                <GenreBox >
                     <GenreTile>{tag}</GenreTile>
                 </GenreBox>
                 <RatingBox>

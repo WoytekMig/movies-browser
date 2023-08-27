@@ -23,7 +23,9 @@ export const Poster = styled.div`
     width: 292px;
     height: 434px;
     border-radius: 5px;
-    background-color: green; // it's temporary - here will be poster from API //
+    background-image: url(${props => props.imageUrl});   
+    background-position: center;
+    background-size: contain ;
 
     @media (max-width : ${({ theme }) => theme.common.breakpoint}) {
         width: 114px;
