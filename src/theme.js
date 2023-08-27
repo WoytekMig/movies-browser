@@ -6,6 +6,8 @@ export const theme = {
     whisper: "#F5F5FA",
     waterloo: "#7E839A",
     white: "#FFFFFF",
+    pattensBlue: "#D6E4FF",
+    darkerGrey: "#7E839A",
     scienceBlue: "#0044CC",
   },
   common: {
