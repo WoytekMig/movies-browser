@@ -11,6 +11,7 @@ import {
     Votes,
     DescriptionBox
 } from "./styled";
+import { genres } from "../genreIds";
 
 const MovieTile = ({ posterPath, title, year, tag, rating, votes }) => {
 
@@ -24,8 +25,14 @@ const MovieTile = ({ posterPath, title, year, tag, rating, votes }) => {
             <DescriptionBox>
                 <Title> {title}</Title>
                 <Year>{year}</Year>
-                <GenreBox >
-                    <GenreTile>{tag}</GenreTile>
+                <GenreBox>
+                    {tag.map(element => {
+                        const matchingGenre = genres.find(genreElement => element === genreElement.id);
+                        if (matchingGenre) {
+                            return <GenreTile>{matchingGenre.name}</GenreTile>;
+                        }
+                        return null;
+                    })}
                 </GenreBox>
                 <RatingBox>
                     <StarImage></StarImage>
