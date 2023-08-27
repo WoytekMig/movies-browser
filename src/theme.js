@@ -7,6 +7,9 @@ export const theme = {
     waterloo: "#7E839A",
     white: "#FFFFFF",
     stormGray: "#74788B",
+    pattensBlue: "#D6E4FF",
+    darkerGrey: "#7E839A",
+    scienceBlue: "#0044CC",
   },
 
   breakpoints: {
