@@ -22,7 +22,7 @@ export const Button = styled.button`
   display: flex;
   align-items: center;
   gap: 6px;
-  transition: 0.5ms;
+  transition: 0.5s;
   cursor: pointer;
 
   &:hover {
