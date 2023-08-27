@@ -26,12 +26,10 @@ const Pagination = ({
         <ArrowLeft />
         <ButtonText>Previous</ButtonText>
       </Button>
-      <Button>
-        <PageCounter>
-          Page <PageNumber>{currentPage}</PageNumber>
-          of <PageNumber>{totalPages}</PageNumber>
-        </PageCounter>
-      </Button>
+      <PageCounter>
+        Page <PageNumber>{currentPage}</PageNumber>
+        of <PageNumber>{totalPages}</PageNumber>
+      </PageCounter>
       <Button onClick={onNextPage} disabled={currentPage === totalPages}>
         <ArrowRight />
         <ButtonText>Next</ButtonText>
