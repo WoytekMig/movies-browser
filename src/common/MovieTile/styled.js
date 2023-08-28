@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { ReactComponent as YellowStar } from "../../images/shape-star.svg";
 
 export const Wrapper = styled.div`
   max-width: 324px;
@@ -52,6 +53,7 @@ export const DescriptionBox = styled.div`
 export const Title = styled.span`
   font-size: 22px;
   font-weight: 500;
+  line-height: 130%;
   ${({ theme }) => theme.colors.black};
 
   @media (max-width: ${({ theme }) => theme.common.breakpoint}) {
@@ -60,11 +62,17 @@ export const Title = styled.span`
 `;
 
 export const Year = styled.span`
+  display: block;
   font-size: 16px;
+  font-weight: 400;
+  line-height: 150%;
   color: ${({ theme }) => theme.colors.waterloo};
+  margin-top: 8px;
+  margin-bottom: 8px;
 
   @media (max-width: ${({ theme }) => theme.common.breakpoint}) {
     font-size: 13px;
+    line-height: 130%;
   }
 `;
 
@@ -109,6 +117,16 @@ export const RatingBox = styled.div`
     position: unset;
     padding-top: 0px;
     align-items: flex-start;
+  }
+`;
+
+export const StarImage = styled(YellowStar)`
+  width: 24px;
+  height: 24px;
+
+  @media (max-width: ${({ theme }) => theme.common.breakpoint}) {
+    width: 16px;
+    height: 16px;
   }
 `;
 

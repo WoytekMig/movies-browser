@@ -1,4 +1,3 @@
-import Rating from "../Rating";
 import {
   Wrapper,
   Poster,
@@ -6,12 +5,13 @@ import {
   Year,
   GenreBox,
   GenreTile,
-  DescriptionBox,
   RatingBox,
+  Rating,
+  StarImage,
   Votes,
+  DescriptionBox,
 } from "./styled";
 import { genres } from "../genreIds";
-import Star from "../Rating/Star";
 
 const MovieTile = ({ posterPath, title, year, tag, rating, votes }) => {
   const basePostersPath = "https://image.tmdb.org/t/p/w500";
@@ -40,7 +40,7 @@ const MovieTile = ({ posterPath, title, year, tag, rating, votes }) => {
           })}
         </GenreBox>
         <RatingBox>
-          <Star />
+          <StarImage></StarImage>
           <Rating>{rating}</Rating>
           <Votes>{votes}</Votes>
         </RatingBox>
