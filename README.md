@@ -1,6 +1,6 @@
 # Welcome on our Movies Browser site (... in progress ;)
 
-Check what's already done ! ---> [Movies Browser](https://woytekmig.github.io/movies-browser/movies)
+Check what's already done ! ---> [Movies Browser](https://woytekmig.github.io/movies-browser)
 
 Autors :
 
