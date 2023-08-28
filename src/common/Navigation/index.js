@@ -8,7 +8,6 @@ import {
 } from "./styled";
 
 const Navigation = () => {
-  
   return (
     <StyledNavigation>
       <Container>
@@ -16,6 +15,7 @@ const Navigation = () => {
         <StyledDiv>
           <StyledNavLink to="/movies">Movies</StyledNavLink>
           <StyledNavLink to="/people">People</StyledNavLink>
+          <StyledNavLink to="/movie">Movie</StyledNavLink>
         </StyledDiv>
       </Container>
       <Search />
