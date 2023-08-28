@@ -3,6 +3,7 @@ import { createGlobalStyle } from "styled-components";
 export const GlobalStyles = createGlobalStyle`
   html {
     box-sizing: border-box;
+    background-color: ${({ theme }) => theme.colors.whisper};
   }
 
   *,
@@ -11,8 +12,7 @@ export const GlobalStyles = createGlobalStyle`
     box-sizing: inherit;
   }
 
-  #root {
+  body {
     font-family: "Poppins", sans-serif;
-    background-color: ${({ theme }) => theme.colors.whisper};
   }
 `;

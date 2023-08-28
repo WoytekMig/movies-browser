@@ -1,6 +1,6 @@
 import { styled } from "styled-components";
 import { ReactComponent as ErrorIcon } from "../../images/danger.svg";
-import { Link } from "react-router-dom"
+import { Link } from "react-router-dom";
 
 export const Wrapper = styled.div`
   display: flex;
@@ -9,7 +9,7 @@ export const Wrapper = styled.div`
   align-items: center;
   margin: 195px 0 0 0;
 
-  @media (max-width: ${({ theme }) => theme.common.breakpoint}) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.defaultMobile}) {
     margin: 100px 0 0px 0;
   }
 `;
@@ -18,7 +18,7 @@ export const StyledImg = styled(ErrorIcon)`
   justify-self: center;
   margin: 0px 0 38px 0;
 
-  @media (max-width: ${({ theme }) => theme.common.breakpoint}) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.defaultMobile}) {
     margin: 0px 0 25px 0;
   }
 `;
@@ -31,7 +31,7 @@ export const StyledHeader = styled.h3`
   margin: 0;
   text-align: center;
 
-  @media (max-width: ${({ theme }) => theme.common.breakpoint}) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.defaultMobile}) {
     font-size: 20px;
   }
 `;
@@ -46,7 +46,7 @@ export const StyledText = styled.p`
   margin: 24px 0 24px 0;
   max-width: 426px;
 
-  @media (max-width: ${({ theme }) => theme.common.breakpoint}) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.defaultMobile}) {
     font-size: 17px;
     max-width: 350px;
   }

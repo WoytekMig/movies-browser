@@ -8,7 +8,6 @@ import {
 } from "./styled";
 
 const Navigation = () => {
-  
   return (
     <StyledNavigation>
       <Container>
