@@ -22,9 +22,14 @@ const MoviePage = ({
   return (
     <>
       <MoviePageWrapper>
-        <MovieTop poster={posterBig} />
-        <MovieInfo
+        <MovieTop
+          poster={posterBig}
           title={longTitle ?? title}
+          rate={rate}
+          votes={votes}
+        />
+        <MovieInfo
+          title={title}
           year={productionYear}
           production={productionPlace}
           date={date}
