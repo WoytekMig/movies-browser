@@ -1,5 +1,5 @@
 import { StyledContainer } from "../../common/Container/styled";
-import { MainHeader } from "../../common/MainHeader";
+import MainHeader from "../../common/MainHeader";
 import { List, ListItem, StyledLink } from "./styled";
 import PersonTile from "../../common/PersonTile";
 
