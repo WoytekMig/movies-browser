@@ -42,13 +42,13 @@ const MovieInfo = ({
           <Tag>Drama</Tag>
         </TagsWrapper>
         <Rating rate="7,8" votes="335" type="info" />
-        <MovieDescription>
-          A young Chinese maiden disguises herself as a male warrior in order to
-          save her father. Disguises herself as a male warrior in order to save
-          her father. A young Chinese maiden disguises herself as a male warrior
-          in order to save her father.
-        </MovieDescription>
       </DataContainer>
+      <MovieDescription>
+        A young Chinese maiden disguises herself as a male warrior in order to
+        save her father. Disguises herself as a male warrior in order to save
+        her father. A young Chinese maiden disguises herself as a male warrior
+        in order to save her father.
+      </MovieDescription>
     </Wrapper>
   </Main>
 );
