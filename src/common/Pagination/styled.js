@@ -8,7 +8,7 @@ export const Wrapper = styled.div`
   margin: 40px 0 103px 0;
   gap: 12px;
 
-  @media (max-width: ${({ theme }) => theme.common.breakpoint}) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.defaultMobile}) {
     gap: 8px;
     margin: 16.5px 0 31.5px 0;
   }
@@ -35,7 +35,7 @@ export const Button = styled.button`
     }
   }
 
-  @media (max-width: ${({ theme }) => theme.common.breakpoint}) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.defaultMobile}) {
     padding: 8px 12px;
     gap: 4px;
   }
@@ -46,7 +46,7 @@ export const ButtonText = styled.span`
   line-height: 140%;
   color: ${({ theme }) => theme.colors.woodSmoke};
 
-  @media (max-width: ${({ theme }) => theme.common.breakpoint}) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.defaultMobile}) {
     display: none;
   }
 `;
@@ -58,7 +58,7 @@ export const ArrowLeft = styled(IconLeft)`
     color: ${({ theme }) => theme.colors.darkerGrey};
   }
 
-  @media (max-width: ${({ theme }) => theme.common.breakpoint}) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.defaultMobile}) {
     width: 5px;
     height: 8px;
   }
@@ -71,7 +71,7 @@ export const ArrowRight = styled(IconRight)`
     color: ${({ theme }) => theme.colors.darkerGrey};
   }
 
-  @media (max-width: ${({ theme }) => theme.common.breakpoint}) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.defaultMobile}) {
     width: 5px;
     height: 8px;
   }
@@ -85,7 +85,7 @@ export const PageCounter = styled.div`
   color: ${({ theme }) => theme.colors.darkerGrey};
   margin: 0 12px 0 12px;
 
-  @media (max-width: ${({ theme }) => theme.common.breakpoint}) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.defaultMobile}) {
     gap: 2px;
     font-size: 10px;
     margin: 0;

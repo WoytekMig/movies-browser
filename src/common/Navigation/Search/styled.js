@@ -18,7 +18,7 @@ export const StyledForm = styled.form`
   grid-template-columns: auto 1fr;
   align-content: center;
 
-  @media (max-width: ${({ theme }) => theme.common.breakpoint}) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.defaultMobile}) {
     height: 40px;
     width: 90vw;
     display: grid;
@@ -32,7 +32,7 @@ export const StyledInput = styled.input`
   font-size: 16px;
   margin-left: 10px;
 
-  @media (max-width: ${({ theme }) => theme.common.breakpoint}) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.defaultMobile}) {
     font-size: 13px;
   }
 
@@ -41,7 +41,7 @@ export const StyledInput = styled.input`
     color: ${({ theme }) => theme.colors.waterloo};
     line-height: 130%;
 
-    @media (max-width: ${({ theme }) => theme.common.breakpoint}) {
+    @media (max-width: ${({ theme }) => theme.breakpoints.defaultMobile}) {
       font-size: 13px;
     }
   }
@@ -58,7 +58,7 @@ export const SearchIcon = styled(Icon)`
   justify-self: center;
   margin: 0 0 0 18px;
 
-  @media (max-width: ${({ theme }) => theme.common.breakpoint}) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.defaultMobile}) {
     width: 16px;
     height: 16px;
   }

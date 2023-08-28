@@ -1,14 +1,13 @@
 import React from "react";
-import MovieTile from "../../common/MovieTile";
+import MovieTile from "../../../common/MovieTile";
 import { MainContainer, StyledMainHeader } from "./styled";
 import { useMoviesData } from "./useMoviesData";
 
-export const MoviesList = () => {
+const MoviesList = () => {
   const moviesData = useMoviesData();
 
   return (
     <>
-      {" "}
       <MainContainer>
         <StyledMainHeader>Popular movies</StyledMainHeader>
 
@@ -34,3 +33,5 @@ export const MoviesList = () => {
     </>
   );
 };
+
+export default MoviesList;

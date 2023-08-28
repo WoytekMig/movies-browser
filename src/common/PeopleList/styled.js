@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import { Link } from "react-router-dom";
 
 export const List = styled.ul`
@@ -9,11 +9,17 @@ export const List = styled.ul`
   margin: 0 0 24px 0;
   list-style: none;
 
-  @media (max-width: ${({ theme }) => theme.common.breakpoint}) {
+  ${({ $increasedGap }) =>
+    $increasedGap &&
+    css`
+      margin: 12px 0 24px 0;
+    `}
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.defaultMobile}) {
     grid-template-columns: repeat(2, 1fr);
   }
 
-  @media (max-width: ${({ theme }) => theme.common.breakpoint}) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.defaultMobile}) {
     grid-template-columns: repeat(2, 1fr);
   }
 `;
