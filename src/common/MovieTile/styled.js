@@ -48,8 +48,6 @@ export const DescriptionBox = styled.div`
         width: auto;
         height: 169px;
         position: unset;
-        padding-top: inherit;
-        padding-bottom: inherit; 
     }
 `;
 
@@ -109,16 +107,18 @@ export const GenreTile = styled.div`
 
 export const RatingBox = styled.div`
     position: absolute; 
-    bottom: -16px;
+    bottom: 0px;
     display: flex;
     gap: 12px; 
-    align-items: center;
+    align-items: center; 
     padding-top: 10px;
 
         
     @media (max-width : ${({ theme }) => theme.common.breakpoint}) {
         gap: 8px; 
         position: unset; 
+        padding-top: 0px;
+        align-items: flex-start;
     }
 `;
 
@@ -132,7 +132,7 @@ export const StarImage = styled(YellowStar)`
     }
 `;
 
-export const Rating = styled.p`
+export const Rating = styled.div`
     font-size: 16px;
     font-weight: 600;
     line-height: 150%;
@@ -144,7 +144,7 @@ export const Rating = styled.p`
     }         
 `;
 
-export const Votes = styled.p`
+export const Votes = styled.div`
     font-size: 16px;
     font-weight: 400;
     line-height: 150%;
