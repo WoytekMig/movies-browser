@@ -1,10 +1,14 @@
+import MainHeader from "../MainHeader";
 import { StyledImg, Wrapper } from "./styled";
 
 const Loading = () => {
   return (
-    <Wrapper>
-      <StyledImg />
-    </Wrapper>
+    <>
+      <MainHeader title={"Search result for"} />
+      <Wrapper>
+        <StyledImg />
+      </Wrapper>
+    </>
   );
 };
 
