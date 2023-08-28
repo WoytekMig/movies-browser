@@ -14,8 +14,8 @@ const App = () => (
         <Route path="/people" component={PeopleList} />
       </Switch>
     </div>
-    <Pagination />
     <MoviesBrowser />
+    <Pagination />
   </BrowserRouter>
 );
 export default App;
