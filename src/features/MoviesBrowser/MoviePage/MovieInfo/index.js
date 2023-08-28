@@ -10,11 +10,20 @@ import {
   Year,
 } from "./styled";
 import poster from "../../../../images/poster.png";
-import MainContainer from "../../../../common/Container";
 import Rating from "../../../../common/Rating";
+import { Main } from "../../../../common/Main";
 
-const MovieInfo = () => (
-  <MainContainer>
+const MovieInfo = ({
+  title,
+  year,
+  production,
+  date,
+  tag,
+  rate,
+  votes,
+  description,
+}) => (
+  <Main>
     <Wrapper>
       <Image src={poster} />
       <DataContainer>
@@ -36,7 +45,7 @@ const MovieInfo = () => (
         </MovieDescription>
       </DataContainer>
     </Wrapper>
-  </MainContainer>
+  </Main>
 );
 
 export default MovieInfo;
