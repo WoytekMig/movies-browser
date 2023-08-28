@@ -20,7 +20,7 @@ const MovieTile = ({ posterPath, title, year, tag, rating, votes }) => {
 
   return (
     <Wrapper>
-      <Poster imageurl={fullUrl} />
+      <Poster $imageUrl={fullUrl} />
       <DescriptionBox>
         <Title> {title}</Title>
         <Year>{year}</Year>
