@@ -60,32 +60,6 @@ export const Tag = styled.div`
   }
 `;
 
-export const RatingWrapper = styled.div`
-  display: flex;
-  gap: 8px;
-  align-items: center;
-`;
-
-export const Rating = styled.span`
-  font-size: 16px;
-  font-weight: 600;
-  color: ${({ theme }) => theme.colors.woodSmoke};
-
-  @media (max-width: ${({ theme }) => theme.breakpoints.defaultMobile}px) {
-    font-size: 13px;
-  }
-`;
-
-export const Votes = styled.p`
-  font-size: 16px;
-  color: ${({ theme }) => theme.colors.waterloo};
-  margin-left: 4px;
-
-  @media (max-width: ${({ theme }) => theme.breakpoints.defaultMobile}px) {
-    font-size: 13px;
-  }
-`;
-
 export const MovieDescription = styled.article`
   font-size: 20px;
   line-height: 32px;
