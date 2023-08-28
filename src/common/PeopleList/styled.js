@@ -12,7 +12,7 @@ export const List = styled.ul`
   ${({ $increasedGap }) =>
     $increasedGap &&
     css`
-      margin: 0 0 32px 0;
+      margin: 12px 0 24px 0;
     `}
 
   @media (max-width: ${({ theme }) => theme.breakpoints.defaultMobile}) {
