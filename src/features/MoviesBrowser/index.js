@@ -9,10 +9,10 @@ const MoviesBrowser = () => (
   <BrowserRouter>
     <Navigation />
     <Switch>
-      <Route path="/movie" component={MoviePage} />
       <Route path="/movies" />
       <Route path="/people" component={PopularPeople} />
     </Switch>
+    <MoviePage />
     <Pagination />
   </BrowserRouter>
 );

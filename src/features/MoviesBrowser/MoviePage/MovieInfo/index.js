@@ -10,16 +10,17 @@ import {
   Wrapper,
   Year,
 } from "./styled";
-import poster from "../../../../images/poster.png";
+
 import Rating from "../../../../common/Rating";
 import { Main } from "../../../../common/Main";
 
 const MovieInfo = ({
   title,
-  year,
-  production,
+  productionYear,
+  productionPlace,
+  poster,
   date,
-  tag,
+  tags,
   rate,
   votes,
   description,
@@ -28,27 +29,21 @@ const MovieInfo = ({
     <Wrapper>
       <Image src={poster} />
       <DataContainer>
-        <Title>Mulan</Title>
-        <Year>2020</Year>
+        <Title>{title}</Title>
+        <Year>{productionYear}</Year>
         <AdditionalData>
-          Production: <Text>China, Unated States of America</Text>
+          Production: <Text>{productionPlace}</Text>
         </AdditionalData>
         <AdditionalData>
-          Release date: <Text>24.10.2020</Text>
+          Release date: <Text>{date}</Text>
         </AdditionalData>
         <TagsWrapper>
-          <Tag>Action</Tag>
-          <Tag>Adventure</Tag>
-          <Tag>Drama</Tag>
+          <Tag>{tags}</Tag>
+          {/* add map method later */}
         </TagsWrapper>
-        <Rating rate="7,8" votes="335" type="info" />
+        <Rating rate={rate} votes={votes} type="info" />
       </DataContainer>
-      <MovieDescription>
-        A young Chinese maiden disguises herself as a male warrior in order to
-        save her father. Disguises herself as a male warrior in order to save
-        her father. A young Chinese maiden disguises herself as a male warrior
-        in order to save her father.
-      </MovieDescription>
+      <MovieDescription>{description}</MovieDescription>
     </Wrapper>
   </Main>
 );

@@ -1,5 +1,4 @@
 import { styled } from "styled-components";
-import mulan from "../../../../images/mulan.jpg";
 
 export const Wrapper = styled.div`
   display: flex;
@@ -59,7 +58,7 @@ export const Poster = styled.div`
       rgba(0, 0, 0, 0.20628) 15.16%,
       rgba(0, 0, 0, 0) 24.22%
     ),
-    url(${mulan});
+    url(${({ $poster }) => $poster});
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -100,7 +99,7 @@ export const Poster = styled.div`
         rgba(0, 0, 0, 0.20628) 13.79%,
         rgba(0, 0, 0, 0) 23.65%
       ),
-      url(${mulan});
+      url(${({ $poster }) => $poster});
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;

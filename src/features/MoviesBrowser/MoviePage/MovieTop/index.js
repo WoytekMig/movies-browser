@@ -1,12 +1,12 @@
 import Rating from "../../../../common/Rating";
 import { Details, Poster, Title, Wrapper } from "./styled";
 
-const MovieTop = () => (
+const MovieTop = ({ title, poster, rate, votes }) => (
   <Wrapper>
-    <Poster>
+    <Poster $poster={poster}>
       <Details>
-        <Title>Mulan long title</Title>
-        <Rating rate={"7,5"} votes={"445"} type="poster" />
+        <Title>{title}</Title>
+        <Rating rate={rate} votes={votes} type="poster" />
       </Details>
     </Poster>
   </Wrapper>
