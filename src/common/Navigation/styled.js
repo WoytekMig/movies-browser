@@ -9,7 +9,7 @@ export const Container = styled.div`
   flex-basis: 520px;
   gap: 12px;
 
-  @media (max-width: ${({ theme }) => theme.common.breakpoint}) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.defaultMobile}) {
     margin-top: 14px;
   }
 `;
@@ -22,7 +22,7 @@ export const StyledNavigation = styled.nav`
   padding: 0px 24px;
   gap: 150px;
 
-  @media (max-width: ${({ theme }) => theme.common.breakpoint}) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.defaultMobile}) {
     height: 142px;
     display: grid;
     gap: 0px;
@@ -34,7 +34,7 @@ export const StyledLogo = styled(Logo)`
   border-top: 23px;
   border-left: 293px;
 
-  @media (max-width: ${({ theme }) => theme.common.breakpoint}) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.defaultMobile}) {
     width: 150px;
   }
 `;
@@ -44,7 +44,7 @@ export const StyledDiv = styled.div`
   align-items: center;
   gap: 16px;
 
-  @media (max-width: ${({ theme }) => theme.common.breakpoint}) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.defaultMobile}) {
     height: 50px;
   }
 `;
@@ -60,7 +60,7 @@ export const StyledNavLink = styled(NavLink)`
   text-transform: uppercase;
   text-decoration: none;
 
-  @media (max-width: ${({ theme }) => theme.common.breakpoint}) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.defaultMobile}) {
     font-size: 12px;
     padding: 8px 12px;
   }

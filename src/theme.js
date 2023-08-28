@@ -6,12 +6,19 @@ export const theme = {
     whisper: "#F5F5FA",
     waterloo: "#7E839A",
     white: "#FFFFFF",
+    stormGray: "#74788B",
     pattensBlue: "#D6E4FF",
     darkerGrey: "#7E839A",
     scienceBlue: "#0044CC",
   },
+
+  breakpoints: {
+    tablet: "1200px",
+    defaultMobile: "767px",
+    smallMobile: "450px",
+  },
+
   common: {
     boxShadow: "0px 4px 12px 0px #BAC7D580",
-    breakpoint: "767px",
   },
 };

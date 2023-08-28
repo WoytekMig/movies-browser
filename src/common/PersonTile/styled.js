@@ -11,7 +11,7 @@ export const Wrapper = styled.div`
   background-color: ${({ theme }) => theme.colors.white};
   box-shadow: ${({ theme }) => theme.common.boxShadow};
 
-  @media (max-width: ${({ theme }) => theme.common.breakpoint}) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.defaultMobile}) {
     max-width: 136px;
     max-height: 245px;
     padding: 8px;
@@ -24,7 +24,7 @@ export const Picture = styled.img`
   max-height: 231px;
   border-radius: 5px;
 
-  @media (max-width: ${({ theme }) => theme.common.breakpoint}) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.defaultMobile}) {
     max-width: 120px;
     max-height: 178px;
   }
@@ -34,7 +34,7 @@ export const Name = styled.span`
   font-weight: 500;
   font-size: 22px;
 
-  @media (max-width: ${({ theme }) => theme.common.breakpoint}) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.defaultMobile}) {
     font-size: 14px;
   }
 `;
@@ -43,7 +43,7 @@ export const Role = styled.span`
   font-size: 18px;
   color: ${({ theme }) => theme.colors.waterloo};
 
-  @media (max-width: ${({ theme }) => theme.common.breakpoint}) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.defaultMobile}) {
     font-size: 13px;
   }
 `;
