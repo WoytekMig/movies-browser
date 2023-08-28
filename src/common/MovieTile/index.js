@@ -42,7 +42,7 @@ const MovieTile = ({ posterPath, title, year, tag, rating, votes }) => {
         <RatingBox>
           <StarImage></StarImage>
           <Rating>{rating}</Rating>
-          <Votes>{votes}</Votes>
+          <Votes>{votes} votes</Votes>
         </RatingBox>
       </DescriptionBox>
     </Wrapper>
