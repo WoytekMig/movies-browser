@@ -16,8 +16,13 @@ export const Container = styled.div`
       grid-template-columns: 1fr;
       grid-gap: 16px;
 
+      @media (max-width: ${({ theme }) => theme.breakpoints.defaultMobile}) {
+        grid-gap: 10px;
+      }
+
       @media (max-width: ${({ theme }) => theme.breakpoints.smallMobile}) {
         grid-template-columns: auto auto;
+        grid-gap: 8px;
       }
     `};
 `;
@@ -95,7 +100,7 @@ export const Votes = styled.span`
     font-size: 10px;
     display: inline-block;
     width: 150px;
-    align-self: center;
-    margin: 3px 0 0 8px;
+    align-self: end;
+    margin-bottom: 1px;
   }
 `;
