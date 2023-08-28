@@ -1,11 +1,11 @@
 import styled from "styled-components";
 
 export const StyledContainer = styled.div`
-    max-width: 1400px;
-    margin: auto;
-    padding: 0 16px;
+  max-width: 1400px;
+  margin: auto;
+  padding: 0 16px;
 
-    @media (max-width: ${({ theme }) => theme.common.breakpoint}) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.defaultMobile}) {
     margin: 16px auto;
   }
 `;

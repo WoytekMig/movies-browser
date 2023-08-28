@@ -56,7 +56,7 @@ export const Tag = styled.div`
   padding: 8px 16px;
   max-height: 30px;
 
-  @media (max-width: ${({ theme }) => theme.common.breakpoint}) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.defaultMobile}) {
     padding: 4px 8px;
   }
 `;
@@ -72,7 +72,7 @@ export const Rating = styled.span`
   font-weight: 600;
   color: ${({ theme }) => theme.colors.woodSmoke};
 
-  @media (max-width: ${({ theme }) => theme.common.breakpoint}px) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.defaultMobile}px) {
     font-size: 13px;
   }
 `;
@@ -82,7 +82,7 @@ export const Votes = styled.p`
   color: ${({ theme }) => theme.colors.waterloo};
   margin-left: 4px;
 
-  @media (max-width: ${({ theme }) => theme.common.breakpoint}px) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.defaultMobile}px) {
     font-size: 13px;
   }
 `;
