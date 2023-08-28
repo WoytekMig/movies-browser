@@ -2,6 +2,7 @@ import React from "react";
 import MovieTile from "../../../common/MovieTile";
 import { MainContainer, StyledMainHeader } from "./styled";
 import { useMoviesData } from "./useMoviesData";
+import Loading from "../../../common/Loading";
 
 const MoviesList = () => {
   const moviesData = useMoviesData();
@@ -10,9 +11,8 @@ const MoviesList = () => {
     <>
       <MainContainer>
         <StyledMainHeader>Popular movies</StyledMainHeader>
-
         {moviesData.status === "loading" ? (
-          <StyledMainHeader>Please WAIT</StyledMainHeader>
+          <Loading />
         ) : moviesData.status === "error" ? (
           <StyledMainHeader>SOMETHING WENT WRONG, sorry.. </StyledMainHeader>
         ) : (
