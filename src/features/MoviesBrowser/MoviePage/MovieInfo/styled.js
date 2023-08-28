@@ -14,11 +14,6 @@ export const Wrapper = styled.div`
     padding: 16px;
     gap: 16px;
   }
-
-  @media (max-width: ${({ theme }) => theme.breakpoints.smallMobile}) {
-    display: flex;
-    flex-wrap: wrap;
-  }
 `;
 
 export const Image = styled.img`
