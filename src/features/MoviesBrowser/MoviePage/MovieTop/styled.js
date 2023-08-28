@@ -4,7 +4,7 @@ import mulan from "../../../../images/mulan.jpg";
 export const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
-  height: 81vh;
+  height: 769px;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
     height: 600px;
