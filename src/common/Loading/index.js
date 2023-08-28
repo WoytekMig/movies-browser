@@ -1,10 +1,10 @@
 import MainHeader from "../MainHeader";
 import { StyledImg, Wrapper } from "./styled";
 
-const Loading = () => {
+const Loading = ({ title }) => {
   return (
     <>
-      <MainHeader title={"Search result for"} />
+      <MainHeader title={title} />
       <Wrapper>
         <StyledImg />
       </Wrapper>
