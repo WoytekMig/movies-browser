@@ -12,8 +12,8 @@ export const Wrapper = styled.div`
   display: grid;
   justify-items: center;
   align-items: center;
- 
-  @media (max-width: ${({ theme }) => theme.common.breakpoint}) {
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.defaultMobile}) {
     font-size: 17px;
     margin-top: 24px;
   }
@@ -25,8 +25,8 @@ export const StyledImg = styled(LoadingIcon)`
   color: ${({ theme }) => theme.colors.snuff};
   height: 91px;
   width: 91px;
- 
-  @media (max-width: ${({ theme }) => theme.common.breakpoint}) {
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.defaultMobile}) {
     margin-top: 60px;
     width: 32px;
   }

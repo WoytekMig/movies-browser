@@ -10,7 +10,7 @@ export const Wrapper = styled.div`
   background: ${({ theme }) => theme.colors.white};
   box-shadow: ${({ theme }) => theme.common.boxShadow};
 
-  @media (max-width: ${({ theme }) => theme.common.breakpoint}) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.defaultMobile}) {
     width: 100%;
     height: 201px;
     align-items: center;
@@ -30,7 +30,7 @@ export const Poster = styled.div`
   background-size: cover;
   flex-shrink: 0;
 
-  @media (max-width: ${({ theme }) => theme.common.breakpoint}) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.defaultMobile}) {
     width: 114px;
     height: 169px;
   }
@@ -43,7 +43,7 @@ export const DescriptionBox = styled.div`
   padding-top: inherit;
   padding-bottom: inherit;
 
-  @media (max-width: ${({ theme }) => theme.common.breakpoint}) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.defaultMobile}) {
     width: auto;
     height: 169px;
     position: unset;
@@ -56,7 +56,7 @@ export const Title = styled.span`
   line-height: 130%;
   ${({ theme }) => theme.colors.black};
 
-  @media (max-width: ${({ theme }) => theme.common.breakpoint}) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.defaultMobile}) {
     font-size: 16px;
   }
 `;
@@ -70,7 +70,7 @@ export const Year = styled.span`
   margin-top: 8px;
   margin-bottom: 8px;
 
-  @media (max-width: ${({ theme }) => theme.common.breakpoint}) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.defaultMobile}) {
     font-size: 13px;
     line-height: 130%;
   }
@@ -85,7 +85,7 @@ export const GenreBox = styled.div`
   line-height: 140%;
   padding-bottom: 10px;
 
-  @media (max-width: ${({ theme }) => theme.common.breakpoint}) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.defaultMobile}) {
     gap: 8px;
     font-size: 10px;
     line-height: 110%;
@@ -99,7 +99,7 @@ export const GenreTile = styled.div`
   color: ${({ theme }) => theme.colors.woodSmoke};
   padding: 8px 16px;
 
-  @media (max-width: ${({ theme }) => theme.common.breakpoint}) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.defaultMobile}) {
     padding: 4px 8px;
   }
 `;
@@ -112,7 +112,7 @@ export const RatingBox = styled.div`
   align-items: center;
   padding-top: 10px;
 
-  @media (max-width: ${({ theme }) => theme.common.breakpoint}) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.defaultMobile}) {
     gap: 8px;
     position: unset;
     padding-top: 0px;
@@ -124,7 +124,7 @@ export const StarImage = styled(YellowStar)`
   width: 24px;
   height: 24px;
 
-  @media (max-width: ${({ theme }) => theme.common.breakpoint}) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.defaultMobile}) {
     width: 16px;
     height: 16px;
   }
@@ -136,7 +136,7 @@ export const Rating = styled.div`
   line-height: 150%;
   color: ${({ theme }) => theme.colors.woodSmoke};
 
-  @media (max-width: ${({ theme }) => theme.common.breakpoint}px) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.defaultMobile}px) {
     font-size: 13px;
     line-height: 130%;
   }
@@ -148,7 +148,7 @@ export const Votes = styled.div`
   line-height: 150%;
   color: ${({ theme }) => theme.colors.waterloo};
 
-  @media (max-width: ${({ theme }) => theme.common.breakpoint}px) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.defaultMobile}px) {
     font-size: 13px;
     line-height: 130%;
   }
