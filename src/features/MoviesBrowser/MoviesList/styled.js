@@ -10,9 +10,9 @@ export const MainContainer = styled.div`
   flex-wrap: wrap;
   gap: 24px;
 
-  @media (max-width: ${({ theme }) => theme.common.breakpoint}) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.defaultMobile}) {
     gap: 16px;
-  } 
+  }
 `;
 
 export const StyledMainHeader = styled.div`
@@ -21,7 +21,7 @@ export const StyledMainHeader = styled.div`
   margin-top: 56px;
   width: 100%;
 
-  @media (max-width: ${({ theme }) => theme.common.breakpoint}) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.defaultMobile}) {
     font-size: 24px;
     margin-top: 24px;
   }
