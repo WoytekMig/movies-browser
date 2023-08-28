@@ -34,14 +34,15 @@ const MoviePage = ({
           description={description}
           poster={poster}
         />
+        <PeopleList
+          picture={personPicture}
+          name={personName}
+          role={personRole}
+          title={"Cast"}
+          increasedGap
+        />
+        <PeopleList title={"Crew"} increasedGap />
       </MoviePageWrapper>
-      <PeopleList
-        picture={personPicture}
-        name={personName}
-        role={personRole}
-        title={"Cast"}
-      />
-      <PeopleList title={"Crew"} />
     </>
   );
 };
