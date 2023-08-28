@@ -1,5 +1,5 @@
 import { StyledMainHeader } from "./styled";
 
-export const MainHeader = ({ title }) => (
-  <StyledMainHeader>{title}</StyledMainHeader>
-);
+const MainHeader = ({ title }) => <StyledMainHeader>{title}</StyledMainHeader>;
+
+export default MainHeader;
