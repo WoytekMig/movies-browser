@@ -1,21 +1,21 @@
 import styled from "styled-components";
 
 export const Wrapper = styled.div`
-  display: grid;
-  align-items: start;
   max-width: 324px;
-  height: 650px;
   padding: 16px;
   gap: 16px;
+  justify-content: left;
+  box-sizing: unset;
   background: ${({ theme }) => theme.colors.white};
   box-shadow: ${({ theme }) => theme.common.boxShadow};
 
   @media (max-width: ${({ theme }) => theme.common.breakpoint}) {
-    max-width: 100%;
+    width: 100%;
     height: 201px;
     align-items: center;
     display: flex;
     flex-flow: nowrap;
+    padding: 0 16px;
   }
 `;
 
@@ -23,7 +23,11 @@ export const Poster = styled.div`
   width: 292px;
   height: 434px;
   border-radius: 5px;
-  background-color: green; // it's temporary - here will be poster from API //
+  background-repeat: no-repeat;
+  background-image: url(${(props) => props.imageurl});
+  background-position: center center;
+  background-size: cover;
+  flex-shrink: 0;
 
   @media (max-width: ${({ theme }) => theme.common.breakpoint}) {
     width: 114px;
@@ -32,12 +36,16 @@ export const Poster = styled.div`
 `;
 
 export const DescriptionBox = styled.div`
-  display: grid;
-  grid-gap: 8px;
-  align-content: space-around;
+  width: 292px;
+  height: 200px;
+  position: relative;
+  padding-top: inherit;
+  padding-bottom: inherit;
 
   @media (max-width: ${({ theme }) => theme.common.breakpoint}) {
     width: auto;
+    height: 169px;
+    position: unset;
   }
 `;
 
@@ -65,10 +73,14 @@ export const GenreBox = styled.div`
   flex-wrap: wrap;
   gap: 10px;
   font-size: 14px;
+  font-weight: 400;
+  line-height: 140%;
+  padding-bottom: 10px;
 
   @media (max-width: ${({ theme }) => theme.common.breakpoint}) {
     gap: 8px;
     font-size: 10px;
+    line-height: 110%;
   }
 `;
 
@@ -85,6 +97,41 @@ export const GenreTile = styled.div`
 `;
 
 export const RatingBox = styled.div`
-  justify-self: start;
-  align-self: end;
+  position: absolute;
+  bottom: 0px;
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  padding-top: 10px;
+
+  @media (max-width: ${({ theme }) => theme.common.breakpoint}) {
+    gap: 8px;
+    position: unset;
+    padding-top: 0px;
+    align-items: flex-start;
+  }
+`;
+
+export const Rating = styled.div`
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 150%;
+  color: ${({ theme }) => theme.colors.woodSmoke};
+
+  @media (max-width: ${({ theme }) => theme.common.breakpoint}px) {
+    font-size: 13px;
+    line-height: 130%;
+  }
+`;
+
+export const Votes = styled.div`
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 150%;
+  color: ${({ theme }) => theme.colors.waterloo};
+
+  @media (max-width: ${({ theme }) => theme.common.breakpoint}px) {
+    font-size: 13px;
+    line-height: 130%;
+  }
 `;
