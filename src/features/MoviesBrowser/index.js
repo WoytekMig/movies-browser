@@ -1,17 +1,20 @@
-import MovieTile from "../../common/MovieTile";
+import Navigation from "../../common/Navigation";
+import React from "react";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
+import Pagination from "../../common/Pagination";
 import MoviePage from "./MoviePage";
+import PopularPeople from "./PopularPeople";
 
 const MoviesBrowser = () => (
-  <>
-    <MoviePage />
-    <MovieTile
-      title={"Mulan"}
-      year={"2020"}
-      tag={"Action"}
-      rate={"7,8"}
-      votes={"657"}
-    />
-  </>
+  <BrowserRouter>
+    <Navigation />
+    <Switch>
+      <Route path="/movie" component={MoviePage} />
+      <Route path="/movies" />
+      <Route path="/people" component={PopularPeople} />
+    </Switch>
+    <Pagination />
+  </BrowserRouter>
 );
 
 export default MoviesBrowser;
