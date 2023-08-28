@@ -9,10 +9,10 @@ export const List = styled.ul`
   margin: 0 0 24px 0;
   list-style: none;
 
-  ${({ $increasedGap }) =>
-    $increasedGap &&
+  ${({ $moviePage }) =>
+    $moviePage &&
     css`
-      margin: 12px 0 24px 0;
+      margin: 0;
     `}
 
   @media (max-width: ${({ theme }) => theme.breakpoints.defaultMobile}) {

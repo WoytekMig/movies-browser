@@ -1,5 +1,7 @@
 import { StyledMainHeader } from "./styled";
 
-const MainHeader = ({ title }) => <StyledMainHeader>{title}</StyledMainHeader>;
+const MainHeader = ({ title, moviePage }) => (
+  <StyledMainHeader $moviePage={moviePage}>{title}</StyledMainHeader>
+);
 
 export default MainHeader;
