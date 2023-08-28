@@ -3,7 +3,6 @@ import { ReactComponent as YellowStar } from "../../images/shape-star.svg";
 
 export const Wrapper = styled.div`
     max-width: 324px;
-   /*  min-height: 650px; */
     padding: 16px;
     gap: 16px;
     justify-content: left;
