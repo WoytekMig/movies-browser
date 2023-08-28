@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import MovieTile from "../../common/MovieTile";
 import { MainContainer, StyledMainHeader } from "./styled";
 import { useMoviesData } from "./useMoviesData";
