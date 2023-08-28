@@ -12,7 +12,17 @@ export const Wrapper = styled.div`
 export const Image = styled.img`
   width: 312px;
   height: 464px;
-  display: block;
+  border-radius: 5px;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.defaultMobile}) {
+    width: 202px;
+    height: 300px;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.smallMobile}) {
+    width: 114px;
+    height: 169px;
+  }
 `;
 
 export const DataContainer = styled.div`
@@ -33,6 +43,11 @@ export const Year = styled.span`
 export const AdditionalData = styled.span`
   font-size: 18px;
   color: ${({ theme }) => theme.colors.stormGray};
+`;
+
+export const Text = styled.span`
+  font-size: 18px;
+  color: ${({ theme }) => theme.colors.black};
 `;
 
 export const TagsWrapper = styled.div`

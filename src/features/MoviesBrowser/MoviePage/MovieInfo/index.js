@@ -1,5 +1,6 @@
 import {
   AdditionalData,
+  Text,
   DataContainer,
   Image,
   MovieDescription,
@@ -29,8 +30,12 @@ const MovieInfo = ({
       <DataContainer>
         <Title>Mulan</Title>
         <Year>2020</Year>
-        <AdditionalData>Production: </AdditionalData>
-        <AdditionalData>Release date: </AdditionalData>
+        <AdditionalData>
+          Production: <Text>China, Unated States of America</Text>
+        </AdditionalData>
+        <AdditionalData>
+          Release date: <Text>24.10.2020</Text>
+        </AdditionalData>
         <TagsWrapper>
           <Tag>Action</Tag>
           <Tag>Adventure</Tag>
