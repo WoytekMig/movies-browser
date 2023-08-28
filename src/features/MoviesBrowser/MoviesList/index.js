@@ -1,5 +1,5 @@
 import React from "react";
-import MovieTile from "../../common/MovieTile";
+import MovieTile from "../../../common/MovieTile";
 import { MainContainer, StyledMainHeader } from "./styled";
 import { useMoviesData } from "./useMoviesData";
 

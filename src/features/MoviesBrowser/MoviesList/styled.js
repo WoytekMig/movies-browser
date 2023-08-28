@@ -12,7 +12,7 @@ export const MainContainer = styled.div`
 
   @media (max-width: ${({ theme }) => theme.common.breakpoint}) {
     gap: 16px;
-  } 
+  }
 `;
 
 export const StyledMainHeader = styled.div`

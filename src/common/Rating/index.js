@@ -7,7 +7,7 @@ const Rating = ({ rate, votes, type }) => {
       <RatingWrapper>
         <Star type={type} />
         <Rate $type={type}>{rate}</Rate>
-        {type !== "tile" && <StyledScale $type={type} />}
+        {<StyledScale $type={type} />}
       </RatingWrapper>
       <Votes $type={type}>{votes} votes</Votes>
     </Container>

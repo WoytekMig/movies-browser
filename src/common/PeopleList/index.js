@@ -1,5 +1,5 @@
 import { Main } from "../Main";
-import { MainHeader } from "../MainHeader";
+import MainHeader from "../MainHeader";
 import { List, ListItem, StyledLink } from "./styled";
 import PersonTile from "../PersonTile";
 
