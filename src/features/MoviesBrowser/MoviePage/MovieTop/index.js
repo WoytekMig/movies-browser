@@ -1,26 +1,12 @@
-import Star from "../../../../common/Star";
-import {
-  Details,
-  Poster,
-  Rate,
-  Rating,
-  StyledScale,
-  Title,
-  Votes,
-  Wrapper,
-} from "./styled";
+import Rating from "../../../../common/Rating";
+import { Details, Poster, Title, Wrapper } from "./styled";
 
 const MovieTop = () => (
   <Wrapper>
     <Poster>
       <Details>
         <Title>Mulan long title</Title>
-        <Rating>
-          <Star poster />
-          <Rate>7,8</Rate>
-          <StyledScale />
-        </Rating>
-        <Votes>335 votes</Votes>
+        <Rating rate={"7,5"} votes={"445"} type="poster" />
       </Details>
     </Poster>
   </Wrapper>

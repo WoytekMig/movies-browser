@@ -7,6 +7,7 @@ import {
   GenreBox,
   GenreTile,
   DescriptionBox,
+  RatingBox,
 } from "./styled";
 
 const MovieTile = ({ title, year, tag, rate, votes }) => (
@@ -18,8 +19,10 @@ const MovieTile = ({ title, year, tag, rate, votes }) => (
       <GenreBox>
         <GenreTile>{tag}</GenreTile>
       </GenreBox>
-      <Rating rate={rate} votes={votes} />
     </DescriptionBox>
+    <RatingBox>
+      <Rating rate={rate} votes={votes} type="tile" />
+    </RatingBox>
   </Wrapper>
 );
 

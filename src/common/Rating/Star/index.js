@@ -1,5 +1,5 @@
 import { StyledStar } from "./styled";
 
-const Star = ({ poster }) => <StyledStar $poster={poster} />;
+const Star = ({ type }) => <StyledStar $type={type} />;
 
 export default Star;

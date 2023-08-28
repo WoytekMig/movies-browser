@@ -1,8 +1,6 @@
 import { styled } from "styled-components";
 import mulan from "../../../../images/mulan.jpg";
 
-import { ReactComponent as Scale } from "../../../../images/rating.svg";
-
 export const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
@@ -158,52 +156,51 @@ export const Title = styled.span`
   }
 `;
 
-export const Rating = styled.div`
-  max-width: 126px;
-  display: flex;
-  gap: 8px;
-  align-items: center;
-  align-content: center;
+// export const Rating = styled.div`
+//   max-width: 126px;
+//   display: flex;
+//   gap: 8px;
+//   align-items: center;
+//   align-content: center;
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.smallMobile}) {
-    gap: 4px;
-  }
-`;
+//   @media (max-width: ${({ theme }) => theme.breakpoints.smallMobile}) {
+//     gap: 4px;
+//   }
+// `;
 
-export const Rate = styled.span`
-  font-size: 30px;
-  font-weight: 500;
-  line-height: 39px;
+// export const Rate = styled.span`
+//   font-size: 30px;
+//   font-weight: 500;
+//   line-height: 39px;
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.defaultMobile}) {
-    font-size: 24px;
-  }
+//   @media (max-width: ${({ theme }) => theme.breakpoints.defaultMobile}) {
+//     font-size: 24px;
+//   }
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.smallMobile}) {
-    font-size: 14px;
-  }
-`;
+//   @media (max-width: ${({ theme }) => theme.breakpoints.smallMobile}) {
+//     font-size: 14px;
+//   }
+// `;
 
-export const StyledScale = styled(Scale)`
-  align-self: end;
-  margin-bottom: 6px;
+// export const StyledScale = styled(Scale)`
+//   align-self: end;
+//   margin-bottom: 6px;
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.smallMobile}) {
-    width: 17px;
-    height: 12px;
-    align-self: center;
-    margin: 0;
-  }
-`;
+//   @media (max-width: ${({ theme }) => theme.breakpoints.smallMobile}) {
+//     width: 17px;
+//     height: 12px;
+//     align-self: center;
+//     margin: 0;
+//   }
+// `;
 
-export const Votes = styled.span`
-  font-size: 16px;
+// export const Votes = styled.span`
+//   font-size: 16px;
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.smallMobile}) {
-    font-size: 10px;
-    display: inline-block;
-    width: 150px;
-    align-self: center;
-    margin: 3px 0 0 8px;
-  }
-`;
+//   @media (max-width: ${({ theme }) => theme.breakpoints.smallMobile}) {
+//     font-size: 10px;
+//     display: inline-block;
+//     width: 150px;
+//     align-self: center;
+//     margin: 3px 0 0 8px;
+//   }

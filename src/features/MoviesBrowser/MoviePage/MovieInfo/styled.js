@@ -5,7 +5,6 @@ export const Wrapper = styled.div`
   grid-template-columns: auto 1fr;
   grid-gap: 40px;
   background: ${({ theme }) => theme.colors.white};
-  margin: 0 276px;
   box-shadow: ${({ theme }) => theme.common.boxShadow};
   padding: 40px;
 `;

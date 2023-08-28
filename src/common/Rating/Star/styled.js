@@ -1,12 +1,12 @@
 import { css, styled } from "styled-components";
-import { ReactComponent as Star } from "../../images/star.svg";
+import { ReactComponent as Star } from "../../../images/star.svg";
 
 export const StyledStar = styled(Star)`
   width: 24px;
   height: 24px;
 
-  ${({ $poster }) =>
-    $poster &&
+  ${({ $type }) =>
+    $type === "poster" &&
     css`
       width: 40px;
       height: 40px;
