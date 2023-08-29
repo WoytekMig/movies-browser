@@ -2,15 +2,17 @@ import { styled } from "styled-components";
 
 export const Wrapper = styled.div`
   display: grid;
-  grid-template-columns: auto 1fr;
+  grid-template-columns: 312px 1fr;
   gap: 40px;
   background: ${({ theme }) => theme.colors.white};
   box-shadow: ${({ theme }) => theme.common.boxShadow};
   padding: 40px;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.defaultMobile}) {
-    display: flex;
-    flex-wrap: wrap;
+    grid-template-columns: 1fr 4fr;
+    grid-template-areas:
+      "pic data"
+      "description description";
     padding: 16px;
     gap: 16px;
   }
@@ -25,6 +27,7 @@ export const Image = styled.img`
   @media (max-width: ${({ theme }) => theme.breakpoints.defaultMobile}) {
     width: 202px;
     height: 300px;
+    grid-area: pic;
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.smallMobile}) {
@@ -41,6 +44,7 @@ export const DataContainer = styled.div`
 
   @media (max-width: ${({ theme }) => theme.breakpoints.defaultMobile}) {
     gap: 12px;
+    grid-area: data;
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.smallMobile}) {
@@ -124,13 +128,19 @@ export const Tag = styled.div`
 `;
 
 export const MovieDescription = styled.article`
-  grid-row: span 2;
   font-size: 20px;
   line-height: 32px;
+  margin-top: -56px;
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.smallMobile}) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
+    margin-top: -16px;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.defaultMobile}) {
     line-height: 25px;
     font-size: 17px;
+    margin: 0;
+    grid-area: description;
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.smallMobile}) {
