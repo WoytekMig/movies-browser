@@ -2,9 +2,9 @@ import styled, { css } from "styled-components";
 import { Link } from "react-router-dom";
 
 export const List = styled.ul`
-  display: grid;
-  grid-template-columns: repeat(6, 1fr);
-  grid-gap: 24px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
   padding: 0;
   margin: 0 0 24px 0;
   list-style: none;
@@ -16,11 +16,13 @@ export const List = styled.ul`
     `}
 
   @media (max-width: ${({ theme }) => theme.breakpoints.defaultMobile}) {
-    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
   }
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.defaultMobile}) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.smallMobile}) {
+    display: grid;
     grid-template-columns: repeat(2, 1fr);
+    place-items: center;
   }
 `;
 

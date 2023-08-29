@@ -3,8 +3,8 @@ import { styled } from "styled-components";
 export const Wrapper = styled.div`
   display: grid;
   place-items: center;
-  grid-gap: 16px;
-  max-width: 208px;
+  grid-gap: 8px;
+  width: 208px;
   max-height: 339px;
   padding: 16px;
   text-align: center;
@@ -33,9 +33,11 @@ export const Picture = styled.img`
 export const Name = styled.span`
   font-weight: 500;
   font-size: 22px;
+  margin-top: 4px;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.defaultMobile}) {
     font-size: 14px;
+    margin: 0;
   }
 `;
 
