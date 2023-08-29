@@ -25,8 +25,8 @@ export const Image = styled.img`
   grid-row: span 2;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.defaultMobile}) {
-    width: 202px;
-    height: 300px;
+    width: 168px;
+    height: 250px;
     grid-area: pic;
   }
 
@@ -45,10 +45,12 @@ export const DataContainer = styled.div`
   @media (max-width: ${({ theme }) => theme.breakpoints.defaultMobile}) {
     gap: 12px;
     grid-area: data;
+    justify-content: space-evenly;
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.smallMobile}) {
     gap: 8px;
+    justify-content: space-between;
   }
 `;
 
@@ -58,10 +60,12 @@ export const Title = styled.span`
 
   @media (max-width: ${({ theme }) => theme.breakpoints.defaultMobile}) {
     font-size: 20px;
+    margin-bottom: -6px;
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.smallMobile}) {
     font-size: 16px;
+    margin-bottom: -4px;
   }
 `;
 

@@ -30,7 +30,7 @@ const MoviePage = ({
         />
         <MovieInfo
           title={title}
-          year={productionYear}
+          productionYear={productionYear}
           productionPlace={productionPlace}
           date={date}
           tags={tags}

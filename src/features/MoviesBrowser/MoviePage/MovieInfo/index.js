@@ -58,6 +58,8 @@ const MovieInfo = ({
           </AdditionalData>
           <TagsWrapper>
             <Tag>{tags}</Tag>
+            <Tag>{tags}</Tag>
+            <Tag>{"Adventure"}</Tag>
             {/* add map method later */}
           </TagsWrapper>
           <Rating rate={rate} votes={votes} type="info" />

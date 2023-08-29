@@ -49,6 +49,10 @@ export const Rate = styled.span`
   font-size: 16px;
   font-weight: 600;
 
+  @media (max-width: ${({ theme }) => theme.breakpoints.smallMobile}) {
+    font-size: 13px;
+  }
+
   ${({ $type }) =>
     $type === "poster" &&
     css`
