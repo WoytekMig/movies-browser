@@ -4,8 +4,8 @@ import { ReactComponent as Scale } from "../../images/scale.svg";
 export const Container = styled.div`
   display: grid;
   grid-gap: 12px;
-  grid-template-columns: auto auto;
-  align-items: center;
+  grid-template-columns: 1fr 4fr;
+  align-items: end;
   justify-items: start;
   max-width: 185px;
 
@@ -89,6 +89,7 @@ export const StyledScale = styled(Scale)`
 export const Votes = styled.span`
   color: ${({ theme }) => theme.colors.waterloo};
   font-size: 16px;
+  width: auto;
 
   ${({ $type }) =>
     $type === "poster" &&
@@ -99,8 +100,14 @@ export const Votes = styled.span`
   @media (max-width: ${({ theme }) => theme.breakpoints.smallMobile}) {
     font-size: 10px;
     display: inline-block;
-    width: 150px;
-    align-self: end;
-    margin-bottom: 1px;
+    align-self: center;
+
+    ${({ $type }) =>
+      $type === "poster" &&
+      css`
+        margin-bottom: 1px;
+        width: 150px;
+        align-self: end;
+      `}
   }
 `;
