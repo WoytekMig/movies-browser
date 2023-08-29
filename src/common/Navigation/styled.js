@@ -72,7 +72,7 @@ export const StyledNavLink = styled(NavLink)`
   }
 
   &.active {
-    outline: 1px solid ${({ theme }) => theme.colors.white};
+    outline: 2px solid ${({ theme }) => theme.colors.white};
     border-radius: 24px;
   }
 `;
