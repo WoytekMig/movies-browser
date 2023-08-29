@@ -1,3 +1,4 @@
+import { useMediaQuery } from "react-responsive";
 import {
   ArrowLeft,
   ArrowRight,
@@ -16,10 +17,19 @@ const Pagination = ({
   onNextPage,
   onLastPage,
 }) => {
+  const isMobile = useMediaQuery({ maxWidth: 767 });
+
   return (
     <Wrapper>
       <Button onClick={onFirstPage} disabled={currentPage === 1}>
-        <ArrowLeft />
+        {isMobile ? (
+              <>
+                <ArrowLeft />
+                <ArrowLeft />
+                </>
+            ) : (
+              <ArrowLeft />
+            )}
         <ButtonText>First</ButtonText>
       </Button>
       <Button onClick={onPrevPage} disabled={currentPage === 1}>
@@ -36,7 +46,14 @@ const Pagination = ({
       </Button>
       <Button onClick={onLastPage} disabled={currentPage === totalPages}>
         <ButtonText>Last</ButtonText>
-        <ArrowRight />
+        {isMobile ? (
+              <>
+                <ArrowRight />
+                <ArrowRight />
+              </>
+            ) : (
+              <ArrowRight />
+            )}
       </Button>
     </Wrapper>
   );
