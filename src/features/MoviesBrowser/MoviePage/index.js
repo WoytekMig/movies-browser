@@ -31,7 +31,7 @@ const MoviePage = ({
         <MovieInfo
           title={title}
           year={productionYear}
-          production={productionPlace}
+          productionPlace={productionPlace}
           date={date}
           tags={tags}
           rate={rate}
@@ -44,9 +44,15 @@ const MoviePage = ({
           name={personName}
           role={personRole}
           title={"Cast"}
-          increasedGap
+          moviePage
         />
-        <PeopleList title={"Crew"} increasedGap />
+        <PeopleList
+          picture={personPicture}
+          name={personName}
+          role={personRole}
+          title={"Crew"}
+          moviePage
+        />
       </MoviePageWrapper>
     </>
   );
