@@ -3,36 +3,34 @@ import { ReactComponent as Logo } from "../../images/logo.svg";
 import { NavLink } from "react-router-dom";
 
 export const Container = styled.div`
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  flex-basis: 520px;
-  gap: 12px;
+  max-width: 1360px;
+  display: grid;
+  grid-template-columns: auto minmax(205px, 432px);
+  margin: auto;
+  gap: 16px;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.defaultMobile}) {
-    margin-top: 14px;
+    width: 100%;
+    grid-template-columns: 1fr;
+    gap: 24px;
   }
 `;
 
 export const StyledNavigation = styled.nav`
-  display: flex;
-  justify-content: center;
+  width: 100%;
+  gap: 12px;
+  padding: 22px 16px;
   background-color: ${({ theme }) => theme.colors.woodSmoke};
-  height: 94px;
-  padding: 0px 24px;
-  gap: 150px;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.defaultMobile}) {
-    height: 142px;
-    display: grid;
-    gap: 0px;
+    margin-top: 14px;
   }
 `;
 export const StyledLogo = styled(Logo)`
   width: 220px;
   height: auto;
   border-top: 23px;
-  border-left: 293px;
+  border-left: 550px;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.defaultMobile}) {
     width: 150px;
@@ -42,7 +40,9 @@ export const StyledLogo = styled(Logo)`
 export const StyledDiv = styled.div`
   display: flex;
   align-items: center;
-  gap: 16px;
+  gap: 50px;
+  padding: 0;
+  margin: 0;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.defaultMobile}) {
     height: 50px;
