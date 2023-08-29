@@ -23,11 +23,13 @@ export const StyledNavigation = styled.nav`
   background-color: ${({ theme }) => theme.colors.woodSmoke};
 
   @media (max-width: ${({ theme }) => theme.breakpoints.defaultMobile}) {
-    margin-top: 14px;
+    margin: 0px;
+    width: 100%;
+    padding: 12px;
   }
 `;
 export const StyledLogo = styled(Logo)`
-  width: 220px;
+  width: 250px;
   height: auto;
   border-top: 23px;
   border-left: 550px;
@@ -40,12 +42,12 @@ export const StyledLogo = styled(Logo)`
 export const StyledDiv = styled.div`
   display: flex;
   align-items: center;
-  gap: 50px;
-  padding: 0;
-  margin: 0;
+  gap: 40px;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.defaultMobile}) {
     height: 50px;
+    justify-content: space-evenly;
+    gap: 10px;
   }
 `;
 
