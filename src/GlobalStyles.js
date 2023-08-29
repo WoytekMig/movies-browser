@@ -12,7 +12,7 @@ export const GlobalStyles = createGlobalStyle`
     box-sizing: inherit;
   }
 
-  #root {
+  body {
     font-family: "Poppins", sans-serif;
   }
 `;
