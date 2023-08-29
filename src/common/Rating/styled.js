@@ -73,21 +73,26 @@ export const StyledScale = styled(Scale)`
   align-self: end;
   margin-bottom: 6px;
 
-  ${({ $type }) =>
-    $type === "info" &&
-    css`
-      width: 24px;
-      height: 17px;
-      margin: 0px;
-      align-self: center;
-    `}
-
   @media (max-width: ${({ theme }) => theme.breakpoints.smallMobile}) {
     width: 17px;
     height: 12px;
     align-self: center;
     margin: 0;
   }
+
+  ${({ $type }) =>
+    $type === "movieInfo" &&
+    css`
+      width: 24px;
+      height: 17px;
+      margin: 0px;
+      align-self: center;
+
+      @media (max-width: ${({ theme }) => theme.breakpoints.smallMobile}) {
+        width: 0px;
+        height: 0px;
+      }
+    `}
 `;
 
 export const Votes = styled.span`
