@@ -9,6 +9,13 @@ export const Wrapper = styled.div`
   box-sizing: unset;
   background: ${({ theme }) => theme.colors.white};
   box-shadow: ${({ theme }) => theme.common.boxShadow};
+  transition: transform 0.3s ease;
+  transform-origin: center;
+
+  &::before {
+    content: "";
+    display: block;
+  }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.defaultMobile}) {
     width: 100%;
@@ -17,6 +24,10 @@ export const Wrapper = styled.div`
     display: flex;
     flex-flow: nowrap;
     padding: 0 16px;
+  }
+
+  &:hover {
+    transform: rotate(2deg);
   }
 `;
 
