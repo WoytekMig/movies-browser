@@ -6,7 +6,7 @@ import PopularPeople from "./PopularPeople";
 import MoviesList from "./MoviesList";
 
 const MoviesBrowser = () => (
-  <BrowserRouter>
+  <BrowserRouter basename="/movies-browser">
     <Navigation />
     <Switch>
       <Route path="/movies" component={MoviesList} />
