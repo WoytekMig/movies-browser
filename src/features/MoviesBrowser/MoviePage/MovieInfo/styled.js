@@ -77,7 +77,10 @@ export const Year = styled.span`
   }
 `;
 
-export const AdditionalData = styled.span`
+export const AdditionalData = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
   font-size: 18px;
   color: ${({ theme }) => theme.colors.stormGray};
 
