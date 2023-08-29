@@ -1,33 +1,28 @@
 import { styled } from "styled-components";
 
 export const Wrapper = styled.div`
-  display: grid;
+  flex-grow: 1;
+  max-width: 208px;
+  display: flex;
+  flex-direction: column;
   place-items: center;
   grid-gap: 8px;
-  width: 208px;
-  max-height: 339px;
   padding: 16px;
   text-align: center;
   background-color: ${({ theme }) => theme.colors.white};
   box-shadow: ${({ theme }) => theme.common.boxShadow};
 
   @media (max-width: ${({ theme }) => theme.breakpoints.defaultMobile}) {
-    max-width: 136px;
-    max-height: 245px;
     padding: 8px;
     border-radius: 5px;
   }
 `;
 
 export const Picture = styled.img`
-  max-width: 176px;
-  max-height: 231px;
+  flex-grow: 1;
+  max-width: 100%;
   border-radius: 5px;
-
-  @media (max-width: ${({ theme }) => theme.breakpoints.defaultMobile}) {
-    max-width: 120px;
-    max-height: 178px;
-  }
+  flex-shrink: 2;
 `;
 
 export const Name = styled.span`
