@@ -11,13 +11,13 @@ const Navigation = () => {
   return (
     <StyledNavigation>
       <Container>
-        <StyledLogo />
         <StyledDiv>
+          <StyledLogo />
           <StyledNavLink to="/movies">Movies</StyledNavLink>
           <StyledNavLink to="/people">People</StyledNavLink>
         </StyledDiv>
+        <Search />
       </Container>
-      <Search />
     </StyledNavigation>
   );
 };
