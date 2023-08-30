@@ -5,7 +5,7 @@ export const Wrapper = styled.div`
   place-items: center;
   grid-gap: 16px;
   max-width: 208px;
-  max-height: 339px;
+  height: 339px;
   padding: 16px;
   text-align: center;
   background-color: ${({ theme }) => theme.colors.white};
