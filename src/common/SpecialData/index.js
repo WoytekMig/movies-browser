@@ -2,6 +2,7 @@ import { useMediaQuery } from "react-responsive";
 import { Data, DataWrapper, StyledSpecialData } from "./styled";
 
 const SpecialData = ({
+  profile,
   upperContent,
   lowerContent,
   mobileUpperData,
@@ -13,11 +14,11 @@ const SpecialData = ({
 
   return (
     <StyledSpecialData>
-      <DataWrapper>
+      <DataWrapper $profile={profile}>
         {isMedia ? mobileUpperData : desktopUpperData}
         <Data>{upperContent}</Data>
       </DataWrapper>
-      <DataWrapper>
+      <DataWrapper $profileSpecial={profile} $profile={profile}>
         {isMedia ? mobileLowerData : desktopLowerData}
         <Data>{lowerContent}</Data>
       </DataWrapper>
