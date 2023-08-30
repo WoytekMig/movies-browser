@@ -3,6 +3,7 @@ import { styled } from "styled-components";
 export const Wrapper = styled.div`
   flex-grow: 1;
   max-width: 208px;
+  height: 339px;
   display: flex;
   flex-direction: column;
   place-items: center;
@@ -21,8 +22,9 @@ export const Wrapper = styled.div`
 export const Picture = styled.img`
   flex-grow: 1;
   max-width: 100%;
+  max-height: 231px;
   border-radius: 5px;
-  flex-shrink: 2;
+  flex-shrink: 1;
 `;
 
 export const Name = styled.span`
