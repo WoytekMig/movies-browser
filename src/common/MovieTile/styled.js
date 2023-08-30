@@ -1,7 +1,8 @@
 import styled from "styled-components";
+import { NavLink } from "react-router-dom";
 import { ReactComponent as YellowStar } from "../../images/shape-star.svg";
 
-export const Wrapper = styled.div`
+export const Wrapper = styled.button`
   max-width: 324px;
   padding: 16px;
   gap: 16px;
@@ -11,6 +12,7 @@ export const Wrapper = styled.div`
   box-shadow: ${({ theme }) => theme.common.boxShadow};
   transition: transform 0.3s ease;
   transform-origin: center;
+  border: none;
 
   &::before {
     content: "";
