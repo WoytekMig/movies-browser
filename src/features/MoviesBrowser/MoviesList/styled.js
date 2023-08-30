@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 export const MainContainer = styled.div`
   max-width: 1400px;
@@ -28,7 +28,7 @@ export const StyledMainHeader = styled.div`
   }
 `;
 
-export const StyledLink = styled(NavLink)`
+export const StyledLink = styled(Link)`
   text-decoration: none;
   color: unset;
 `;
