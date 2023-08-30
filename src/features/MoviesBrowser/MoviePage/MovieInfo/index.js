@@ -9,6 +9,7 @@ import {
   Title,
   Wrapper,
   Year,
+  DataWrapper,
 } from "./styled";
 
 import Rating from "../../../../common/Rating";
@@ -36,14 +37,14 @@ const MovieInfo = ({
           <Title>{title}</Title>
           <Year>{productionYear}</Year>
           <AdditionalData>
-            <div>
+            <DataWrapper>
               {isMedia ? "" : "Production: "}
               <Text>{productionPlace}</Text>
-            </div>
-            <div>
+            </DataWrapper>
+            <DataWrapper>
               {isMedia ? "" : "Release date: "}
               <Text>{date}</Text>
-            </div>
+            </DataWrapper>
           </AdditionalData>
           <TagsWrapper>
             <Tag>{tags}</Tag>

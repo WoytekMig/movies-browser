@@ -99,6 +99,11 @@ export const AdditionalData = styled.div`
   }
 `;
 
+export const DataWrapper = styled.div`
+  display: flex;
+  gap: 10px;
+`;
+
 export const Text = styled.span`
   color: ${({ theme }) => theme.colors.black};
 `;
