@@ -2,22 +2,19 @@ import { Main } from "../Main";
 import MainHeader from "../MainHeader";
 import { List, ListItem, StyledLink } from "./styled";
 import PersonTile from "../PersonTile";
-import { usePopularPeopleData } from "../../features/MoviesBrowser/PopularPeople/usePopularPeopleData";
 import Loading from "../Loading";
 
-const PeopleList = ({ title, increasedGap }) => {
-  const popularPeopleData = usePopularPeopleData();
-
+const PeopleList = ({ title, increasedGap, data }) => {
   return (
     <Main>
       <MainHeader title={title} />
       <List $increasedGap={increasedGap}>
-        {popularPeopleData.status === "loading" ? (
+        {data.status === "loading" ? (
           <Loading />
-        ) : popularPeopleData.status === "error" ? (
+        ) : data.status === "error" ? (
           <p>Something went wrong...</p>
         ) : (
-          popularPeopleData.results.map((person) => (
+          data.results.map((person) => (
             <ListItem key={person.id}>
               <StyledLink to={`/person/${person.id}`}>
                 <PersonTile
