@@ -12,61 +12,6 @@ const PeopleList = ({ title, picture, name, role, moviePage }) => (
           <PersonTile picture={picture} name={name} role={role} />
         </StyledLink>
       </ListItem>
-      <ListItem>
-        <StyledLink>
-          <PersonTile picture={picture} name={name} role={role} />
-        </StyledLink>
-      </ListItem>
-      <ListItem>
-        <StyledLink>
-          <PersonTile picture={picture} name={name} role={role} />
-        </StyledLink>
-      </ListItem>
-      <ListItem>
-        <StyledLink>
-          <PersonTile picture={picture} name={name} role={role} />
-        </StyledLink>
-      </ListItem>
-      <ListItem>
-        <StyledLink>
-          <PersonTile picture={picture} name={name} role={role} />
-        </StyledLink>
-      </ListItem>
-      <ListItem>
-        <StyledLink>
-          <PersonTile picture={picture} name={name} role={role} />
-        </StyledLink>
-      </ListItem>
-      <ListItem>
-        <StyledLink>
-          <PersonTile picture={picture} name={name} role={role} />
-        </StyledLink>
-      </ListItem>
-      <ListItem>
-        <StyledLink>
-          <PersonTile picture={picture} name={name} role={role} />
-        </StyledLink>
-      </ListItem>
-      <ListItem>
-        <StyledLink>
-          <PersonTile picture={picture} name={name} role={role} />
-        </StyledLink>
-      </ListItem>
-      <ListItem>
-        <StyledLink>
-          <PersonTile picture={picture} name={name} role={role} />
-        </StyledLink>
-      </ListItem>
-      <ListItem>
-        <StyledLink>
-          <PersonTile picture={picture} name={name} role={role} />
-        </StyledLink>
-      </ListItem>
-      <ListItem>
-        <StyledLink>
-          <PersonTile picture={picture} name={name} role={role} />
-        </StyledLink>
-      </ListItem>
     </List>
   </Main>
 );

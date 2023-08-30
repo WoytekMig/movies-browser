@@ -46,6 +46,7 @@ const MoviePage = ({
           title={"Cast"}
           moviePage
         />
+        {/* It might require some adjustance after syncing it with API */}
         <PeopleList
           picture={personPicture}
           name={personName}
