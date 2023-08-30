@@ -9,6 +9,10 @@ export const Container = styled.div`
   justify-items: start;
   max-width: 185px;
 
+  @media (max-width: ${({ theme }) => theme.breakpoints.smallMobile}) {
+    grid-gap: 8px;
+  }
+
   ${({ $type }) =>
     $type === "poster" &&
     css`
@@ -22,7 +26,6 @@ export const Container = styled.div`
 
       @media (max-width: ${({ theme }) => theme.breakpoints.smallMobile}) {
         grid-template-columns: auto auto;
-        grid-gap: 8px;
       }
     `};
 `;
@@ -30,18 +33,13 @@ export const Container = styled.div`
 export const RatingWrapper = styled.div`
   display: flex;
   gap: 8px;
-  align-items: end;
 
   ${({ $type }) =>
     $type === "poster" &&
     css`
       max-width: 126px;
-      gap: 8px;
+      align-items: end;
     `}
-
-  @media (max-width: ${({ theme }) => theme.breakpoints.smallMobile}) {
-    gap: 4px;
-  }
 `;
 
 export const Rate = styled.span`
@@ -63,7 +61,7 @@ export const Rate = styled.span`
       font-size: 30px;
 
       @media (max-width: ${({ theme }) => theme.breakpoints.defaultMobile}) {
-        font-size: 24px;
+        font-size: 19px;
       }
 
       @media (max-width: ${({ theme }) => theme.breakpoints.smallMobile}) {
@@ -89,11 +87,6 @@ export const StyledScale = styled(Scale)`
       width: 24px;
       height: 17px;
       margin: 0px;
-
-      @media (max-width: ${({ theme }) => theme.breakpoints.smallMobile}) {
-        width: 0px;
-        height: 0px;
-      }
     `}
 `;
 
@@ -110,7 +103,6 @@ export const Votes = styled.span`
     font-size: 10px;
     align-self: center;
     color: ${({ theme }) => theme.colors.waterloo};
-    margin-left: -8px;
 
     ${({ $type }) =>
       $type === "poster" &&
@@ -118,6 +110,7 @@ export const Votes = styled.span`
         margin-bottom: 1px;
         width: 150px;
         align-self: end;
+        color: inherit;
       `}
   }
 `;
