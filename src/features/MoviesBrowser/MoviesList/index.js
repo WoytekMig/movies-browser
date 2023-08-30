@@ -18,7 +18,7 @@ const MoviesList = () => {
         ) : (
           moviesData.results.map((element) => (
             <React.Fragment key={element.id}>
-              <StyledLink to={`/movies/${element.id}`}>
+              <StyledLink to={`/movie/${element.id}`}>
                 <MovieTile
                   posterPath={element.poster_path}
                   title={element.title}
