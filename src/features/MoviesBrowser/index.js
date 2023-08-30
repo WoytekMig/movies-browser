@@ -12,11 +12,7 @@ const MoviesBrowser = () => (
     <Switch>
       <Route path="/movies" component={MoviesList} />
       <Route path="/people" component={PopularPeople} />
-      {/*  <Route
-        path="/movies/${moviesData.element.id}"
-        component={MoviePage}
-      />
-      path is temporary...;)   */}
+      <Route path="/movies/615656" component={MoviePage} />
       <Route path="/" component={MoviesList} />
     </Switch>
     <Pagination />

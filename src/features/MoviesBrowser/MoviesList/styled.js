@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { NavLink } from "react-router-dom";
 
 export const MainContainer = styled.div`
   max-width: 1400px;
@@ -25,4 +26,9 @@ export const StyledMainHeader = styled.div`
     font-size: 24px;
     margin-top: 24px;
   }
+`;
+
+export const StyledLink = styled(NavLink)`
+  text-decoration: none;
+  color: unset;
 `;

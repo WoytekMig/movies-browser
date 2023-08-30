@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { NavLink } from "react-router-dom";
 import { ReactComponent as YellowStar } from "../../images/shape-star.svg";
 
-export const Wrapper = styled.button`
+export const Wrapper = styled.div`
   max-width: 324px;
   padding: 16px;
   gap: 16px;
@@ -67,7 +67,7 @@ export const Title = styled.span`
   font-size: 22px;
   font-weight: 500;
   line-height: 130%;
-  ${({ theme }) => theme.colors.black};
+  color: ${({ theme }) => theme.colors.black};
 
   @media (max-width: ${({ theme }) => theme.breakpoints.defaultMobile}) {
     font-size: 16px;
