@@ -1,6 +1,6 @@
 import { useMediaQuery } from "react-responsive";
 import Star from "./Star";
-import { Container, Rate, RatingWrapper, StyledScale, Votes } from "./styled";
+import { Container, Rate, RatingWrapper, Scale, Votes } from "./styled";
 
 const Rating = ({ rate, votes, type }) => {
   const isMedia = useMediaQuery({ maxWidth: 450 });
@@ -10,7 +10,7 @@ const Rating = ({ rate, votes, type }) => {
       <RatingWrapper $type={type}>
         <Star type={type} />
         <Rate $type={type}>{rate}</Rate>
-        {!isMedia ? <StyledScale $type={type} /> : null}
+        {!type && isMedia ? null : <Scale $type={type}>{"/ 10"}</Scale>}
       </RatingWrapper>
       <Votes $type={type}>{votes} votes</Votes>
     </Container>

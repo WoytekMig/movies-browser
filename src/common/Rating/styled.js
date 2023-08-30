@@ -1,5 +1,4 @@
 import { css, styled } from "styled-components";
-import { ReactComponent as Scale } from "../../images/scale.svg";
 
 export const Container = styled.div`
   display: grid;
@@ -71,22 +70,25 @@ export const Rate = styled.span`
     `}
 `;
 
-export const StyledScale = styled(Scale)`
-  align-self: end;
+export const Scale = styled.span`
+  font-size: 14px;
+  display: inline-block;
+  width: 24px;
+  align-self: flex-end;
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.smallMobile}) {
-    width: 17px;
-    height: 12px;
-    align-self: center;
-    margin: 0;
+  @media (max-width: ${({ theme }) => theme.breakpoints.defaultMobile}) {
+    font-size: 12px;
   }
 
   ${({ $type }) =>
-    $type === "movieInfo" &&
+    $type === "poster" &&
     css`
-      width: 24px;
-      height: 17px;
-      margin: 0px;
+      font-size: 16px;
+      width: 28px;
+
+      @media (max-width: ${({ theme }) => theme.breakpoints.smallMobile}) {
+        font-size: 10px;
+      }
     `}
 `;
 
