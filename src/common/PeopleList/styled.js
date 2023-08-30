@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 export const List = styled.ul`
   display: grid;
   grid-template-columns: repeat(6, 1fr);
-  place-items: center;
   gap: 24px;
   padding: 0;
   margin: 0 0 24px 0;
@@ -19,7 +18,6 @@ export const List = styled.ul`
   @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
-    place-items: center;
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.defaultMobile}) {
