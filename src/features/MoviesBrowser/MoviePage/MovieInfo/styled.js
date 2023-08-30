@@ -25,9 +25,9 @@ export const Image = styled.img`
   grid-row: span 2;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.defaultMobile}) {
+    grid-area: pic;
     width: 168px;
     height: 250px;
-    grid-area: pic;
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.smallMobile}) {
@@ -41,11 +41,13 @@ export const DataContainer = styled.div`
   flex-direction: column;
   flex-wrap: wrap;
   gap: 24px;
+  margin-top: 8px;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.defaultMobile}) {
-    gap: 12px;
     grid-area: data;
+    gap: 12px;
     justify-content: space-evenly;
+    margin: 0;
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.smallMobile}) {
@@ -137,7 +139,7 @@ export const Tag = styled.div`
 export const MovieDescription = styled.article`
   font-size: 20px;
   line-height: 32px;
-  margin-top: -56px;
+  margin-top: -80px;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
     margin-top: -16px;
