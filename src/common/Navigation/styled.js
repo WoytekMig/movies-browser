@@ -53,6 +53,10 @@ export const StyledDiv = styled.div`
     justify-content: space-evenly;
     gap: 10px;
   }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.smallMobile}) {
+    gap: 0;
+  }
 `;
 
 export const StyledNavLink = styled(NavLink)`
