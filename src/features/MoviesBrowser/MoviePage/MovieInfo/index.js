@@ -13,7 +13,7 @@ import {
 
 import Rating from "../../../../common/Rating";
 import { Main } from "../../../../common/Main";
-import { useEffect, useState } from "react";
+import { useMediaQuery } from "react-responsive";
 
 const MovieInfo = ({
   title,
@@ -26,18 +26,7 @@ const MovieInfo = ({
   votes,
   description,
 }) => {
-  const [screenWidth, setScreenWidth] = useState(window.innerWidth);
-
-  useEffect(() => {
-    const handleResize = () => {
-      setScreenWidth(window.innerWidth);
-    };
-
-    window.addEventListener("resize", handleResize);
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
-  }, []);
+  const isMedia = useMediaQuery({ maxWidth: 767 });
 
   return (
     <Main>
@@ -48,11 +37,11 @@ const MovieInfo = ({
           <Year>{productionYear}</Year>
           <AdditionalData>
             <div>
-              {screenWidth < 768 ? "" : "Production: "}
+              {isMedia ? "" : "Production: "}
               <Text>{productionPlace}</Text>
             </div>
             <div>
-              {screenWidth < 768 ? "" : "Release date: "}
+              {isMedia ? "" : "Release date: "}
               <Text>{date}</Text>
             </div>
           </AdditionalData>
