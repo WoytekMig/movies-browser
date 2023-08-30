@@ -30,8 +30,7 @@ export const Container = styled.div`
 export const RatingWrapper = styled.div`
   display: flex;
   gap: 8px;
-  align-items: center;
-  align-content: center;
+  align-items: end;
 
   ${({ $type }) =>
     $type === "poster" &&
@@ -46,10 +45,15 @@ export const RatingWrapper = styled.div`
 `;
 
 export const Rate = styled.span`
-  font-size: 16px;
-  font-weight: 600;
+  font-size: 22px;
+  font-weight: 500;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.defaultMobile}) {
+    font-size: 16px;
+  }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.smallMobile}) {
+    font-weight: 600px;
     font-size: 13px;
   }
 
@@ -57,7 +61,6 @@ export const Rate = styled.span`
     $type === "poster" &&
     css`
       font-size: 30px;
-      font-weight: 500;
 
       @media (max-width: ${({ theme }) => theme.breakpoints.defaultMobile}) {
         font-size: 24px;
@@ -65,13 +68,13 @@ export const Rate = styled.span`
 
       @media (max-width: ${({ theme }) => theme.breakpoints.smallMobile}) {
         font-size: 14px;
+        font-weight: 500;
       }
     `}
 `;
 
 export const StyledScale = styled(Scale)`
   align-self: end;
-  margin-bottom: 6px;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.smallMobile}) {
     width: 17px;
@@ -86,7 +89,6 @@ export const StyledScale = styled(Scale)`
       width: 24px;
       height: 17px;
       margin: 0px;
-      align-self: center;
 
       @media (max-width: ${({ theme }) => theme.breakpoints.smallMobile}) {
         width: 0px;
@@ -96,20 +98,19 @@ export const StyledScale = styled(Scale)`
 `;
 
 export const Votes = styled.span`
-  color: ${({ theme }) => theme.colors.waterloo};
-  font-size: 16px;
-  width: auto;
+  font-size: 14px;
 
   ${({ $type }) =>
     $type === "poster" &&
     css`
-      color: inherit;
+      font-size: 16px;
     `}
 
   @media (max-width: ${({ theme }) => theme.breakpoints.smallMobile}) {
     font-size: 10px;
-    display: inline-block;
     align-self: center;
+    color: ${({ theme }) => theme.colors.waterloo};
+    margin-left: -8px;
 
     ${({ $type }) =>
       $type === "poster" &&
