@@ -15,8 +15,9 @@ import { genres } from "../genreIds";
 
 const MovieTile = ({ posterPath, title, year, tag, rating, votes }) => {
   const basePostersPath = "https://image.tmdb.org/t/p/w500";
-  const poster1Path = posterPath;
-  const fullUrl = basePostersPath + poster1Path;
+  const fullUrl = posterPath
+    ? basePostersPath + posterPath
+    : "../images/logo.svg";
 
   return (
     <Wrapper>

@@ -3,9 +3,11 @@ import MovieTile from "../../../common/MovieTile";
 import { MainContainer, StyledLink, StyledMainHeader } from "./styled";
 import { useMoviesData } from "./useMoviesData";
 import Loading from "../../../common/Loading";
+import Error from "../../../common/Error";
 
 const MoviesList = () => {
   const moviesData = useMoviesData();
+  const whenNoPoster = "../images/logo.svg";
 
   return (
     <>
@@ -14,13 +16,15 @@ const MoviesList = () => {
         {moviesData.status === "loading" ? (
           <Loading />
         ) : moviesData.status === "error" ? (
-          <StyledMainHeader>SOMETHING WENT WRONG, sorry.. </StyledMainHeader>
+          <Error />
         ) : (
           moviesData.results.map((element) => (
             <React.Fragment key={element.id}>
               <StyledLink to={`/movie/${element.id}`}>
                 <MovieTile
-                  posterPath={element.poster_path}
+                  posterPath={
+                    element.poster_path ? element.poster_path : whenNoPoster
+                  }
                   title={element.title}
                   year={new Date(element.release_date).getFullYear()}
                   rating={element.vote_average}
