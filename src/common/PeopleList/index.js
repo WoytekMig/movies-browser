@@ -1,4 +1,3 @@
-import React from "react";
 import { Main } from "../Main";
 import MainHeader from "../MainHeader";
 import { List, ListItem, StyledLink } from "./styled";
