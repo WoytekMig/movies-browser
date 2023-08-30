@@ -3,7 +3,7 @@ import { ReactComponent as Star } from "../../../images/shape-star.svg";
 
 export const StyledStar = styled(Star)`
   ${({ $type }) =>
-    $type === "movieInfo" &&
+    $type !== "poster" &&
     css`
       width: 24px;
       height: 24px;
