@@ -37,6 +37,10 @@ export const StyledLogo = styled(Logo)`
   @media (max-width: ${({ theme }) => theme.breakpoints.defaultMobile}) {
     width: 150px;
   }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.smallMobile}) {
+    width: 120px;
+  }
 `;
 
 export const StyledDiv = styled.div`
@@ -48,6 +52,10 @@ export const StyledDiv = styled.div`
     height: 50px;
     justify-content: space-evenly;
     gap: 10px;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.smallMobile}) {
+    gap: 0;
   }
 `;
 

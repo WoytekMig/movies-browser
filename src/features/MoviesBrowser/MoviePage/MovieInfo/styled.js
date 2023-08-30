@@ -2,15 +2,17 @@ import { styled } from "styled-components";
 
 export const Wrapper = styled.div`
   display: grid;
-  grid-template-columns: auto 1fr;
+  grid-template-columns: 312px 1fr;
   gap: 40px;
   background: ${({ theme }) => theme.colors.white};
   box-shadow: ${({ theme }) => theme.common.boxShadow};
   padding: 40px;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.defaultMobile}) {
-    display: flex;
-    flex-wrap: wrap;
+    grid-template-columns: 1fr 4fr;
+    grid-template-areas:
+      "pic data"
+      "description description";
     padding: 16px;
     gap: 16px;
   }
@@ -23,8 +25,9 @@ export const Image = styled.img`
   grid-row: span 2;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.defaultMobile}) {
-    width: 202px;
-    height: 300px;
+    grid-area: pic;
+    width: 168px;
+    height: 250px;
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.smallMobile}) {
@@ -38,13 +41,18 @@ export const DataContainer = styled.div`
   flex-direction: column;
   flex-wrap: wrap;
   gap: 24px;
+  margin-top: 8px;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.defaultMobile}) {
+    grid-area: data;
     gap: 12px;
+    justify-content: space-evenly;
+    margin: 0;
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.smallMobile}) {
     gap: 8px;
+    justify-content: space-between;
   }
 `;
 
@@ -54,10 +62,12 @@ export const Title = styled.span`
 
   @media (max-width: ${({ theme }) => theme.breakpoints.defaultMobile}) {
     font-size: 20px;
+    margin-bottom: -6px;
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.smallMobile}) {
     font-size: 16px;
+    margin-bottom: -4px;
   }
 `;
 
@@ -73,7 +83,10 @@ export const Year = styled.span`
   }
 `;
 
-export const AdditionalData = styled.span`
+export const AdditionalData = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
   font-size: 18px;
   color: ${({ theme }) => theme.colors.stormGray};
 
@@ -84,6 +97,11 @@ export const AdditionalData = styled.span`
   @media (max-width: ${({ theme }) => theme.breakpoints.smallMobile}) {
     font-size: 12px;
   }
+`;
+
+export const DataWrapper = styled.div`
+  display: flex;
+  gap: 10px;
 `;
 
 export const Text = styled.span`
@@ -124,13 +142,19 @@ export const Tag = styled.div`
 `;
 
 export const MovieDescription = styled.article`
-  grid-row: span 2;
   font-size: 20px;
   line-height: 32px;
+  margin-top: -80px;
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.smallMobile}) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
+    margin-top: -16px;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.defaultMobile}) {
     line-height: 25px;
     font-size: 17px;
+    margin: 0;
+    grid-area: description;
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.smallMobile}) {

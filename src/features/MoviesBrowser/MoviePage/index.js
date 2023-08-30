@@ -22,11 +22,16 @@ const MoviePage = ({
   return (
     <>
       <MoviePageWrapper>
-        <MovieTop poster={posterBig} />
-        <MovieInfo
+        <MovieTop
+          poster={posterBig}
           title={longTitle ?? title}
-          year={productionYear}
-          production={productionPlace}
+          rate={rate}
+          votes={votes}
+        />
+        <MovieInfo
+          title={title}
+          productionYear={productionYear}
+          productionPlace={productionPlace}
           date={date}
           tags={tags}
           rate={rate}
@@ -39,9 +44,16 @@ const MoviePage = ({
           name={personName}
           role={personRole}
           title={"Cast"}
-          increasedGap
+          moviePage
         />
-        <PeopleList title={"Crew"} increasedGap />
+        {/* It might require some adjustance after syncing it with API */}
+        <PeopleList
+          picture={personPicture}
+          name={personName}
+          role={personRole}
+          title={"Crew"}
+          moviePage
+        />
       </MoviePageWrapper>
     </>
   );
