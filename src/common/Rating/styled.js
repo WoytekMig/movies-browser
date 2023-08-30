@@ -1,13 +1,17 @@
 import { css, styled } from "styled-components";
-import { ReactComponent as Scale } from "../../images/scale.svg";
 
 export const Container = styled.div`
   display: grid;
   grid-gap: 12px;
-  grid-template-columns: auto auto;
-  align-items: center;
+  grid-template-columns: 1fr 4fr;
   justify-items: start;
   max-width: 185px;
+  line-height: 28.6px;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.smallMobile}) {
+    grid-gap: 8px;
+    line-height: 17px;
+  }
 
   ${({ $type }) =>
     $type === "poster" &&
@@ -15,6 +19,11 @@ export const Container = styled.div`
       display: grid;
       grid-template-columns: 1fr;
       grid-gap: 16px;
+      line-height: inherit;
+
+      @media (max-width: ${({ theme }) => theme.breakpoints.defaultMobile}) {
+        grid-gap: 10px;
+      }
 
       @media (max-width: ${({ theme }) => theme.breakpoints.smallMobile}) {
         grid-template-columns: auto auto;
@@ -25,77 +34,88 @@ export const Container = styled.div`
 export const RatingWrapper = styled.div`
   display: flex;
   gap: 8px;
-  align-items: center;
-  align-content: center;
 
   ${({ $type }) =>
     $type === "poster" &&
     css`
       max-width: 126px;
-      gap: 8px;
+      align-items: end;
     `}
-
-  @media (max-width: ${({ theme }) => theme.breakpoints.smallMobile}) {
-    gap: 4px;
-  }
 `;
 
 export const Rate = styled.span`
-  font-size: 16px;
-  font-weight: 600;
+  font-size: 22px;
+  font-weight: 500;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.defaultMobile}) {
+    font-size: 16px;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.smallMobile}) {
+    font-weight: 600px;
+    font-size: 13px;
+  }
 
   ${({ $type }) =>
     $type === "poster" &&
     css`
       font-size: 30px;
-      font-weight: 500;
 
       @media (max-width: ${({ theme }) => theme.breakpoints.defaultMobile}) {
-        font-size: 24px;
+        font-size: 19px;
       }
 
       @media (max-width: ${({ theme }) => theme.breakpoints.smallMobile}) {
         font-size: 14px;
+        font-weight: 500;
       }
     `}
 `;
 
-export const StyledScale = styled(Scale)`
-  align-self: end;
-  margin-bottom: 6px;
+export const Scale = styled.span`
+  font-size: 14px;
+  display: inline-block;
+  width: 24px;
 
-  ${({ $type }) =>
-    $type === "info" &&
-    css`
-      width: 24px;
-      height: 17px;
-      margin: 0px;
-      align-self: center;
-    `}
-
-  @media (max-width: ${({ theme }) => theme.breakpoints.smallMobile}) {
-    width: 17px;
-    height: 12px;
-    align-self: center;
-    margin: 0;
+  @media (max-width: ${({ theme }) => theme.breakpoints.defaultMobile}) {
+    font-size: 12px;
   }
-`;
-
-export const Votes = styled.span`
-  color: ${({ theme }) => theme.colors.waterloo};
-  font-size: 16px;
 
   ${({ $type }) =>
     $type === "poster" &&
     css`
-      color: inherit;
+      font-size: 16px;
+      width: 28px;
+      margin-bottom: 2px;
+
+      @media (max-width: ${({ theme }) => theme.breakpoints.smallMobile}) {
+        font-size: 10px;
+        margin: 0;
+      }
+    `}
+`;
+
+export const Votes = styled.span`
+  font-size: 14px;
+
+  ${({ $type }) =>
+    $type === "poster" &&
+    css`
+      font-size: 16px;
     `}
 
   @media (max-width: ${({ theme }) => theme.breakpoints.smallMobile}) {
     font-size: 10px;
-    display: inline-block;
-    width: 150px;
     align-self: center;
-    margin: 3px 0 0 8px;
+    color: ${({ theme }) => theme.colors.waterloo};
+
+    ${({ $type }) =>
+      $type === "poster" &&
+      css`
+        margin-bottom: 1px;
+        width: 150px;
+        align-self: end;
+        color: inherit;
+      `}
   }
 `;

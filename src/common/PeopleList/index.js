@@ -4,11 +4,11 @@ import { List, ListItem, StyledLink } from "./styled";
 import PersonTile from "../PersonTile";
 import Loading from "../Loading";
 
-const PeopleList = ({ title, increasedGap, data }) => {
+const PeopleList = ({ title, moviePage, data }) => {
   return (
     <Main>
       <MainHeader title={title} />
-      <List $increasedGap={increasedGap}>
+      <List $moviePage={moviePage}>
         {data.status === "loading" ? (
           <Loading />
         ) : data.status === "error" ? (
