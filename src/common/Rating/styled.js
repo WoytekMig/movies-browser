@@ -4,12 +4,13 @@ export const Container = styled.div`
   display: grid;
   grid-gap: 12px;
   grid-template-columns: 1fr 4fr;
-  align-items: end;
   justify-items: start;
   max-width: 185px;
+  line-height: 28.6px;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.smallMobile}) {
     grid-gap: 8px;
+    line-height: 17px;
   }
 
   ${({ $type }) =>
@@ -18,6 +19,7 @@ export const Container = styled.div`
       display: grid;
       grid-template-columns: 1fr;
       grid-gap: 16px;
+      line-height: inherit;
 
       @media (max-width: ${({ theme }) => theme.breakpoints.defaultMobile}) {
         grid-gap: 10px;
@@ -74,7 +76,6 @@ export const Scale = styled.span`
   font-size: 14px;
   display: inline-block;
   width: 24px;
-  align-self: flex-end;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.defaultMobile}) {
     font-size: 12px;
@@ -85,9 +86,11 @@ export const Scale = styled.span`
     css`
       font-size: 16px;
       width: 28px;
+      margin-bottom: 2px;
 
       @media (max-width: ${({ theme }) => theme.breakpoints.smallMobile}) {
         font-size: 10px;
+        margin: 0;
       }
     `}
 `;
