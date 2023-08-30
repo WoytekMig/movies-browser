@@ -1,5 +1,10 @@
 import PeopleList from "../../../common/PeopleList";
+import { usePopularPeopleData } from "./usePopularPeopleData";
 
-const PopularPeople = () => <PeopleList title="Popular people" />;
+const PopularPeople = () => {
+  const popularPeopleData = usePopularPeopleData();
+
+  return <PeopleList data={popularPeopleData} title="Popular people" />;
+};
 
 export default PopularPeople;
