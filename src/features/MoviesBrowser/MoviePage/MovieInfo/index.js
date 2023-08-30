@@ -51,7 +51,7 @@ const MovieInfo = ({
             <Tag>{"Adventure"}</Tag>
             {/* add map method later */}
           </TagsWrapper>
-          <Rating rate={rate} votes={votes} type="movieInfo" />
+          <Rating rate={rate} votes={votes} />
         </DataContainer>
         <MovieDescription>{description}</MovieDescription>
       </Wrapper>
