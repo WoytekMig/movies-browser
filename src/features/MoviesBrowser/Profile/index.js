@@ -1,6 +1,6 @@
 import { Main } from "../../../common/Main";
-
 import MainHeader from "../../../common/MainHeader";
+import MoviesList from "../../../common/MoviesList";
 import About from "./About";
 import { ProfileWrapper } from "./styled";
 
@@ -12,9 +12,13 @@ const Profile = ({ birthdate, birthplace, desciption }) => (
         birthplace={birthplace}
         desciption={desciption}
       />
-      <MainHeader profile title={"Movies - cast (4)"} />
-      <MainHeader profile title={"Movies - crew (4)"} />
     </ProfileWrapper>
+    {/* This section will be adjusted in the future
+
+    <MainHeader profile title={"Movies - cast (4)"} />
+    <MoviesList />
+    <MainHeader profile title={"Movies - crew (4)"} />
+    <MoviesList /> */}
   </Main>
 );
 
