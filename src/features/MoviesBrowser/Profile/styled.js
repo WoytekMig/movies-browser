@@ -14,6 +14,11 @@ export const About = styled.div`
   background: ${({ theme }) => theme.colors.white};
   box-shadow: ${({ theme }) => theme.common.boxShadow};
 
+  @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
+    grid-template-columns: 283px 1fr;
+    padding: 32px;
+  }
+
   @media (max-width: ${({ theme }) => theme.breakpoints.defaultMobile}) {
     grid-template-rows: 32px 1fr;
     grid-template-areas:
@@ -22,6 +27,11 @@ export const About = styled.div`
       "desc desc";
     grid-template-columns: 116px 1fr;
     grid-gap: 16px;
+    padding: 24px;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.smallMobile}) {
+    padding: 16px;
   }
 `;
 
@@ -30,6 +40,11 @@ export const Image = styled.img`
   width: 399px;
   height: 564px;
   border-radius: 5px;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
+    width: 283px;
+    height: 400px;
+  }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.defaultMobile}) {
     grid-area: pic;
@@ -52,6 +67,7 @@ export const Name = styled.span`
     font-size: 14px;
   }
 `;
+
 export const DataWrapper = styled.div`
   grid-area: data;
 `;

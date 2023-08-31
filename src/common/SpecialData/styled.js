@@ -34,7 +34,7 @@ export const DataWrapper = styled.div`
   ${({ $profileSpecial }) =>
     $profileSpecial &&
     css`
-      @media (max-width: ${({ theme }) => theme.breakpoints.smallMobile}) {
+      @media (max-width: ${({ theme }) => theme.breakpoints.defaultMobile}) {
         display: grid;
       }
     `}
