@@ -1,40 +1,25 @@
 import { useState, useEffect } from "react";
+const API_KEY = "baca1cc9462be3b73a5e5722d6854eb5";
+const API_URL = "https://api.themoviedb.org/3/person/popular";
 
-const discoverPopularPeople =
-  "https://api.themoviedb.org/3/person/popular?language=en-US&page=1";
-
-const usedFetchAddress = discoverPopularPeople;
-
-export const usePopularPeopleData = () => {
+export const usePopularPeopleData = (currentPage) => {
   const [popularPeopleData, setPopularPeopleData] = useState({
     status: "loading",
-    results: {},
+    results: [],
+    totalPages: 1,
+    currentPage: currentPage,
   });
-
   useEffect(() => {
     const fetchPopularPeopleData = async () => {
-      const options = {
-        method: "GET",
-        headers: {
-          accept: "application/json",
-          Authorization:
-            "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI2YTg2OTdmMjAwODg3Mjg3NjRjYTM3MmFkYmVmY2ZmOSIsInN1YiI6IjY0ZTcyMjVhNTk0Yzk0MDBlMjVmMTAxYSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.K607pZBIHN1IOKg31JxS5SlwbJPLAz8H03cZHzZBJH0",
-        },
-      };
-
+      const url = `${API_URL}?page=${currentPage}&api_key=${API_KEY}`;
       try {
-        const response = await fetch(usedFetchAddress, options);
-
-        if (!response.ok) {
-          throw new Error(`HTTP error: ${response.status}`);
-        }
-
-        const { page, results } = await response.json();
-
+        const response = await fetch(url);
+        const data = await response.json();
         setPopularPeopleData({
-          status: "succes",
-          page,
-          results,
+          status: "success",
+          results: data.results,
+          totalPages: data.total_pages,
+          currentPage: data.page,
         });
       } catch (error) {
         setPopularPeopleData({
@@ -42,9 +27,7 @@ export const usePopularPeopleData = () => {
         });
       }
     };
-
-    setTimeout(fetchPopularPeopleData, 1000);
-  }, []);
-
+    fetchPopularPeopleData();
+  }, [currentPage]);
   return popularPeopleData;
 };
