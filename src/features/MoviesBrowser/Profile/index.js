@@ -13,10 +13,10 @@ const Profile = ({ birthdate, birthplace }) => (
           profile
           upperContent={"25.08.1987"}
           lowerContent={"Wuhan, Hubei, China"}
-          mobileUpperData={"Birth: "}
-          mobileLowerData={"Place of birth: "}
-          desktopUpperData={"Date of birth: "}
-          desktopLowerData={"Place of birth: "}
+          mobileUpperData={"Birth:"}
+          mobileLowerData={"Place of birth:"}
+          desktopUpperData={"Date of birth:"}
+          desktopLowerData={"Place of birth:"}
         />
       </DataWrapper>
       <Description>
