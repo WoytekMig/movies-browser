@@ -1,11 +1,10 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 
-const useMovieData = () => {
+const useMovieData = (movieId) => {
   const [movieData, setMovieData] = useState({ status: "loading", data: [] });
 
-  const MOVIE_API_URL =
-    "https://api.themoviedb.org/3/movie/11?api_key=baca1cc9462be3b73a5e5722d6854eb5";
+  const MOVIE_API_URL = `https://api.themoviedb.org/3/movie/${movieId}?api_key=baca1cc9462be3b73a5e5722d6854eb5`;
 
   useEffect(() => {
     const fetchMovieData = async () => {
