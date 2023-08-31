@@ -1,23 +1,18 @@
-import React, { useState } from "react";
 import { Main } from "../Main";
 import MainHeader from "../MainHeader";
 import { List, ListItem, StyledLink } from "./styled";
 import PersonTile from "../PersonTile";
 import Loading from "../Loading";
 import Pagination from "../Pagination";
-import PopularPeople from "../../features/MoviesBrowser/PopularPeople";
 
-const PeopleList = ({ title, moviePage, data }) => {
+const PeopleList = ({ title, moviePage, data, currentPage, onPageChange }) => {
   const totalPages = data.totalPages || 1;
-  const [currentPage, setCurrentPage] = useState(1);
-  
 
   const handlePageChange = (newPage) => {
     if (newPage >= 1 && newPage <= totalPages) {
-      setCurrentPage(newPage);
+      onPageChange(newPage);
     }
   };
-  <PopularPeople currentPage={currentPage} />
 
   return (
     <Main>
@@ -52,4 +47,5 @@ const PeopleList = ({ title, moviePage, data }) => {
     </Main>
   );
 };
+
 export default PeopleList;
