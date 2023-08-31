@@ -21,7 +21,7 @@ const MovieInfo = ({
   productionYear,
   productionPlace,
   poster,
-  date,
+  releaseDate,
   tags,
   rate,
   votes,
@@ -43,14 +43,13 @@ const MovieInfo = ({
             </DataWrapper>
             <DataWrapper>
               {isMedia ? "" : "Release date: "}
-              <Text>{date}</Text>
+              <Text>{releaseDate}</Text>
             </DataWrapper>
           </AdditionalData>
           <TagsWrapper>
-            <Tag>{tags}</Tag>
-            <Tag>{tags}</Tag>
-            <Tag>{"Adventure"}</Tag>
-            {/* add map method later */}
+            {tags.map(({ id, name }) => (
+              <Tag key={id}>{name}</Tag>
+            ))}
           </TagsWrapper>
           <Rating rate={rate} votes={votes} />
         </DataContainer>
