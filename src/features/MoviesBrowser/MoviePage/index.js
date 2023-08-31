@@ -1,52 +1,45 @@
+import Loading from "../../../common/Loading";
+import Error from "../../../common/Error";
 import PeopleList from "../../../common/PeopleList";
 import MovieInfo from "./MovieInfo";
 import MovieTop from "./MovieTop";
+import { getMovieImageUrl } from "./getMovieImageUrl";
 import { MoviePageWrapper } from "./styled";
 import { useMovieData } from "./useMovieData";
 
-const MoviePage = ({
-  poster,
-  posterBig,
-  title,
-  longTitle,
-  productionYear,
-  productionPlace,
-  date,
-  tags,
-  rate,
-  votes,
-  description,
-  personPicture,
-  personName,
-  personRole,
-}) => {
-  const { status, data } = useMovieData();
+const MoviePage = ({ movieId }) => {
+  const { status, data } = useMovieData(13);
   console.log(data);
+
+  const topPoster = getMovieImageUrl(data.backdrop_path);
+  const poster = getMovieImageUrl(data.poster_path);
 
   return (
     <>
-      <MoviePageWrapper>
-        {/* {data.map((movie) => ( */}
-        <MovieTop
-          poster={data.poster_path}
-          title={longTitle ?? title}
-          rate={rate}
-          votes={votes}
-        />
-        {/* ))} */}
-        <MovieInfo
-          title={title}
-          productionYear={productionYear}
-          productionPlace={productionPlace}
-          date={date}
-          tags={tags}
-          rate={rate}
-          votes={votes}
-          description={description}
-          poster={poster}
-        />
+      {status === "loading" && <Loading />}
+      {status === "error" && <Error />}
+      {status === "success" && (
+        <MoviePageWrapper>
+          <MovieTop
+            poster={topPoster}
+            title={data.original_title}
+            rate={data.vote_average.toFixed(1)}
+            votes={data.vote_count}
+          />
+          <MovieInfo
+            title={data.title}
+            // productionYear={productionYear}
 
-        {/* <PeopleList
+            productionPlace={data.production_countries.map(({ name }) => name)}
+            releaseDate={data.release_date}
+            tags={data.genres}
+            rate={data.vote_average.toFixed(1)}
+            votes={data.vote_count}
+            description={data.overview}
+            poster={poster}
+          />
+
+          {/* <PeopleList
           picture={personPicture}
           name={personName}
           role={personRole}
@@ -61,7 +54,8 @@ const MoviePage = ({
           title={"Crew"}
           moviePage
         /> */}
-      </MoviePageWrapper>
+        </MoviePageWrapper>
+      )}
     </>
   );
 };
