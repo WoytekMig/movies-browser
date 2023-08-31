@@ -3,18 +3,18 @@ import React from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import Pagination from "../../common/Pagination";
 import PopularPeople from "./PopularPeople";
-import MoviesList from "./MoviesList";
 import Profile from "./Profile";
+import PopularMovies from "./PopularMovies";
 
 const MoviesBrowser = () => (
   <BrowserRouter>
     <Navigation />
     <Profile />
-    {/* <Switch>
-      <Route path="/movies" component={MoviesList} />
+    <Switch>
+      <Route path="/movies" component={PopularMovies} />
       <Route path="/people" component={PopularPeople} />
     </Switch>
-    <Pagination /> */}
+    <Pagination />
   </BrowserRouter>
 );
 
