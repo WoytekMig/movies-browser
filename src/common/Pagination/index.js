@@ -17,6 +17,7 @@ const Pagination = ({
   onLastPage,
 }) => {
   const isMobile = useMediaQuery({ maxWidth: 767 });
+
   return (
     <Wrapper>
       <Button onClick={onFirstPage} disabled={currentPage === 1}>
@@ -56,4 +57,5 @@ const Pagination = ({
     </Wrapper>
   );
 };
+
 export default Pagination;
