@@ -24,8 +24,6 @@ export const DataWrapper = styled.div`
   ${({ $profile }) =>
     $profile &&
     css`
-      gap: 8px;
-
       @media (max-width: ${({ theme }) => theme.breakpoints.smallMobile}) {
         gap: 4px;
       }

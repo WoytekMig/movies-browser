@@ -8,11 +8,10 @@ export const About = styled.div`
     "pic data"
     "pic desc";
   grid-template-columns: 399px 1fr;
-  grid-template-rows: 24px 2em;
+  grid-template-rows: 2em 2em;
   margin-top: 56px;
   padding: 40px;
   background: ${({ theme }) => theme.colors.white};
-  box-shadow: ${({ theme }) => theme.common.boxShadow};
 
   @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
     grid-template-columns: 283px 1fr;
@@ -28,6 +27,7 @@ export const About = styled.div`
     grid-template-columns: 116px 1fr;
     grid-gap: 16px;
     padding: 24px;
+    box-shadow: ${({ theme }) => theme.common.boxShadow};
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.smallMobile}) {
@@ -58,6 +58,7 @@ export const Name = styled.span`
   font-size: 36px;
   font-weight: 600;
   line-height: 43px;
+  margin-top: 8px;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.defaultMobile}) {
     font-size: 20px;
