@@ -1,6 +1,4 @@
 import { Main } from "../../../common/Main";
-import MainHeader from "../../../common/MainHeader";
-import MoviesList from "../../../common/MoviesList";
 import About from "./About";
 import { ProfileWrapper } from "./styled";
 
