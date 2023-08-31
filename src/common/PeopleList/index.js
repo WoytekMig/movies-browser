@@ -5,9 +5,11 @@ import PersonTile from "../PersonTile";
 import Pagination from "../Pagination";
 import Error from "../Error";
 import Loading from "../Loading";
+import { useEffect, useState } from "react";
 
 const PeopleList = ({ title, moviePage, data, currentPage, onPageChange }) => {
   const totalPages = data.totalPages || 1;
+  const [isLoading, setLoading] = useState(true)
 
   const handlePageChange = (newPage) => {
     if (newPage >= 1 && newPage <= totalPages) {
@@ -15,10 +17,20 @@ const PeopleList = ({ title, moviePage, data, currentPage, onPageChange }) => {
     }
   };
 
+  useEffect(() => {
+    const loadingTimeout = setTimeout(() => {
+      setLoading(false);
+    }, 1000);
+
+    return () => {
+      clearTimeout(loadingTimeout);
+    };
+  }, []);
+
   return (
     <Main>
       <MainHeader title={title} />
-      {data.status === "loading" ? (
+      {isLoading ? (
         <Loading />
       ) : data.status === "error" ? (
         <Error />
