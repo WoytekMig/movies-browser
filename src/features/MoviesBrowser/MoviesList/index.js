@@ -4,6 +4,7 @@ import { MainContainer, StyledLink, StyledMainHeader } from "./styled";
 import { useMoviesData } from "./useMoviesData";
 import Loading from "../../../common/Loading";
 import Error from "../../../common/Error";
+import Pagination from "../../../common/Pagination";
 
 const MoviesList = () => {
   const moviesData = useMoviesData();
@@ -36,6 +37,7 @@ const MoviesList = () => {
           ))
         )}
       </MainContainer>
+      <Pagination />
     </>
   );
 };
