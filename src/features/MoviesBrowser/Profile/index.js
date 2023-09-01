@@ -2,13 +2,13 @@ import { Main } from "../../../common/Main";
 import About from "./About";
 import { ProfileWrapper } from "./styled";
 
-const Profile = ({ birthdate, birthplace, desciption }) => (
+const Profile = ({ birthdate, birthplace, description }) => (
   <Main>
     <ProfileWrapper>
       <About
         birthdate={birthdate}
         birthplace={birthplace}
-        desciption={desciption}
+        description={description}
       />
     </ProfileWrapper>
     {/* This section will be adjusted in the future
