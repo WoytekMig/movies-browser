@@ -115,21 +115,20 @@ export const Details = styled.div`
   display: grid;
   grid-template-columns: 1fr;
   grid-gap: 17.5px;
-  max-width: 503px;
   margin: 0 276px;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
     margin: 0 100px;
-    grid-gap: 15px;
+    grid-gap: 12px;
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.defaultMobile}) {
     margin: 0 32px;
-    grid-gap: 12px;
+    grid-gap: 8px;
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.smallMobile}) {
-    grid-gap: 0px;
+    grid-gap: 4px;
     margin: 0 16px;
     max-width: 214px;
     grid-template-columns: 1fr 1fr;
@@ -151,6 +150,7 @@ export const Title = styled.span`
 
   @media (max-width: ${({ theme }) => theme.breakpoints.smallMobile}) {
     font-size: 24px;
+    margin: 0;
     grid-column: 1 / 3;
   }
 `;
