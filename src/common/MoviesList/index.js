@@ -1,22 +1,19 @@
 import React from "react";
-import MovieTile from "../../../common/MovieTile";
+import MovieTile from "../MovieTile";
+import Loading from "../Loading";
 import { MainContainer, StyledMainHeader } from "./styled";
-import { useMoviesData } from "./useMoviesData";
-import Loading from "../../../common/Loading";
 
-const MoviesList = () => {
-  const moviesData = useMoviesData();
-
+const MoviesList = ({ data }) => {
   return (
     <>
       <MainContainer>
         <StyledMainHeader>Popular movies</StyledMainHeader>
-        {moviesData.status === "loading" ? (
+        {data.status === "loading" ? (
           <Loading />
-        ) : moviesData.status === "error" ? (
+        ) : data.status === "error" ? (
           <StyledMainHeader>SOMETHING WENT WRONG, sorry.. </StyledMainHeader>
         ) : (
-          moviesData.results.map((element) => (
+          data.results.map((element) => (
             <React.Fragment key={element.id}>
               <MovieTile
                 posterPath={element.poster_path}
