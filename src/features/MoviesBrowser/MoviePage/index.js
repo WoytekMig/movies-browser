@@ -9,7 +9,6 @@ import { useMovieData } from "./useMovieData";
 
 const MoviePage = ({ movieId }) => {
   const { status, movie, credits } = useMovieData(13);
-  console.log(movie, credits);
 
   const topPoster = getMovieImageUrl(movie.backdrop_path);
   const poster = getMovieImageUrl(movie.poster_path);
