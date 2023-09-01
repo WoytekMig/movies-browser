@@ -6,8 +6,8 @@ import Loading from "../../../common/Loading";
 import Error from "../../../common/Error";
 import Pagination from "../../../common/Pagination";
 
-const MoviesList = () => {
-  const [currentPage, setCurrentPage] = useState(1);
+const MoviesList = ({ data }) => {
+  /* const [currentPage, setCurrentPage] = useState(1); */
   const moviesData = useMoviesData(currentPage);
 
   const whenNoPoster = "../images/logo.svg";
@@ -18,12 +18,12 @@ const MoviesList = () => {
     <>
       <MainContainer>
         <StyledMainHeader>Popular movies</StyledMainHeader>
-        {moviesData.status === "loading" ? (
+        {data.status === "loading" ? (
           <Loading />
         ) : moviesData.status === "error" ? (
           <Error />
         ) : (
-          moviesData.results.map((element) => (
+          data.results.map((element) => (
             <React.Fragment key={element.id}>
               <StyledLink to={`/movie/${element.id}`}>
                 <MovieTile

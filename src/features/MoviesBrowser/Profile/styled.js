@@ -1,22 +1,20 @@
 import { styled } from "styled-components";
 
-export const MoviePageWrapper = styled.div`
+export const ProfileWrapper = styled.div`
   display: grid;
   grid-gap: 64px;
-  margin-bottom: 336px;
+  margin: 56px 0 220px 0;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
     grid-gap: 48px;
-    margin-bottom: 250px;
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.defaultMobile}) {
     grid-gap: 32px;
-    margin-bottom: 150px;
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.smallMobile}) {
     grid-gap: 16px;
-    margin-bottom: 88px;
+    margin: 23px 0 220px 0;
   }
 `;

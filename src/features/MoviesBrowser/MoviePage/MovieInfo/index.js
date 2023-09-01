@@ -1,6 +1,4 @@
 import {
-  AdditionalData,
-  Text,
   DataContainer,
   Image,
   MovieDescription,
@@ -9,12 +7,11 @@ import {
   Title,
   Wrapper,
   Year,
-  DataWrapper,
 } from "./styled";
 
 import Rating from "../../../../common/Rating";
 import { Main } from "../../../../common/Main";
-import { useMediaQuery } from "react-responsive";
+import SpecialData from "../../../../common/SpecialData";
 
 const MovieInfo = ({
   title,
@@ -27,8 +24,6 @@ const MovieInfo = ({
   votes,
   description,
 }) => {
-  const isMedia = useMediaQuery({ maxWidth: 767 });
-
   return (
     <Main>
       <Wrapper>
@@ -36,16 +31,14 @@ const MovieInfo = ({
         <DataContainer>
           <Title>{title}</Title>
           <Year>{productionYear}</Year>
-          <AdditionalData>
-            <DataWrapper>
-              {isMedia ? "" : "Production: "}
-              <Text>{productionPlace}</Text>
-            </DataWrapper>
-            <DataWrapper>
-              {isMedia ? "" : "Release date: "}
-              <Text>{date}</Text>
-            </DataWrapper>
-          </AdditionalData>
+          <SpecialData
+            upperContent={productionPlace}
+            lowerContent={date}
+            mobileUpperData={""}
+            mobileLowerData={""}
+            desktopUpperData={"Production: "}
+            desktopLowerData={"Release date: "}
+          />
           <TagsWrapper>
             <Tag>{tags}</Tag>
             <Tag>{tags}</Tag>
