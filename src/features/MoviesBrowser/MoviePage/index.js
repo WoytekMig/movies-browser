@@ -14,6 +14,18 @@ const MoviePage = ({ movieId }) => {
   const topPoster = getMovieImageUrl(data.backdrop_path);
   const poster = getMovieImageUrl(data.poster_path);
 
+  const modifiedRating = data.vote_average
+    ? data.vote_average.toFixed(1).replace(".", ",")
+    : "";
+
+  const modifiedReleaseDate = data.vote_average
+    ? data.release_date.split("-").reverse().join(".")
+    : "";
+
+  const productionYear = data.vote_average
+    ? modifiedReleaseDate.slice("6")
+    : "";
+
   return (
     <>
       {status === "loading" && <Loading />}
@@ -23,17 +35,16 @@ const MoviePage = ({ movieId }) => {
           <MovieTop
             poster={topPoster}
             title={data.original_title}
-            rate={data.vote_average.toFixed(1)}
+            rate={modifiedRating}
             votes={data.vote_count}
           />
           <MovieInfo
             title={data.title}
-            // productionYear={productionYear}
-
+            productionYear={productionYear}
             productionPlace={data.production_countries.map(({ name }) => name)}
-            releaseDate={data.release_date}
+            releaseDate={modifiedReleaseDate}
             tags={data.genres}
-            rate={data.vote_average.toFixed(1)}
+            rate={modifiedRating}
             votes={data.vote_count}
             description={data.overview}
             poster={poster}
