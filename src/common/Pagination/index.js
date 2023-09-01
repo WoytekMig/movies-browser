@@ -8,7 +8,6 @@ import {
   PageNumber,
   Wrapper,
 } from "./styled";
-
 const Pagination = ({
   currentPage,
   totalPages,
@@ -23,13 +22,13 @@ const Pagination = ({
     <Wrapper>
       <Button onClick={onFirstPage} disabled={currentPage === 1}>
         {isMobile ? (
-              <>
-                <ArrowLeft />
-                <ArrowLeft />
-                </>
-            ) : (
-              <ArrowLeft />
-            )}
+          <>
+            <ArrowLeft />
+            <ArrowLeft />
+          </>
+        ) : (
+          <ArrowLeft />
+        )}
         <ButtonText>First</ButtonText>
       </Button>
       <Button onClick={onPrevPage} disabled={currentPage === 1}>
@@ -47,13 +46,13 @@ const Pagination = ({
       <Button onClick={onLastPage} disabled={currentPage === totalPages}>
         <ButtonText>Last</ButtonText>
         {isMobile ? (
-              <>
-                <ArrowRight />
-                <ArrowRight />
-              </>
-            ) : (
-              <ArrowRight />
-            )}
+          <>
+            <ArrowRight />
+            <ArrowRight />
+          </>
+        ) : (
+          <ArrowRight />
+        )}
       </Button>
     </Wrapper>
   );

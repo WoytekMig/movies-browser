@@ -7,7 +7,6 @@ export const Wrapper = styled.div`
   justify-content: center;
   margin: 40px 0 103px 0;
   gap: 12px;
-
   @media (max-width: ${({ theme }) => theme.breakpoints.defaultMobile}) {
     gap: 8px;
     margin: 16.5px 0 31.5px 0;
@@ -25,11 +24,14 @@ export const Button = styled.button`
   transition: 0.5s;
   cursor: pointer;
 
-  &:hover {
+  &:hover:not(:disabled) {
     filter: brightness(103%);
   }
+
   &:disabled {
     background-color: ${({ theme }) => theme.colors.mystic};
+    cursor: pointer;
+
     &:hover {
       filter: none;
     }
@@ -53,7 +55,6 @@ export const ButtonText = styled.span`
 
 export const ArrowLeft = styled(IconLeft)`
   color: ${({ theme }) => theme.colors.scienceBlue};
-
   ${Button}:disabled & {
     color: ${({ theme }) => theme.colors.darkerGrey};
   }
@@ -66,7 +67,6 @@ export const ArrowLeft = styled(IconLeft)`
 
 export const ArrowRight = styled(IconRight)`
   color: ${({ theme }) => theme.colors.scienceBlue};
-
   ${Button}:disabled & {
     color: ${({ theme }) => theme.colors.darkerGrey};
   }
