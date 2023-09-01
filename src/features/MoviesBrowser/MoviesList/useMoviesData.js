@@ -49,7 +49,7 @@ export const useMoviesData = (pageWanted) => {
       }
     };
 
-    setTimeout(fetchMoviesData, 2000);
+    setTimeout(fetchMoviesData, 1000);
   }, []);
 
   return moviesData;
