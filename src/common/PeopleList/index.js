@@ -7,26 +7,47 @@ import Loading from "../Loading";
 const PeopleList = ({ title, moviePage, data }) => {
   return (
     <Main>
-      <MainHeader title={title} />
-      <List $moviePage={moviePage}>
-        {data.status === "loading" ? (
-          <Loading />
-        ) : data.status === "error" ? (
-          <p>Something went wrong...</p>
-        ) : (
-          data.results.map((person) => (
-            <ListItem key={person.id}>
-              <StyledLink to={`/person/${person.id}`}>
-                <PersonTile
-                  picture={person.profile_path}
-                  name={person.name}
-                  role={person.character}
-                />
-              </StyledLink>
-            </ListItem>
-          ))
-        )}
-      </List>
+      {!moviePage ? (
+        <>
+          <MainHeader title={title} />
+          <List>
+            {data.status === "loading" ? (
+              <Loading />
+            ) : data.status === "error" ? (
+              <p>Something went wrong...</p>
+            ) : (
+              data.results.map((person) => (
+                <ListItem key={person.id}>
+                  <StyledLink to={`/person/${person.id}`}>
+                    <PersonTile
+                      picture={person.profile_path}
+                      name={person.name}
+                      role={person.character}
+                    />
+                  </StyledLink>
+                </ListItem>
+              ))
+            )}
+          </List>
+        </>
+      ) : (
+        <>
+          <MainHeader title={title} />
+          <List $moviePage={moviePage}>
+            {data.map((person) => (
+              <ListItem key={person.credit_id}>
+                <StyledLink to={`/person/${person.id}`}>
+                  <PersonTile
+                    picture={person.profile_path}
+                    name={person.name}
+                    role={person.character}
+                  />
+                </StyledLink>
+              </ListItem>
+            ))}
+          </List>
+        </>
+      )}
     </Main>
   );
 };
