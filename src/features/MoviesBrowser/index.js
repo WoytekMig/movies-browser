@@ -15,7 +15,6 @@ const MoviesBrowser = () => (
       <Route path="/movie/" component={MoviePage} />
       <Route path="/" component={MoviesList} />
     </Switch>
-    <Pagination />
   </BrowserRouter>
 );
 

@@ -1,15 +1,21 @@
 import { useState, useEffect } from "react";
 
-const discoverMovie =
+/* const discoverMovie =
   "https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=en-US&page=1&sort_by=popularity.desc";
 
-const usedFetchAddress = discoverMovie;
+const usedFetchAddress = discoverMovie; */
 
-export const useMoviesData = () => {
+export const useMoviesData = (pageWanted) => {
   const [moviesData, setMoviesData] = useState({
     status: "loading",
     results: {},
   });
+  /* const pageWanted = {pageWanted ? pageWanted : 1} */
+
+  const discoverMovie1 =
+    "https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=en-US&page=";
+  const discoverMovie2 = "&sort_by=popularity.desc";
+  const usedFetchAddress = discoverMovie1 + pageWanted + discoverMovie2;
 
   useEffect(() => {
     const fetchMoviesData = async () => {
