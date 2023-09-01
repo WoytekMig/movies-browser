@@ -21,7 +21,7 @@ const useMovieData = (movieId) => {
     };
 
     setTimeout(fetchMovieData, 1000);
-  }, []);
+  }, [MOVIE_API_URL]);
 
   return movieData;
 };
