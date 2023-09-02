@@ -1,10 +1,21 @@
+import { useState } from "react";
 import PeopleList from "../../../common/PeopleList";
 import { usePopularPeopleData } from "./usePopularPeopleData";
 
 const PopularPeople = () => {
-  const popularPeopleData = usePopularPeopleData();
+  const [currentPage, setCurrentPage] = useState(1);
+  const popularPeopleData = usePopularPeopleData(currentPage);
 
-  return <PeopleList data={popularPeopleData} title="Popular people" />;
+  return (
+    <div>
+      <PeopleList
+        data={popularPeopleData}
+        title="Popular people"
+        currentPage={currentPage}
+        onPageChange={setCurrentPage}
+      />
+    </div>
+  );
 };
 
 export default PopularPeople;

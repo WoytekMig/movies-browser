@@ -3,14 +3,23 @@ import MainHeader from "../MainHeader";
 import { List, ListItem, StyledLink } from "./styled";
 import PersonTile from "../PersonTile";
 import Loading from "../Loading";
+import Pagination from "../Pagination";
 
-const PeopleList = ({ title, moviePage, data }) => {
+const PeopleList = ({ title, moviePage, data, currentPage, onPageChange }) => {
+  const totalPages = data.totalPages || 1;
+
+  const handlePageChange = (newPage) => {
+    if (newPage >= 1 && newPage <= totalPages) {
+      onPageChange(newPage);
+    }
+  };
+
   return (
     <Main>
       {!moviePage ? (
         <>
           <MainHeader title={title} />
-          <List>
+          <List $moviePage={moviePage}>
             {data.status === "loading" ? (
               <Loading />
             ) : data.status === "error" ? (
@@ -29,6 +38,14 @@ const PeopleList = ({ title, moviePage, data }) => {
               ))
             )}
           </List>
+          <Pagination
+            currentPage={currentPage}
+            totalPages={totalPages}
+            onFirstPage={() => handlePageChange(1)}
+            onPrevPage={() => handlePageChange(currentPage - 1)}
+            onNextPage={() => handlePageChange(currentPage + 1)}
+            onLastPage={() => handlePageChange(totalPages)}
+          />
         </>
       ) : (
         <>
