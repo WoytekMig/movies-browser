@@ -60,7 +60,7 @@ export const Poster = styled.div`
     ),
     url(${({ $poster }) => $poster});
   background-position: center;
-  background-size: cover;
+  background-size: 100% 100%;
   background-repeat: no-repeat;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.defaultMobile}) {
@@ -107,6 +107,7 @@ export const Poster = styled.div`
   @media (max-width: ${({ theme }) => theme.breakpoints.smallMobile}) {
     flex-basis: 148px;
     padding-bottom: 8px;
+    background-size: 100% 100%;
   }
 `;
 
