@@ -16,15 +16,28 @@ export const Wrapper = styled.div`
   @media (max-width: ${({ theme }) => theme.breakpoints.defaultMobile}) {
     padding: 8px;
     border-radius: 5px;
+    max-width: 136px;
+    height: 245px;
   }
 `;
 
 export const Picture = styled.img`
-  flex-grow: 1;
-  max-width: 100%;
-  max-height: 231px;
+  max-width: 176px;
+  height: 231px;
   border-radius: 5px;
   flex-shrink: 1;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.defaultMobile}) {
+    margin: 0;
+    max-width: 120px;
+    max-height: 178px;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.smalltMobile}) {
+    margin: 0;
+    max-width: 100%;
+    height: auto;
+  }
 `;
 
 export const Name = styled.span`
