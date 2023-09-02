@@ -11,7 +11,7 @@ const MoviesBrowser = () => (
     <Switch>
       <Route path="/movies" component={MoviesList} />
       <Route path="/people" component={PopularPeople} />
-      <Route path="/search" component={SearchResult} /> {}
+      <Route path="/search" component={SearchResult} />
     </Switch>
   </BrowserRouter>
 );

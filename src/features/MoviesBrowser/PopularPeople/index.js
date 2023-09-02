@@ -1,19 +1,33 @@
-import { useState } from "react";
+import React from "react";
+import { useQuery } from "react-query";
 import PeopleList from "../../../common/PeopleList";
-import { usePopularPeopleData } from "./usePopularPeopleData";
+import { API_KEY, ApiPopularPeople } from "../../../codesAPI"; // Importuj URL popularnych osób
+import Loading from "../../../common/Loading";
+import Error from "../../../common/Error";
 
 const PopularPeople = () => {
-  const [currentPage, setCurrentPage] = useState(1);
-  const popularPeopleData = usePopularPeopleData(currentPage);
+  const { data, isLoading, isError, error } = useQuery(
+    "popularPeople",
+    async () => {
+      const response = await fetch(`${ApiPopularPeople}?api_key=${API_KEY}`);
+      if (!response.ok) {
+        throw new Error("Network response was not ok");
+      }
+      return response.json();
+    }
+  );
 
   return (
     <div>
-      <PeopleList
-        data={popularPeopleData}
-        title="Popular people"
-        currentPage={currentPage}
-        onPageChange={setCurrentPage}
-      />
+      {isLoading ? (
+        <Loading />
+      ) : isError ? (
+        <Error message={error.message} />
+      ) : (
+        <div>
+          <PeopleList data={data} title="Popular people" />
+        </div>
+      )}
     </div>
   );
 };
