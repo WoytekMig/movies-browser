@@ -40,7 +40,7 @@ const PeopleList = ({ title, moviePage, data }) => {
                   <PersonTile
                     picture={person.profile_path}
                     name={person.name}
-                    role={person.character}
+                    role={person.character ?? person.job}
                   />
                 </StyledLink>
               </ListItem>
