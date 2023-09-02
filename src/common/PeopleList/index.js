@@ -9,7 +9,7 @@ import { useEffect, useState } from "react";
 
 const PeopleList = ({ title, moviePage, data, currentPage, onPageChange }) => {
   const totalPages = data.totalPages || 1;
-  const [isLoading, setLoading] = useState(true)
+  const [isLoading, setLoading] = useState(true);
 
   const handlePageChange = (newPage) => {
     if (newPage >= 1 && newPage <= totalPages) {
