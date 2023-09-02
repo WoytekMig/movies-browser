@@ -1,7 +1,6 @@
-import React from "react";
 import { useQuery } from "react-query";
 import PeopleList from "../../../common/PeopleList";
-import { API_KEY, ApiPopularPeople } from "../../../codesAPI"; // Importuj URL popularnych osób
+import { API_KEY, ApiPopularPeople } from "../../../codesAPI";
 import Loading from "../../../common/Loading";
 import Error from "../../../common/Error";
 
