@@ -6,11 +6,11 @@ export const Wrapper = styled.div`
   height: 769px;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
-    height: 600px;
+    height: 525px;
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.defaultMobile}) {
-    height: 400px;
+    height: 350px;
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.smallMobile}) {
@@ -60,8 +60,12 @@ export const Poster = styled.div`
     ),
     url(${({ $poster }) => $poster});
   background-position: center;
-  background-size: 100% 100%;
+  background-size: auto 100%;
   background-repeat: no-repeat;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
+    background-size: 100% 100%;
+  }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.defaultMobile}) {
     background: linear-gradient(
