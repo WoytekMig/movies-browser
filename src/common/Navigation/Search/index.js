@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useHistory } from "react-router-dom";
-import { StyledForm, StyledInput, Wrapper } from "./styled";
+import { SearchIcon, StyledForm, StyledInput, Wrapper } from "./styled";
 import { useLocation } from "react-router-dom/cjs/react-router-dom";
 
 export const Search = () => {
@@ -21,6 +21,7 @@ export const Search = () => {
   return (
     <Wrapper>
       <StyledForm>
+        <SearchIcon />
         <StyledInput
           placeholder={placeholderText}
           value={searchValue}
