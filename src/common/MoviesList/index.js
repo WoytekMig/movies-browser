@@ -1,6 +1,7 @@
 import React from "react";
 import MovieTile from "../MovieTile";
 import Loading from "../Loading";
+import Error from "../Error";
 import { MainContainer, StyledLink, StyledMainHeader } from "./styled";
 import { useDispatch } from "react-redux";
 import { setMovieId } from "../../features/MoviesBrowser/moviesSlice";
@@ -15,7 +16,7 @@ const MoviesList = ({ data }) => {
         {data.status === "loading" ? (
           <Loading />
         ) : data.status === "error" ? (
-          <StyledMainHeader>SOMETHING WENT WRONG, sorry.. </StyledMainHeader>
+          <Error />
         ) : (
           data.results.map((movie) => (
             <StyledLink
