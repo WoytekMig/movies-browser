@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
 import { SearchIcon, StyledForm, StyledInput, Wrapper } from "./styled";
 import { useLocation } from "react-router-dom/cjs/react-router-dom";
@@ -17,6 +17,12 @@ export const Search = () => {
     setSearchValue(newValue);
     history.push(`/search?query=${newValue}`);
   };
+
+  useEffect(() => {
+    if (location.pathname === "/people" || location.pathname === "/movies") {
+      setSearchValue("");
+    }
+  }, [location.pathname]);
 
   return (
     <Wrapper>
