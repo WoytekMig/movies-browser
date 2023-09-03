@@ -3,6 +3,7 @@ import MovieTile from "../../../common/MovieTile";
 import { MainContainer, StyledMainHeader } from "./styled";
 import { useMoviesData } from "./useMoviesData";
 import Loading from "../../../common/Loading";
+import Error from "../../../common/Error";
 
 const MoviesList = () => {
   const moviesData = useMoviesData();
@@ -14,7 +15,7 @@ const MoviesList = () => {
         {moviesData.status === "loading" ? (
           <Loading />
         ) : moviesData.status === "error" ? (
-          <StyledMainHeader>SOMETHING WENT WRONG, sorry.. </StyledMainHeader>
+          <Error />
         ) : (
           moviesData.results.map((element) => (
             <React.Fragment key={element.id}>
