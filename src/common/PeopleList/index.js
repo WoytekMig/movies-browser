@@ -20,7 +20,7 @@ const PeopleList = ({ title, moviePage, data, currentPage, onPageChange }) => {
   useEffect(() => {
     const loadingTimeout = setTimeout(() => {
       setLoading(false);
-    }, 1000);
+    }, 300);
 
     return () => {
       clearTimeout(loadingTimeout);
