@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
-import { API_KEY } from "../../../codesAPI";
+import { getMovieApiUrls } from "../../../codesAPI";
 
 const useMovieData = (movieId) => {
   const [movieData, setMovieData] = useState({
@@ -9,8 +9,7 @@ const useMovieData = (movieId) => {
     credits: [],
   });
 
-  const MOVIE_API_URL = `https://api.themoviedb.org/3/movie/${movieId}?api_key=${API_KEY}`;
-  const CREDITS_API_URL = `https://api.themoviedb.org/3/movie/${movieId}/credits?language=en-US&api_key=${API_KEY}`;
+  const { MOVIE_API_URL, CREDITS_API_URL } = getMovieApiUrls(movieId);
 
   useEffect(() => {
     const fetchMovieData = async () => {
