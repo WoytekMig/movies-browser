@@ -8,10 +8,10 @@ import PopularMovies from "./PopularMovies";
 const MoviesBrowser = () => (
   <BrowserRouter>
     <Navigation />
-    <MoviePage />
     <Switch>
       <Route path="/movies" component={PopularMovies} />
       <Route path="/people" component={PopularPeople} />
+      <Route path="/movie/" component={MoviePage} />
     </Switch>
   </BrowserRouter>
 );
