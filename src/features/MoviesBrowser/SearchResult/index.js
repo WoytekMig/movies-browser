@@ -38,7 +38,7 @@ const SearchResult = ({ onPageChange, currentPage }) => {
         title={
           isError || !data || data.results.length === 0
             ? `Sorry, there are no results for "${queryParam || ""}"`
-            : `Search result for "${queryParam || ""}"`
+            : `Search result for "${queryParam || ""}" (${data?.results.length || 0})`
         }
       />
       {isLoading ? (
