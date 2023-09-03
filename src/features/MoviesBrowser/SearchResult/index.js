@@ -1,13 +1,11 @@
 import { useState, useEffect } from "react";
+import { useLocation } from "react-router-dom/cjs/react-router-dom";
 import { Main } from "../../../common/Main";
 import MainHeader from "../../../common/MainHeader";
-import { List, ListItem, StyledLink } from "../../../common/PeopleList/styled";
-import PersonTile from "../../../common/PersonTile";
-import Pagination from "../../../common/Pagination";
 import Loading from "../../../common/Loading";
 import NoResult from "../../../common/NoResult";
-import { useLocation } from "react-router-dom/cjs/react-router-dom";
 import useSearchPeopleQuery from "./useSearchPeopleQuery";
+import PeopleList from "../../../common/PeopleList";
 
 const SearchResult = ({ onPageChange, currentPage }) => {
   const location = useLocation();
@@ -49,26 +47,10 @@ const SearchResult = ({ onPageChange, currentPage }) => {
         <NoResult query={queryParam} />
       ) : (
         <>
-          <List>
-            {data.results.map((person) => (
-              <ListItem key={person.id}>
-                <StyledLink to={`/person/${person.id}`}>
-                  <PersonTile
-                    picture={person.profile_path}
-                    name={person.name}
-                    role={person.character}
-                  />
-                </StyledLink>
-              </ListItem>
-            ))}
-          </List>
-          <Pagination
+          <PeopleList
+            data={data}
             currentPage={currentPage}
-            totalPages={totalPages}
-            onFirstPage={() => handlePageChange(1)}
-            onPrevPage={() => handlePageChange(currentPage - 1)}
-            onNextPage={() => handlePageChange(currentPage + 1)}
-            onLastPage={() => handlePageChange(totalPages)}
+            onPageChange={handlePageChange}
           />
         </>
       )}
