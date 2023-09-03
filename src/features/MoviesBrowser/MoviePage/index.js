@@ -6,9 +6,13 @@ import MovieTop from "./MovieTop";
 import { getMovieImageUrl } from "./getMovieImageUrl";
 import { MoviePageWrapper } from "./styled";
 import { useMovieData } from "./useMovieData";
+import { useSelector } from "react-redux";
+import { selectMovieId } from "../moviesSlice";
 
-const MoviePage = ({ movieId }) => {
-  const { status, movie, credits } = useMovieData(13);
+const MoviePage = () => {
+  const movieId = useSelector(selectMovieId);
+
+  const { status, movie, credits } = useMovieData(movieId);
 
   const topPoster = getMovieImageUrl(movie.backdrop_path);
   const poster = getMovieImageUrl(movie.poster_path);
