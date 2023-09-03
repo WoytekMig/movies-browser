@@ -1,9 +1,10 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { getDataFromLocalStorage } from "./dataInLocalStorage";
 
 const moviesSlice = createSlice({
   name: "movies",
   initialState: {
-    movieId: null,
+    movieId: getDataFromLocalStorage("movieId") ?? null,
   },
   reducers: {
     setMovieId: (state, { payload: id }) => {
