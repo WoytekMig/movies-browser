@@ -18,7 +18,7 @@ const MovieInfo = ({
   productionYear,
   productionPlace,
   poster,
-  date,
+  releaseDate,
   tags,
   rate,
   votes,
@@ -33,17 +33,16 @@ const MovieInfo = ({
           <Year>{productionYear}</Year>
           <SpecialData
             upperContent={productionPlace}
-            lowerContent={date}
+            lowerContent={releaseDate}
             mobileUpperData={""}
             mobileLowerData={""}
-            desktopUpperData={"Production: "}
-            desktopLowerData={"Release date: "}
+            desktopUpperData={"Production:"}
+            desktopLowerData={"Release date:"}
           />
           <TagsWrapper>
-            <Tag>{tags}</Tag>
-            <Tag>{tags}</Tag>
-            <Tag>{"Adventure"}</Tag>
-            {/* add map method later */}
+            {tags.map(({ id, name }) => (
+              <Tag key={id}>{name}</Tag>
+            ))}
           </TagsWrapper>
           <Rating rate={rate} votes={votes} />
         </DataContainer>

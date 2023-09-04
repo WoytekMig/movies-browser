@@ -4,8 +4,11 @@ import { MainContainer, StyledLink, StyledMainHeader } from "./styled";
 import Loading from "../Loading";
 import Error from "../Error";
 import Pagination from "../Pagination";
+import { useDispatch } from "react-redux";
+import { setMovieId } from "../../features/MoviesBrowser/moviesSlice";
 
 const MoviesList = ({ data, currentPage, goToPage }) => {
+  const dispatch = useDispatch();
   const moviesData = data;
   const totalPages = () =>
     moviesData.total_pages > 500 ? 500 : moviesData.total_pages;
@@ -14,7 +17,6 @@ const MoviesList = ({ data, currentPage, goToPage }) => {
       goToPage(page);
     }
   };
-
   return (
     <>
       <MainContainer>
@@ -24,19 +26,39 @@ const MoviesList = ({ data, currentPage, goToPage }) => {
         ) : moviesData.status === "error" ? (
           <Error />
         ) : (
-          moviesData.results.map((element) => (
-            <React.Fragment key={element.id}>
-              <StyledLink to={`/movie/${element.id}`}>
+          moviesData.results.map((movie) => (
+                <StyledLink 
+                  key={element.id}
+                  onClick={() => dispatch(setMovieId(movie.id))}
+                  to={`/movie/${element.id}`}>
                 <MovieTile
-                  posterPath={element.poster_path}
-                  title={element.title}
-                  year={new Date(element.release_date).getFullYear()}
-                  rating={element.vote_average}
-                  votes={element.vote_count}
-                  tag={element.genre_ids}
+                  posterPath={movie.poster_path}
+                  title={movie.title}
+                  year={new Date(movie.release_date).getFullYear()}
+                  rating={movie.vote_average}
+                  votes={movie.vote_count}
+                  tag={movie.genre_ids}
                 />
               </StyledLink>
-            </React.Fragment>
+        ) : data.status === "error" ? (
+          <Error />
+        ) : (
+          data.results.map((movie) => (
+            <StyledLink
+              key={movie.id}
+              onClick={() => dispatch(setMovieId(movie.id))}
+              to={`/movie/${movie.id}`}
+            >
+              <MovieTile
+                posterPath={movie.poster_path}
+                title={movie.title}
+                year={new Date(movie.release_date).getFullYear()}
+                rating={movie.vote_average}
+                votes={movie.vote_count}
+                tag={movie.genre_ids}
+              />
+            </StyledLink>
+
           ))
         )}
       </MainContainer>
