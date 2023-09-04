@@ -1,29 +1,28 @@
 import React, { useState } from "react";
-import MovieTile from "../../../common/MovieTile";
+import MovieTile from "../../common/MovieTile";
 import { MainContainer, StyledLink, StyledMainHeader } from "./styled";
-import { useMoviesData } from "./useMoviesData";
-import Loading from "../../../common/Loading";
-import Error from "../../../common/Error";
-import Pagination from "../../../common/Pagination";
+import { useMoviesData } from "../../features/MoviesBrowser/PopularMovies/useMoviesData";
+import Loading from "../Loading";
+import Error from "../Error";
+import Pagination from "../Pagination";
 
 const MoviesList = ({ data }) => {
-  /* const [currentPage, setCurrentPage] = useState(1); */
-  const moviesData = useMoviesData(currentPage);
-
+  /* const moviesData = useMoviesData(currentPage); */
+  const moviesData = data;
   const whenNoPoster = "../images/logo.svg";
-
+  const currentPage = moviesData.page;
   const totalPages = 500;
 
   return (
     <>
       <MainContainer>
         <StyledMainHeader>Popular movies</StyledMainHeader>
-        {data.status === "loading" ? (
+        {moviesData.status === "loading" ? (
           <Loading />
         ) : moviesData.status === "error" ? (
           <Error />
         ) : (
-          data.results.map((element) => (
+          moviesData.results.map((element) => (
             <React.Fragment key={element.id}>
               <StyledLink to={`/movie/${element.id}`}>
                 <MovieTile
@@ -42,13 +41,12 @@ const MoviesList = ({ data }) => {
         )}
       </MainContainer>
       <Pagination
-      /* currentPage={moviesData.page} */
-      /* hookYouNeed={1} */
-      /*totalPages={500}
-        onFirstPage={(currentPage = 1)}
-        onPrevPage={(currentPage = currentPage - 1)}
-        onNextPage={(currentPage = currentPage + 1)}
-        onLastPage={(currentPage = totalPages)} */
+        currentPage={currentPage}
+        totalPages={totalPages}
+        onFirstPage={() => (currentPage = 1)}
+        onPrevPage={() => (currentPage = currentPage - 1)}
+        onNextPage={() => (currentPage = currentPage + 1)}
+        onLastPage={() => (currentPage = totalPages)}
       />
     </>
   );
