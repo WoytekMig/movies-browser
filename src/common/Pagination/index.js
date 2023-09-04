@@ -8,7 +8,6 @@ import {
   PageNumber,
   Wrapper,
 } from "./styled";
-import { useState } from "react";
 
 const Pagination = ({
   currentPage,
