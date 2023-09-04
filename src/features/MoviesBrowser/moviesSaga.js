@@ -6,7 +6,7 @@ function* saveMovieIdInLocalStorageHandler() {
   try {
     const movieId = yield select(selectMovieId);
 
-    yield call(setLocalStorage(movieId, "movieId"));
+    yield call(setLocalStorage, movieId, "movieId");
   } catch (error) {
     console.error(error);
   }
