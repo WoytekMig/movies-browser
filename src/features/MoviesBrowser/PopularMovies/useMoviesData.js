@@ -43,7 +43,7 @@ export const useMoviesData = (pageWanted) => {
       }
     };
     setTimeout(fetchMoviesData, 1750);
-  }, [pageWanted]);
+  }, [pageWanted, usedFetchAddress]);
 
   return moviesData;
 };

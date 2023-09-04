@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { NavLink } from "react-router-dom";
 import { ReactComponent as YellowStar } from "../../images/shape-star.svg";
 
 export const Wrapper = styled.div`
