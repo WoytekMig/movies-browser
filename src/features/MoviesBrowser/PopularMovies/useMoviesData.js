@@ -7,7 +7,6 @@ export const useMoviesData = (pageWanted) => {
     results: [],
     total_pages: undefined,
   });
-  console.log(moviesData.status);
   const discoverMovie1 =
     "https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=en-US&page=";
   const discoverMovie2 = "&sort_by=popularity.desc";
