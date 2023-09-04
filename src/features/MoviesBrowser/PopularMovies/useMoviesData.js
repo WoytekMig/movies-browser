@@ -4,7 +4,7 @@ export const useMoviesData = (pageWanted) => {
   const [moviesData, setMoviesData] = useState({
     status: "loading",
     page: pageWanted,
-    results: {},
+    results: [],
     total_pages: undefined,
   });
 
@@ -31,7 +31,7 @@ export const useMoviesData = (pageWanted) => {
 
         const { page, results, total_pages } = await response.json();
         setMoviesData({
-          status: "succes",
+          status: "success",
           page,
           results,
           total_pages,
