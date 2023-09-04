@@ -6,12 +6,16 @@ import Loading from "../Loading";
 import Error from "../Error";
 import Pagination from "../Pagination";
 
-const MoviesList = ({ data }) => {
-  /* const moviesData = useMoviesData(currentPage); */
+const MoviesList = ({ data, currentPage, goToPage }) => {
   const moviesData = data;
   const whenNoPoster = "../images/logo.svg";
-  const currentPage = moviesData.page;
-  const totalPages = 500;
+  const totalPages = () =>
+    moviesData.total_pages > 500 ? 500 : moviesData.total_pages;
+  const whichPage = (page) => {
+    if (page >= 1 && page <= totalPages()) {
+      goToPage(page);
+    }
+  };
 
   return (
     <>
@@ -42,11 +46,11 @@ const MoviesList = ({ data }) => {
       </MainContainer>
       <Pagination
         currentPage={currentPage}
-        totalPages={totalPages}
-        onFirstPage={() => (currentPage = 1)}
-        onPrevPage={() => (currentPage = currentPage - 1)}
-        onNextPage={() => (currentPage = currentPage + 1)}
-        onLastPage={() => (currentPage = totalPages)}
+        totalPages={totalPages()}
+        onFirstPage={() => whichPage(1)}
+        onPrevPage={() => whichPage(currentPage - 1)}
+        onNextPage={() => whichPage(currentPage + 1)}
+        onLastPage={() => whichPage(totalPages())}
       />
     </>
   );
