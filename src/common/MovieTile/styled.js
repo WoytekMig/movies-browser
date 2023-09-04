@@ -29,7 +29,7 @@ export const Wrapper = styled.div`
   }
 
   &:hover {
-    transform: rotate(2deg);
+    transform: scale(105%);
   }
 `;
 
