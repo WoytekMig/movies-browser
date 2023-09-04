@@ -5,7 +5,7 @@ export const PersonImageAPI = "https://image.tmdb.org/t/p/w200/";
 export const IMG_URL = "https://image.tmdb.org/t/p/w500/";
 
 export const getMovieImageUrl = (source) =>
-  `https://image.tmdb.org/t/p/original/${source}`;
+  `https://image.tmdb.org/t/p/w1280/${source}`;
 
 export const getMovieApiUrls = (movieId) => {
   const MOVIE_API_URL = `https://api.themoviedb.org/3/movie/${movieId}?api_key=${API_KEY}`;
