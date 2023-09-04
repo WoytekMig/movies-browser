@@ -29,25 +29,27 @@ const PeopleList = ({ title, moviePage, data, currentPage, onPageChange }) => {
 
   return (
     <Main>
-      <MainHeader title={title} />
-      {isLoading ? (
-        <Loading />
-      ) : data.status === "error" ? (
-        <Error />
-      ) : (
+      {!moviePage ? (
         <>
+          <MainHeader title={title} />
           <List $moviePage={moviePage}>
-            {data.results.map((person) => (
-              <ListItem key={person.id}>
-                <StyledLink to={`/person/${person.id}`}>
-                  <PersonTile
-                    picture={person.profile_path}
-                    name={person.name}
-                    role={person.character}
-                  />
-                </StyledLink>
-              </ListItem>
-            ))}
+            {isLoading ? (
+              <Loading />
+            ) : data.status === "error" ? (
+              <Error />
+            ) : (
+              data.results.map((person) => (
+                <ListItem key={person.id}>
+                  <StyledLink to={`/person/${person.id}`}>
+                    <PersonTile
+                      picture={person.profile_path}
+                      name={person.name}
+                      role={person.character}
+                    />
+                  </StyledLink>
+                </ListItem>
+              ))
+            )}
           </List>
           <Pagination
             currentPage={currentPage}
@@ -57,6 +59,23 @@ const PeopleList = ({ title, moviePage, data, currentPage, onPageChange }) => {
             onNextPage={() => handlePageChange(currentPage + 1)}
             onLastPage={() => handlePageChange(totalPages)}
           />
+        </>
+      ) : (
+        <>
+          <MainHeader title={title} />
+          <List $moviePage={moviePage}>
+            {data.map((person) => (
+              <ListItem key={person.credit_id}>
+                <StyledLink to={`/person/${person.id}`}>
+                  <PersonTile
+                    picture={person.profile_path}
+                    name={person.name}
+                    role={person.character ?? person.job}
+                  />
+                </StyledLink>
+              </ListItem>
+            ))}
+          </List>
         </>
       )}
     </Main>

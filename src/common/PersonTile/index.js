@@ -1,25 +1,13 @@
 import { Name, Picture, Role, Wrapper } from "./styled";
 import { PersonImageAPI } from "../../codesAPI";
-import NoImagePerson from "../../images/noimgperson.svg";
+import nullPersonImage from "../../images/nullPersonImage.svg";
 
-const PersonTile = ({ picture, name, role }) => {
-  if (!picture) {
-    return (
-      <Wrapper>
-        <Picture src={NoImagePerson} />
-        <Name>{name}</Name>
-        <Role>{role}</Role>
-      </Wrapper>
-    );
-  }
-
-  return (
-    <Wrapper>
-      <Picture src={`${PersonImageAPI}${picture}`} alt={name} />
-      <Name>{name}</Name>
-      <Role>{role}</Role>
-    </Wrapper>
-  );
-};
+const PersonTile = ({ picture, name, role }) => (
+  <Wrapper>
+    <Picture src={picture ? `${PersonImageAPI}${picture}` : nullPersonImage} />
+    <Name>{name}</Name>
+    <Role>{role}</Role>
+  </Wrapper>
+);
 
 export default PersonTile;

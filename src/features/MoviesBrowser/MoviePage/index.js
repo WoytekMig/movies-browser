@@ -1,60 +1,61 @@
+import Loading from "../../../common/Loading";
+import Error from "../../../common/Error";
 import PeopleList from "../../../common/PeopleList";
 import MovieInfo from "./MovieInfo";
 import MovieTop from "./MovieTop";
 import { MoviePageWrapper } from "./styled";
+import { useMovieData } from "./useMovieData";
+import { useSelector } from "react-redux";
+import { selectMovieId } from "../moviesSlice";
+import { getMovieImageUrl } from "../../../codesAPI";
 
-const MoviePage = ({
-  poster,
-  posterBig,
-  title,
-  longTitle,
-  productionYear,
-  productionPlace,
-  date,
-  tags,
-  rate,
-  votes,
-  description,
-  personPicture,
-  personName,
-  personRole,
-}) => {
+const MoviePage = () => {
+  const movieId = useSelector(selectMovieId);
+
+  const { status, movie, credits } = useMovieData(movieId);
+
+  const topPoster = getMovieImageUrl(movie.backdrop_path);
+  const poster = getMovieImageUrl(movie.poster_path);
+
+  const modifiedRating = movie.vote_average
+    ? movie.vote_average.toFixed(1).replace(".", ",")
+    : "";
+
+  const modifiedReleaseDate = movie.vote_average
+    ? movie.release_date.split("-").reverse().join(".")
+    : "";
+
+  const productionYear = movie.vote_average
+    ? modifiedReleaseDate.slice("6")
+    : "";
+
   return (
     <>
-      <MoviePageWrapper>
-        <MovieTop
-          poster={posterBig}
-          title={longTitle ?? title}
-          rate={rate}
-          votes={votes}
-        />
-        <MovieInfo
-          title={title}
-          productionYear={productionYear}
-          productionPlace={productionPlace}
-          date={date}
-          tags={tags}
-          rate={rate}
-          votes={votes}
-          description={description}
-          poster={poster}
-        />
-        <PeopleList
-          picture={personPicture}
-          name={personName}
-          role={personRole}
-          title={"Cast"}
-          moviePage
-        />
-        {/* It might require some adjustance after syncing it with API */}
-        <PeopleList
-          picture={personPicture}
-          name={personName}
-          role={personRole}
-          title={"Crew"}
-          moviePage
-        />
-      </MoviePageWrapper>
+      {status === "loading" && <Loading />}
+      {status === "error" && <Error />}
+      {status === "success" && (
+        <MoviePageWrapper>
+          <MovieTop
+            poster={topPoster}
+            title={movie.original_title}
+            rate={modifiedRating}
+            votes={movie.vote_count}
+          />
+          <MovieInfo
+            title={movie.title}
+            productionYear={productionYear}
+            productionPlace={movie.production_countries.map(({ name }) => name)}
+            releaseDate={modifiedReleaseDate}
+            tags={movie.genres}
+            rate={modifiedRating}
+            votes={movie.vote_count}
+            description={movie.overview}
+            poster={poster}
+          />
+          <PeopleList title="Cast" data={credits.cast} moviePage />
+          <PeopleList title={"Crew"} data={credits.crew} moviePage />
+        </MoviePageWrapper>
+      )}
     </>
   );
 };

@@ -1,6 +1,4 @@
 import {
-  AdditionalData,
-  Text,
   DataContainer,
   Image,
   MovieDescription,
@@ -9,26 +7,23 @@ import {
   Title,
   Wrapper,
   Year,
-  DataWrapper,
 } from "./styled";
 
 import Rating from "../../../../common/Rating";
 import { Main } from "../../../../common/Main";
-import { useMediaQuery } from "react-responsive";
+import SpecialData from "../../../../common/SpecialData";
 
 const MovieInfo = ({
   title,
   productionYear,
   productionPlace,
   poster,
-  date,
+  releaseDate,
   tags,
   rate,
   votes,
   description,
 }) => {
-  const isMedia = useMediaQuery({ maxWidth: 767 });
-
   return (
     <Main>
       <Wrapper>
@@ -36,21 +31,18 @@ const MovieInfo = ({
         <DataContainer>
           <Title>{title}</Title>
           <Year>{productionYear}</Year>
-          <AdditionalData>
-            <DataWrapper>
-              {isMedia ? "" : "Production: "}
-              <Text>{productionPlace}</Text>
-            </DataWrapper>
-            <DataWrapper>
-              {isMedia ? "" : "Release date: "}
-              <Text>{date}</Text>
-            </DataWrapper>
-          </AdditionalData>
+          <SpecialData
+            upperContent={productionPlace}
+            lowerContent={releaseDate}
+            mobileUpperData={""}
+            mobileLowerData={""}
+            desktopUpperData={"Production:"}
+            desktopLowerData={"Release date:"}
+          />
           <TagsWrapper>
-            <Tag>{tags}</Tag>
-            <Tag>{tags}</Tag>
-            <Tag>{"Adventure"}</Tag>
-            {/* add map method later */}
+            {tags.map(({ id, name }) => (
+              <Tag key={id}>{name}</Tag>
+            ))}
           </TagsWrapper>
           <Rating rate={rate} votes={votes} />
         </DataContainer>

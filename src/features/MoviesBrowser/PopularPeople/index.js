@@ -3,18 +3,20 @@ import PeopleList from "../../../common/PeopleList";
 import { API_KEY, ApiPopularPeople } from "../../../codesAPI";
 import Loading from "../../../common/Loading";
 import Error from "../../../common/Error";
+import { usePopularPeopleData } from "./usePopularPeopleData";
+import { useState } from "react";
 
 const PopularPeople = () => {
-  const { data, isLoading, isError, error } = useQuery(
-    "popularPeople",
-    async () => {
-      const response = await fetch(`${ApiPopularPeople}?api_key=${API_KEY}`);
-      if (!response.ok) {
-        throw new Error("Network response was not ok");
-      }
-      return response.json();
+  const [currentPage, setCurrentPage] = useState(1);
+  const popularPeopleData = usePopularPeopleData(currentPage);
+
+  const { isLoading, isError, error } = useQuery("popularPeople", async () => {
+    const response = await fetch(`${ApiPopularPeople}?api_key=${API_KEY}`);
+    if (!response.ok) {
+      throw new Error("Network response was not ok");
     }
-  );
+    return response.json();
+  });
 
   return (
     <div>
@@ -24,7 +26,12 @@ const PopularPeople = () => {
         <Error message={error.message} />
       ) : (
         <div>
-          <PeopleList data={data} title="Popular people" />
+          <PeopleList
+            currentPage={currentPage}
+            onPageChange={setCurrentPage}
+            data={popularPeopleData}
+            title="Popular people"
+          />
         </div>
       )}
     </div>

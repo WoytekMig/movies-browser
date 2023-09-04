@@ -5,6 +5,12 @@ export const StyledMainHeader = styled.h1`
   font-weight: 600;
   margin-top: 60px;
 
+  ${({ $profile }) =>
+    $profile &&
+    css`
+      margin: 0;
+    `}
+
   ${({ $moviePage }) =>
     $moviePage &&
     css`
