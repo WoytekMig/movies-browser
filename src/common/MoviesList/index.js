@@ -27,23 +27,6 @@ const MoviesList = ({ data, currentPage, goToPage }) => {
           <Error />
         ) : (
           moviesData.results.map((movie) => (
-                <StyledLink 
-                  key={element.id}
-                  onClick={() => dispatch(setMovieId(movie.id))}
-                  to={`/movie/${element.id}`}>
-                <MovieTile
-                  posterPath={movie.poster_path}
-                  title={movie.title}
-                  year={new Date(movie.release_date).getFullYear()}
-                  rating={movie.vote_average}
-                  votes={movie.vote_count}
-                  tag={movie.genre_ids}
-                />
-              </StyledLink>
-        ) : data.status === "error" ? (
-          <Error />
-        ) : (
-          data.results.map((movie) => (
             <StyledLink
               key={movie.id}
               onClick={() => dispatch(setMovieId(movie.id))}
@@ -58,7 +41,6 @@ const MoviesList = ({ data, currentPage, goToPage }) => {
                 tag={movie.genre_ids}
               />
             </StyledLink>
-
           ))
         )}
       </MainContainer>
