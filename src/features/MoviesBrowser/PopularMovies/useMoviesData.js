@@ -12,7 +12,6 @@ export const useMoviesData = (pageWanted) => {
     "https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=en-US&page=";
   const discoverMovie2 = "&sort_by=popularity.desc";
   const usedFetchAddress = discoverMovie1 + pageWanted + discoverMovie2;
-  console.log(usedFetchAddress);
   useEffect(() => {
     const fetchMoviesData = async () => {
       const options = {
@@ -26,13 +25,11 @@ export const useMoviesData = (pageWanted) => {
 
       try {
         const response = await fetch(usedFetchAddress, options);
-        console.log(moviesData.page);
         if (!response.ok) {
           throw new Error(`HTTP error: ${response.status}`);
         }
 
         const { page, results, total_pages } = await response.json();
-        console.log(moviesData.page);
         setMoviesData({
           status: "succes",
           page,
