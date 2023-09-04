@@ -2,11 +2,14 @@ import { Main } from "../Main";
 import MainHeader from "../MainHeader";
 import { List, ListItem, StyledLink } from "./styled";
 import PersonTile from "../PersonTile";
-import Loading from "../Loading";
 import Pagination from "../Pagination";
+import Error from "../Error";
+import Loading from "../Loading";
+import { useEffect, useState } from "react";
 
 const PeopleList = ({ title, moviePage, data, currentPage, onPageChange }) => {
   const totalPages = data.totalPages || 1;
+  const [isLoading, setLoading] = useState(true);
 
   const handlePageChange = (newPage) => {
     if (newPage >= 1 && newPage <= totalPages) {
@@ -14,16 +17,26 @@ const PeopleList = ({ title, moviePage, data, currentPage, onPageChange }) => {
     }
   };
 
+  useEffect(() => {
+    const loadingTimeout = setTimeout(() => {
+      setLoading(false);
+    }, 300);
+
+    return () => {
+      clearTimeout(loadingTimeout);
+    };
+  }, []);
+
   return (
     <Main>
       {!moviePage ? (
         <>
           <MainHeader title={title} />
           <List $moviePage={moviePage}>
-            {data.status === "loading" ? (
+            {isLoading ? (
               <Loading />
             ) : data.status === "error" ? (
-              <p>Something went wrong...</p>
+              <Error />
             ) : (
               data.results.map((person) => (
                 <ListItem key={person.id}>
