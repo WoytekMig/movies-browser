@@ -5,7 +5,6 @@ import { useMoviesData } from "./useMoviesData";
 const PopularMovies = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const moviesData = useMoviesData(currentPage);
-  console.log("jestem");
   return (
     <MoviesList
       data={moviesData}
