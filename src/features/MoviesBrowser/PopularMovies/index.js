@@ -5,8 +5,14 @@ import { useMoviesData } from "./useMoviesData";
 const PopularMovies = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const moviesData = useMoviesData(currentPage);
-
-  return <MoviesList data={moviesData} />;
+  console.log("jestem");
+  return (
+    <MoviesList
+      data={moviesData}
+      currentPage={currentPage}
+      goToPage={setCurrentPage}
+    />
+  );
 };
 
 export default PopularMovies;
