@@ -17,7 +17,7 @@ const MovieTile = ({ posterPath, title, year, tag, rating, votes }) => {
   const basePostersPath = "https://image.tmdb.org/t/p/w500";
   const fullUrl = posterPath
     ? basePostersPath + posterPath
-    : "../images/logo.svg";
+    : "../../images/logo.svg";
 
   return (
     <Wrapper>

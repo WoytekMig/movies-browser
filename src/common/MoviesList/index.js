@@ -7,7 +7,6 @@ import Pagination from "../Pagination";
 
 const MoviesList = ({ data, currentPage, goToPage }) => {
   const moviesData = data;
-  const whenNoPoster = "../images/logo.svg";
   const totalPages = () =>
     moviesData.total_pages > 500 ? 500 : moviesData.total_pages;
   const whichPage = (page) => {
@@ -29,9 +28,7 @@ const MoviesList = ({ data, currentPage, goToPage }) => {
             <React.Fragment key={element.id}>
               <StyledLink to={`/movie/${element.id}`}>
                 <MovieTile
-                  posterPath={
-                    element.poster_path ? element.poster_path : whenNoPoster
-                  }
+                  posterPath={element.poster_path}
                   title={element.title}
                   year={new Date(element.release_date).getFullYear()}
                   rating={element.vote_average}
