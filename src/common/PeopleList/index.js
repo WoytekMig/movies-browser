@@ -4,6 +4,7 @@ import { List, ListItem, StyledLink } from "./styled";
 import PersonTile from "../PersonTile";
 import Loading from "../Loading";
 import Pagination from "../Pagination";
+import Error from "../Error";
 
 const PeopleList = ({ title, moviePage, data, currentPage, onPageChange }) => {
   const totalPages = data.totalPages || 1;
@@ -21,7 +22,7 @@ const PeopleList = ({ title, moviePage, data, currentPage, onPageChange }) => {
         {data.status === "loading" ? (
           <Loading />
         ) : data.status === "error" ? (
-          <p>Something went wrong...</p>
+          <Error />
         ) : (
           data.results.map((person) => (
             <ListItem key={person.id}>
