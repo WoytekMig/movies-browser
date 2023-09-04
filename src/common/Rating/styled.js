@@ -3,9 +3,8 @@ import { css, styled } from "styled-components";
 export const Container = styled.div`
   display: grid;
   grid-gap: 12px;
-  grid-template-columns: 1fr 4fr;
+  grid-template-columns: 1fr 100fr;
   justify-items: start;
-  max-width: 185px;
   line-height: 28.6px;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.smallMobile}) {
@@ -38,7 +37,6 @@ export const RatingWrapper = styled.div`
   ${({ $type }) =>
     $type === "poster" &&
     css`
-      max-width: 126px;
       align-items: end;
     `}
 `;

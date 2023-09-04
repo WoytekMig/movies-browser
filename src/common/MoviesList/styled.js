@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom/cjs/react-router-dom.min";
 import styled from "styled-components";
 
 export const MainContainer = styled.div`
@@ -25,4 +26,9 @@ export const StyledMainHeader = styled.div`
     font-size: 24px;
     margin-top: 24px;
   }
+`;
+
+export const StyledLink = styled(Link)`
+  text-decoration: none;
+  color: inherit;
 `;

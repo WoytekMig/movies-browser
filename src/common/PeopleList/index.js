@@ -16,34 +16,55 @@ const PeopleList = ({ title, moviePage, data, currentPage, onPageChange }) => {
 
   return (
     <Main>
-      <MainHeader title={title} />
-      <List $moviePage={moviePage}>
-        {data.status === "loading" ? (
-          <Loading />
-        ) : data.status === "error" ? (
-          <p>Something went wrong...</p>
-        ) : (
-          data.results.map((person) => (
-            <ListItem key={person.id}>
-              <StyledLink to={`/person/${person.id}`}>
-                <PersonTile
-                  picture={person.profile_path}
-                  name={person.name}
-                  role={person.character}
-                />
-              </StyledLink>
-            </ListItem>
-          ))
-        )}
-      </List>
-      <Pagination
-        currentPage={currentPage}
-        totalPages={totalPages}
-        onFirstPage={() => handlePageChange(1)}
-        onPrevPage={() => handlePageChange(currentPage - 1)}
-        onNextPage={() => handlePageChange(currentPage + 1)}
-        onLastPage={() => handlePageChange(totalPages)}
-      />
+      {!moviePage ? (
+        <>
+          <MainHeader title={title} />
+          <List $moviePage={moviePage}>
+            {data.status === "loading" ? (
+              <Loading />
+            ) : data.status === "error" ? (
+              <p>Something went wrong...</p>
+            ) : (
+              data.results.map((person) => (
+                <ListItem key={person.id}>
+                  <StyledLink to={`/person/${person.id}`}>
+                    <PersonTile
+                      picture={person.profile_path}
+                      name={person.name}
+                      role={person.character}
+                    />
+                  </StyledLink>
+                </ListItem>
+              ))
+            )}
+          </List>
+          <Pagination
+            currentPage={currentPage}
+            totalPages={totalPages}
+            onFirstPage={() => handlePageChange(1)}
+            onPrevPage={() => handlePageChange(currentPage - 1)}
+            onNextPage={() => handlePageChange(currentPage + 1)}
+            onLastPage={() => handlePageChange(totalPages)}
+          />
+        </>
+      ) : (
+        <>
+          <MainHeader title={title} />
+          <List $moviePage={moviePage}>
+            {data.map((person) => (
+              <ListItem key={person.credit_id}>
+                <StyledLink to={`/person/${person.id}`}>
+                  <PersonTile
+                    picture={person.profile_path}
+                    name={person.name}
+                    role={person.character ?? person.job}
+                  />
+                </StyledLink>
+              </ListItem>
+            ))}
+          </List>
+        </>
+      )}
     </Main>
   );
 };
