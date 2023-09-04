@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import MovieTile from "../../common/MovieTile";
 import { MainContainer, StyledLink, StyledMainHeader } from "./styled";
-import { useMoviesData } from "../../features/MoviesBrowser/PopularMovies/useMoviesData";
 import Loading from "../Loading";
 import Error from "../Error";
 import Pagination from "../Pagination";
