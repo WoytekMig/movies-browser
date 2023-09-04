@@ -32,33 +32,36 @@ const PeopleList = ({ title, moviePage, data, currentPage, onPageChange }) => {
       {!moviePage ? (
         <>
           <MainHeader title={title} />
-          <List $moviePage={moviePage}>
-            {isLoading ? (
-              <Loading />
-            ) : data.status === "error" ? (
-              <Error />
-            ) : (
-              data.results.map((person) => (
-                <ListItem key={person.id}>
-                  <StyledLink to={`/person/${person.id}`}>
-                    <PersonTile
-                      picture={person.profile_path}
-                      name={person.name}
-                      role={person.character}
-                    />
-                  </StyledLink>
-                </ListItem>
-              ))
-            )}
-          </List>
-          <Pagination
-            currentPage={currentPage}
-            totalPages={totalPages}
-            onFirstPage={() => handlePageChange(1)}
-            onPrevPage={() => handlePageChange(currentPage - 1)}
-            onNextPage={() => handlePageChange(currentPage + 1)}
-            onLastPage={() => handlePageChange(totalPages)}
-          />
+          {isLoading ? (
+            <Loading />
+          ) : data.status === "error" ? (
+            <Error />
+          ) : (
+            <>
+              <List $moviePage={moviePage}>
+                {data.results.map((person) => (
+                  <ListItem key={person.id}>
+                    <StyledLink to={`/person/${person.id}`}>
+                      <PersonTile
+                        picture={person.profile_path}
+                        name={person.name}
+                        role={person.character}
+                      />
+                    </StyledLink>
+                  </ListItem>
+                ))}
+              </List>
+
+              <Pagination
+                currentPage={currentPage}
+                totalPages={totalPages}
+                onFirstPage={() => handlePageChange(1)}
+                onPrevPage={() => handlePageChange(currentPage - 1)}
+                onNextPage={() => handlePageChange(currentPage + 1)}
+                onLastPage={() => handlePageChange(totalPages)}
+              />
+            </>
+          )}
         </>
       ) : (
         <>
