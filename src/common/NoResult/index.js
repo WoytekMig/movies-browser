@@ -1,11 +1,14 @@
 import { StyledImg, Wrapper } from "./styled";
-import { StyledContainer } from "../Container/styled";
+import { Main } from "../Main";
 import { StyledMainHeader } from "../MainHeader/styled";
-export const NoResult = ({ query }) => (
-  <StyledContainer>
+
+const NoResult = ({ query }) => (
+  <Main>
     <StyledMainHeader title={`Sorry, there are no results for "${query}"`} />
     <Wrapper>
       <StyledImg />
     </Wrapper>
-  </StyledContainer>
+  </Main>
 );
+
+export default NoResult;
