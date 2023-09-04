@@ -12,11 +12,10 @@ import {
   DescriptionBox,
 } from "./styled";
 import { genres } from "../genreIds";
+import { IMG_URL } from "../../codesAPI";
 
 const MovieTile = ({ posterPath, title, year, tag, rating, votes }) => {
-  const basePostersPath = "https://image.tmdb.org/t/p/w500";
-  const poster1Path = posterPath;
-  const fullUrl = basePostersPath + poster1Path;
+  const fullUrl = posterPath ? IMG_URL + posterPath : "../../images/logo.svg";
 
   return (
     <Wrapper>

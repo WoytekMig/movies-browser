@@ -1,24 +1,32 @@
 import React from "react";
-import MovieTile from "../MovieTile";
+import MovieTile from "../../common/MovieTile";
+import { MainContainer, StyledLink, StyledMainHeader } from "./styled";
 import Loading from "../Loading";
 import Error from "../Error";
-import { MainContainer, StyledLink, StyledMainHeader } from "./styled";
+import Pagination from "../Pagination";
 import { useDispatch } from "react-redux";
 import { setMovieId } from "../../features/MoviesBrowser/moviesSlice";
 
-const MoviesList = ({ data }) => {
+const MoviesList = ({ data, currentPage, goToPage }) => {
   const dispatch = useDispatch();
-
+  const moviesData = data;
+  const totalPages = () =>
+    moviesData.total_pages > 500 ? 500 : moviesData.total_pages;
+  const whichPage = (page) => {
+    if (page >= 1 && page <= totalPages()) {
+      goToPage(page);
+    }
+  };
   return (
     <>
       <MainContainer>
         <StyledMainHeader>Popular movies</StyledMainHeader>
-        {data.status === "loading" ? (
+        {moviesData.status === "loading" ? (
           <Loading />
-        ) : data.status === "error" ? (
+        ) : moviesData.status === "error" ? (
           <Error />
         ) : (
-          data.results.map((movie) => (
+          moviesData.results.map((movie) => (
             <StyledLink
               key={movie.id}
               onClick={() => dispatch(setMovieId(movie.id))}
@@ -36,6 +44,14 @@ const MoviesList = ({ data }) => {
           ))
         )}
       </MainContainer>
+      <Pagination
+        currentPage={currentPage}
+        totalPages={totalPages()}
+        onFirstPage={() => whichPage(1)}
+        onPrevPage={() => whichPage(currentPage - 1)}
+        onNextPage={() => whichPage(currentPage + 1)}
+        onLastPage={() => whichPage(totalPages())}
+      />
     </>
   );
 };

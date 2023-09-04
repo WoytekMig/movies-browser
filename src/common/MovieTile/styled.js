@@ -9,6 +9,14 @@ export const Wrapper = styled.div`
   box-sizing: unset;
   background: ${({ theme }) => theme.colors.white};
   box-shadow: ${({ theme }) => theme.common.boxShadow};
+  transition: transform 0.3s ease;
+  transform-origin: center;
+  border: none;
+
+  &::before {
+    content: "";
+    display: block;
+  }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.defaultMobile}) {
     width: 100%;
@@ -17,6 +25,10 @@ export const Wrapper = styled.div`
     display: flex;
     flex-flow: nowrap;
     padding: 0 16px;
+  }
+
+  &:hover {
+    transform: scale(105%);
   }
 `;
 
@@ -54,7 +66,7 @@ export const Title = styled.span`
   font-size: 22px;
   font-weight: 500;
   line-height: 130%;
-  ${({ theme }) => theme.colors.black};
+  color: ${({ theme }) => theme.colors.black};
 
   @media (max-width: ${({ theme }) => theme.breakpoints.defaultMobile}) {
     font-size: 16px;

@@ -32,7 +32,7 @@ const PeopleList = ({ title, moviePage, data, currentPage, onPageChange }) => {
       {!moviePage ? (
         <>
           <MainHeader title={title} />
-          {isLoading ? (
+{isLoading ? (
             <Loading />
           ) : data.status === "error" ? (
             <Error />

@@ -1,16 +1,16 @@
 import { useState, useEffect } from "react";
 
-const discoverMovie =
-  "https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=en-US&page=1&sort_by=popularity.desc";
-
-const usedFetchAddress = discoverMovie;
-
-export const useMoviesData = () => {
+export const useMoviesData = (pageWanted) => {
   const [moviesData, setMoviesData] = useState({
     status: "loading",
-    results: {},
+    page: pageWanted,
+    results: [],
+    total_pages: undefined,
   });
-
+  const discoverMovie1 =
+    "https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=en-US&page=";
+  const discoverMovie2 = "&sort_by=popularity.desc";
+  const usedFetchAddress = discoverMovie1 + pageWanted + discoverMovie2;
   useEffect(() => {
     const fetchMoviesData = async () => {
       const options = {
@@ -23,18 +23,20 @@ export const useMoviesData = () => {
       };
 
       try {
+        setMoviesData({
+          status: "loading",
+        });
         const response = await fetch(usedFetchAddress, options);
-
         if (!response.ok) {
           throw new Error(`HTTP error: ${response.status}`);
         }
 
-        const { page, results } = await response.json();
-
+        const { page, results, total_pages } = await response.json();
         setMoviesData({
-          status: "succes",
+          status: "success",
           page,
           results,
+          total_pages,
         });
       } catch (error) {
         setMoviesData({
@@ -42,9 +44,8 @@ export const useMoviesData = () => {
         });
       }
     };
-
-    setTimeout(fetchMoviesData, 2000);
-  }, []);
+    setTimeout(fetchMoviesData, 500);
+  }, [pageWanted, usedFetchAddress]);
 
   return moviesData;
 };

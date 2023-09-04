@@ -8,6 +8,7 @@ import {
   PageNumber,
   Wrapper,
 } from "./styled";
+
 const Pagination = ({
   currentPage,
   totalPages,
