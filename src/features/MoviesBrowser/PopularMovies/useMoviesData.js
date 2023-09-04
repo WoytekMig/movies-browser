@@ -7,7 +7,7 @@ export const useMoviesData = (pageWanted) => {
     results: [],
     total_pages: undefined,
   });
-
+  console.log(moviesData.status);
   const discoverMovie1 =
     "https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=en-US&page=";
   const discoverMovie2 = "&sort_by=popularity.desc";
@@ -24,6 +24,9 @@ export const useMoviesData = (pageWanted) => {
       };
 
       try {
+        setMoviesData({
+          status: "loading",
+        });
         const response = await fetch(usedFetchAddress, options);
         if (!response.ok) {
           throw new Error(`HTTP error: ${response.status}`);
@@ -42,7 +45,7 @@ export const useMoviesData = (pageWanted) => {
         });
       }
     };
-    setTimeout(fetchMoviesData, 0);
+    setTimeout(fetchMoviesData, 1000);
   }, [pageWanted, usedFetchAddress]);
 
   return moviesData;
