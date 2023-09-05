@@ -1,8 +1,6 @@
 import React from "react";
 import MovieTile from "../../common/MovieTile";
 import { MainContainer, StyledLink, StyledMainHeader } from "./styled";
-import Loading from "../Loading";
-import Error from "../Error";
 import Pagination from "../Pagination";
 import { useDispatch } from "react-redux";
 import { setMovieId } from "../../features/MoviesBrowser/moviesSlice";
