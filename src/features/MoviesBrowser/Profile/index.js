@@ -5,9 +5,17 @@ import { ProfileWrapper } from "./styled";
 import { usePersonData } from "./usePersonData";
 import Error from "../../../common/Error";
 import Loading from "../../../common/Loading";
+import { useSelector } from "react-redux";
+import { selectPersonId } from "../moviesSlice";
 
 const Profile = () => {
-  const { status, person } = usePersonData(3);
+  const personId = useSelector(selectPersonId);
+
+  const { status, person } = usePersonData(personId);
+
+  const modifiedBirthday = person.birthday
+    ? person.birthday.split("-").reverse().join(".")
+    : "";
 
   return (
     <>
@@ -18,7 +26,7 @@ const Profile = () => {
           <ProfileWrapper>
             <About
               name={person.name}
-              birthdate={person.birthday}
+              birthdate={modifiedBirthday}
               birthplace={person.place_of_birth}
               description={person.biography}
               picturePath={person.profile_path}
