@@ -20,7 +20,7 @@ export const Wrapper = styled.div`
 
   @media (max-width: ${({ theme }) => theme.breakpoints.defaultMobile}) {
     width: 100%;
-    height: 201px;
+    /*   height: 201px; */
     align-items: center;
     display: flex;
     flex-flow: nowrap;
@@ -50,7 +50,7 @@ export const Poster = styled.div`
 
 export const DescriptionBox = styled.div`
   width: 292px;
-  height: 200px;
+  /*   height: 200px; */
   position: relative;
   padding-top: inherit;
   padding-bottom: inherit;
@@ -96,6 +96,7 @@ export const GenreBox = styled.div`
   font-weight: 400;
   line-height: 140%;
   padding-bottom: 10px;
+  margin-bottom: 10px;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.defaultMobile}) {
     gap: 8px;
@@ -122,7 +123,6 @@ export const RatingBox = styled.div`
   display: flex;
   gap: 12px;
   align-items: center;
-  padding-top: 10px;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.defaultMobile}) {
     gap: 8px;

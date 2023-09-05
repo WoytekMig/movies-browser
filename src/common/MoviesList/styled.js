@@ -7,6 +7,7 @@ export const MainContainer = styled.div`
   padding: 16px;
   justify-content: center;
   display: flex;
+  align-items: stretch;
   flex-direction: row;
   flex-wrap: wrap;
   gap: 24px;
