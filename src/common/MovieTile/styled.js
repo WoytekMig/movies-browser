@@ -2,29 +2,29 @@ import styled from "styled-components";
 import { ReactComponent as YellowStar } from "../../images/shape-star.svg";
 
 export const Wrapper = styled.div`
-  max-width: 324px;
+  /* max-width: 324px; */
   padding: 16px;
-  gap: 16px;
+  /*   gap: 16px; */
   justify-content: left;
-  box-sizing: unset;
+  /*   box-sizing: unset; */
   background: ${({ theme }) => theme.colors.white};
   box-shadow: ${({ theme }) => theme.common.boxShadow};
   transition: transform 0.3s ease;
   transform-origin: center;
   border: none;
 
-  &::before {
+  /*   &::before {
     content: "";
-    display: block;
-  }
+    /* display: block; 
+  }  */
 
   @media (max-width: ${({ theme }) => theme.breakpoints.defaultMobile}) {
-    width: 100%;
+    /*    width: 100%; */
     /*   height: 201px; */
-    align-items: center;
+    align-items: start;
     display: flex;
-    flex-flow: nowrap;
-    padding: 0 16px;
+    /*  flex-flow: nowrap; */
+    /*    padding: 0 16px; */
   }
 
   &:hover {
@@ -41,6 +41,7 @@ export const Poster = styled.div`
   background-position: center center;
   background-size: cover;
   flex-shrink: 0;
+  /* margin: 16px; */
 
   @media (max-width: ${({ theme }) => theme.breakpoints.defaultMobile}) {
     width: 114px;
@@ -52,13 +53,15 @@ export const DescriptionBox = styled.div`
   width: 292px;
   /*   height: 200px; */
   position: relative;
-  padding-top: inherit;
-  padding-bottom: inherit;
+  padding: inherit;
+  /* padding-bottom: inherit; */
 
   @media (max-width: ${({ theme }) => theme.breakpoints.defaultMobile}) {
     width: auto;
-    height: 169px;
-    position: unset;
+    /*     height: 169px; */
+    /*   position: unset; */
+    padding-top: 0px;
+    padding-right: 10px;
   }
 `;
 
@@ -126,8 +129,8 @@ export const RatingBox = styled.div`
 
   @media (max-width: ${({ theme }) => theme.breakpoints.defaultMobile}) {
     gap: 8px;
-    position: unset;
-    padding-top: 0px;
+    /* position: unset; */
+    /*  padding-top: 0px; */
     align-items: flex-start;
   }
 `;
@@ -148,7 +151,7 @@ export const Rating = styled.div`
   line-height: 150%;
   color: ${({ theme }) => theme.colors.woodSmoke};
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.defaultMobile}px) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.defaultMobile}) {
     font-size: 13px;
     line-height: 130%;
   }
@@ -160,7 +163,7 @@ export const Votes = styled.div`
   line-height: 150%;
   color: ${({ theme }) => theme.colors.waterloo};
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.defaultMobile}px) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.defaultMobile}) {
     font-size: 13px;
     line-height: 130%;
   }
