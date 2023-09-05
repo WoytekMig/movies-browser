@@ -21,28 +21,22 @@ const MoviesList = ({ data, currentPage, goToPage }) => {
     <>
       <MainContainer>
         <StyledMainHeader>Popular movies</StyledMainHeader>
-        {moviesData.status === "loading" ? (
-          <Loading />
-        ) : moviesData.status === "error" ? (
-          <Error />
-        ) : (
-          moviesData.results.map((movie) => (
-            <StyledLink
-              key={movie.id}
-              onClick={() => dispatch(setMovieId(movie.id))}
-              to={`/movie/${movie.id}`}
-            >
-              <MovieTile
-                posterPath={movie.poster_path}
-                title={movie.title}
-                year={new Date(movie.release_date).getFullYear()}
-                rating={movie.vote_average}
-                votes={movie.vote_count}
-                tag={movie.genre_ids}
-              />
-            </StyledLink>
-          ))
-        )}
+        {moviesData.results.map((movie) => (
+          <StyledLink
+            key={movie.id}
+            onClick={() => dispatch(setMovieId(movie.id))}
+            to={`/movie/${movie.id}`}
+          >
+            <MovieTile
+              posterPath={movie.poster_path}
+              title={movie.title}
+              year={new Date(movie.release_date).getFullYear()}
+              rating={movie.vote_average}
+              votes={movie.vote_count}
+              tag={movie.genre_ids}
+            />
+          </StyledLink>
+        ))}
       </MainContainer>
       <Pagination
         currentPage={currentPage}
