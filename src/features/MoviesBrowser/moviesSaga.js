@@ -14,9 +14,9 @@ function* saveMovieIdInLocalStorageHandler() {
 
 function* savePersonIdInLocalStorageHandler() {
   try {
-    const PersonId = yield select(selectPersonId);
+    const personId = yield select(selectPersonId);
 
-    yield call(setLocalStorage, PersonId, "PersonId");
+    yield call(setLocalStorage, personId, "personId");
   } catch (error) {
     console.error(error);
   }
