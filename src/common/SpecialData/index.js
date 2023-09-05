@@ -12,15 +12,19 @@ const SpecialData = ({
 }) => {
   const isMedia = useMediaQuery({ maxWidth: 767 });
 
+  const correctedUpperContent = Array.isArray(upperContent)
+    ? upperContent.join(", ")
+    : upperContent;
+
   return (
     <StyledSpecialData>
       <DataWrapper $profile={profile}>
         {isMedia ? mobileUpperData : desktopUpperData}
-        <Data>{upperContent.join(", ")}</Data>
+        <Data>{upperContent ? correctedUpperContent : "Unknown"}</Data>
       </DataWrapper>
       <DataWrapper $profileSpecial={profile} $profile={profile}>
         {isMedia ? mobileLowerData : desktopLowerData}
-        <Data>{lowerContent}</Data>
+        <Data>{lowerContent ? lowerContent : "Unknown"}</Data>
       </DataWrapper>
     </StyledSpecialData>
   );
