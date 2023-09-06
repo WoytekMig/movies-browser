@@ -33,9 +33,9 @@ const Profile = () => {
               picturePath={person.profile_path}
             />
             <MainHeader title={`Movies - cast (${credits.cast.length})`} />
-            <MoviesList moviesData={credits.cast} />
+            <MoviesList profile moviesData={credits.cast} />
             <MainHeader title={`Movies - crew (${credits.crew.length})`} />
-            <MoviesList moviesData={credits.crew} />
+            <MoviesList profile moviesData={credits.crew} />
           </ProfileWrapper>
         </Main>
       )}
