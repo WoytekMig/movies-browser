@@ -1,15 +1,14 @@
 import React from "react";
 import MovieTile from "../../common/MovieTile";
-import { MainContainer, StyledLink, StyledMainHeader } from "./styled";
+import { MainContainer, StyledLink } from "./styled";
 import { useDispatch } from "react-redux";
 import { setMovieId } from "../../features/MoviesBrowser/moviesSlice";
 
-const MoviesList = ({ moviesData, title }) => {
+const MoviesList = ({ moviesData }) => {
   const dispatch = useDispatch();
 
   return (
     <MainContainer>
-      <StyledMainHeader>{title}</StyledMainHeader>
       {moviesData.map((movie) => (
         <StyledLink
           key={movie.credit_id ?? movie.id}
