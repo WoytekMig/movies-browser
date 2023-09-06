@@ -7,6 +7,7 @@ import Loading from "../../../common/Loading";
 import { useSelector } from "react-redux";
 import { selectPersonId } from "../moviesSlice";
 import MoviesList from "../../../common/MoviesList";
+import MainHeader from "../../../common/MainHeader";
 
 const Profile = () => {
   const personId = useSelector(selectPersonId);
@@ -32,16 +33,13 @@ const Profile = () => {
                 description={person.biography}
                 picturePath={person.profile_path}
               />
+
+              <MainHeader title={`Movies - cast (${credits.cast.length})`} />
+              <MoviesList moviesData={credits.cast} />
+              <MainHeader title={`Movies - crew (${credits.crew.length})`} />
+              <MoviesList moviesData={credits.crew} />
             </ProfileWrapper>
           </Main>
-          <MoviesList
-            moviesData={credits.cast}
-            title={`Movies - cast (${credits.cast.length})`}
-          />
-          <MoviesList
-            moviesData={credits.crew}
-            title={`Movies - crew (${credits.crew.length})`}
-          />
         </>
       )}
     </>
