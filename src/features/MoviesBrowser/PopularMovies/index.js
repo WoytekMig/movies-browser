@@ -19,7 +19,6 @@ const PopularMovies = () => {
     }
   };
 
-  console.log(moviesData);
   return (
     <>
       {moviesData.status === "loading" ? (
