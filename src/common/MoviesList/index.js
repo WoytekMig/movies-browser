@@ -1,4 +1,3 @@
-import React from "react";
 import MovieTile from "../../common/MovieTile";
 import { MainContainer, StyledLink } from "./styled";
 import { useDispatch } from "react-redux";

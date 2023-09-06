@@ -1,4 +1,3 @@
-import React from "react";
 import Navigation from "../../common/Navigation";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import PopularPeople from "./PopularPeople";
