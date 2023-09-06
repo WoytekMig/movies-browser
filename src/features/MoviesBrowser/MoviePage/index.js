@@ -17,10 +17,6 @@ const MoviePage = () => {
   const topPoster = getMovieImageUrl(movie.backdrop_path);
   const poster = getMovieImageUrl(movie.poster_path);
 
-  const modifiedRating = movie.vote_average
-    ? movie.vote_average.toFixed(1).replace(".", ",")
-    : "";
-
   const modifiedReleaseDate = movie.vote_average
     ? movie.release_date.split("-").reverse().join(".")
     : "";
@@ -34,7 +30,7 @@ const MoviePage = () => {
           <MovieTop
             poster={topPoster}
             title={movie.original_title}
-            rate={modifiedRating}
+            rate={movie.vote_average}
             votes={movie.vote_count}
           />
           <MovieInfo
@@ -43,7 +39,7 @@ const MoviePage = () => {
             productionPlace={movie.production_countries.map(({ name }) => name)}
             releaseDate={modifiedReleaseDate}
             tags={movie.genres}
-            rate={modifiedRating}
+            rate={movie.vote_average}
             votes={movie.vote_count}
             description={movie.overview}
             poster={poster}

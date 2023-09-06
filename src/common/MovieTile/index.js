@@ -40,7 +40,7 @@ const MovieTile = ({ posterPath, title, year, tag, rating, votes }) => {
         </GenreBox>
         <RatingBox>
           <StarImage></StarImage>
-          <Rating>{rating}</Rating>
+          <Rating>{rating.toFixed(1).replace(".", ",")}</Rating>
           <Votes>{votes} votes</Votes>
         </RatingBox>
       </DescriptionBox>
