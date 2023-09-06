@@ -23,24 +23,22 @@ const Profile = () => {
       {status === "loading" && <Loading />}
       {status === "error" && <Error />}
       {status === "success" && (
-        <>
-          <Main>
-            <ProfileWrapper>
-              <About
-                name={person.name}
-                birthdate={modifiedBirthday}
-                birthplace={person.place_of_birth}
-                description={person.biography}
-                picturePath={person.profile_path}
-              />
+        <Main>
+          <ProfileWrapper>
+            <About
+              name={person.name}
+              birthdate={modifiedBirthday}
+              birthplace={person.place_of_birth}
+              description={person.biography}
+              picturePath={person.profile_path}
+            />
 
-              <MainHeader title={`Movies - cast (${credits.cast.length})`} />
-              <MoviesList moviesData={credits.cast} />
-              <MainHeader title={`Movies - crew (${credits.crew.length})`} />
-              <MoviesList moviesData={credits.crew} />
-            </ProfileWrapper>
-          </Main>
-        </>
+            <MainHeader title={`Movies - cast (${credits.cast.length})`} />
+            <MoviesList moviesData={credits.cast} />
+            <MainHeader title={`Movies - crew (${credits.crew.length})`} />
+            <MoviesList moviesData={credits.crew} />
+          </ProfileWrapper>
+        </Main>
       )}
     </>
   );
