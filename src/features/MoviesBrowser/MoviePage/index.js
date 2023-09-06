@@ -25,10 +25,6 @@ const MoviePage = () => {
     ? movie.release_date.split("-").reverse().join(".")
     : "";
 
-  const productionYear = movie.vote_average
-    ? modifiedReleaseDate.slice("6")
-    : "";
-
   return (
     <>
       {status === "loading" && <Loading />}
@@ -43,7 +39,7 @@ const MoviePage = () => {
           />
           <MovieInfo
             title={movie.title}
-            productionYear={productionYear}
+            productionYear={new Date(movie.release_date).getFullYear()}
             productionPlace={movie.production_countries.map(({ name }) => name)}
             releaseDate={modifiedReleaseDate}
             tags={movie.genres}
