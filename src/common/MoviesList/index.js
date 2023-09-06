@@ -12,7 +12,7 @@ const MoviesList = ({ moviesData, title }) => {
       <StyledMainHeader>{title}</StyledMainHeader>
       {moviesData.map((movie) => (
         <StyledLink
-          key={movie.id}
+          key={movie.credit_id ?? movie.id}
           onClick={() => dispatch(setMovieId(movie.id))}
           to={`/movie/${movie.id}`}
         >
