@@ -2,7 +2,7 @@ import { styled } from "styled-components";
 
 export const ProfileWrapper = styled.div`
   display: grid;
-  grid-gap: 64px;
+  grid-gap: 8px;
   margin: 56px 0 220px 0;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
