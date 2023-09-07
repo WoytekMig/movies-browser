@@ -6,10 +6,14 @@ import Pagination from "../Pagination";
 import Error from "../Error";
 import Loading from "../Loading";
 import { useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
+import { setPersonId } from "../../features/MoviesBrowser/moviesSlice";
 
 const PeopleList = ({ title, moviePage, data, currentPage, onPageChange }) => {
-  const totalPages = data.totalPages || 1;
   const [isLoading, setLoading] = useState(true);
+  const dispatch = useDispatch();
+
+  const totalPages = data.totalPages || 1;
 
   const handlePageChange = (newPage) => {
     if (newPage >= 1 && newPage <= totalPages) {
@@ -32,7 +36,7 @@ const PeopleList = ({ title, moviePage, data, currentPage, onPageChange }) => {
       {!moviePage ? (
         <>
           <MainHeader title={title} />
-{isLoading ? (
+          {isLoading ? (
             <Loading />
           ) : data.status === "error" ? (
             <Error />
@@ -41,7 +45,10 @@ const PeopleList = ({ title, moviePage, data, currentPage, onPageChange }) => {
               <List $moviePage={moviePage}>
                 {data.results.map((person) => (
                   <ListItem key={person.id}>
-                    <StyledLink to={`/person/${person.id}`}>
+                    <StyledLink
+                      onClick={() => dispatch(setPersonId(person.id))}
+                      to={`/person/${person.id}`}
+                    >
                       <PersonTile
                         picture={person.profile_path}
                         name={person.name}
@@ -69,7 +76,10 @@ const PeopleList = ({ title, moviePage, data, currentPage, onPageChange }) => {
           <List $moviePage={moviePage}>
             {data.map((person) => (
               <ListItem key={person.credit_id}>
-                <StyledLink to={`/person/${person.id}`}>
+                <StyledLink
+                  onClick={() => dispatch(setPersonId(person.id))}
+                  to={`/person/${person.id}`}
+                >
                   <PersonTile
                     picture={person.profile_path}
                     name={person.name}

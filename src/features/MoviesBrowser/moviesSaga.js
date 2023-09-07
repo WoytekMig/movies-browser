@@ -1,5 +1,5 @@
 import { call, select, takeEvery } from "@redux-saga/core/effects";
-import { selectMovieId } from "./moviesSlice";
+import { selectMovieId, selectPersonId } from "./moviesSlice";
 import { setLocalStorage } from "./dataInLocalStorage";
 
 function* saveMovieIdInLocalStorageHandler() {
@@ -12,6 +12,17 @@ function* saveMovieIdInLocalStorageHandler() {
   }
 }
 
+function* savePersonIdInLocalStorageHandler() {
+  try {
+    const personId = yield select(selectPersonId);
+
+    yield call(setLocalStorage, personId, "personId");
+  } catch (error) {
+    console.error(error);
+  }
+}
+
 export function* moviesSaga() {
   yield takeEvery("*", saveMovieIdInLocalStorageHandler);
+  yield takeEvery("*", savePersonIdInLocalStorageHandler);
 }
