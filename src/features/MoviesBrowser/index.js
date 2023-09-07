@@ -1,5 +1,5 @@
 import Navigation from "../../common/Navigation";
-import { BrowserRouter, Route, Switch } from "react-router-dom";
+import { HashRouter, Route, Switch } from "react-router-dom";
 import PopularPeople from "./PopularPeople";
 import SearchResult from "./SearchResult";
 import MoviePage from "./MoviePage";
@@ -8,7 +8,7 @@ import { Redirect } from "react-router-dom/cjs/react-router-dom.min";
 import Profile from "./Profile";
 
 const MoviesBrowser = () => (
-  <BrowserRouter basename="/movies-browser">
+  <HashRouter basename="/movies-browser">
     <Navigation />
     <Switch>
       <Route path="/movies" component={PopularMovies} />
@@ -20,7 +20,7 @@ const MoviesBrowser = () => (
         <Redirect to="/movies" />
       </Route>
     </Switch>
-  </BrowserRouter>
+  </HashRouter>
 );
 
 export default MoviesBrowser;
