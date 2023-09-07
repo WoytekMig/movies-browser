@@ -2,20 +2,12 @@ import { Main } from "../Main";
 import MainHeader from "../MainHeader";
 import { List, ListItem, StyledLink } from "./styled";
 import PersonTile from "../PersonTile";
-import Pagination from "../Pagination";
 import Error from "../Error";
 import Loading from "../Loading";
 import { useEffect, useState } from "react";
 
 const PeopleList = ({ title, moviePage, data, currentPage, onPageChange }) => {
-  const totalPages = data.totalPages || 1;
   const [isLoading, setLoading] = useState(true);
-
-  const handlePageChange = (newPage) => {
-    if (newPage >= 1 && newPage <= totalPages) {
-      onPageChange(newPage);
-    }
-  };
 
   useEffect(() => {
     const loadingTimeout = setTimeout(() => {
@@ -32,7 +24,7 @@ const PeopleList = ({ title, moviePage, data, currentPage, onPageChange }) => {
       {!moviePage ? (
         <>
           <MainHeader title={title} />
-{isLoading ? (
+          {isLoading ? (
             <Loading />
           ) : data.status === "error" ? (
             <Error />
@@ -51,15 +43,6 @@ const PeopleList = ({ title, moviePage, data, currentPage, onPageChange }) => {
                   </ListItem>
                 ))}
               </List>
-
-              <Pagination
-                currentPage={currentPage}
-                totalPages={totalPages}
-                onFirstPage={() => handlePageChange(1)}
-                onPrevPage={() => handlePageChange(currentPage - 1)}
-                onNextPage={() => handlePageChange(currentPage + 1)}
-                onLastPage={() => handlePageChange(totalPages)}
-              />
             </>
           )}
         </>
