@@ -2,49 +2,28 @@ import { Main } from "../Main";
 import MainHeader from "../MainHeader";
 import { List, ListItem, StyledLink } from "./styled";
 import PersonTile from "../PersonTile";
-import Error from "../Error";
-import Loading from "../Loading";
-import { useEffect, useState } from "react";
 
 const PeopleList = ({ title, moviePage, data, currentPage, onPageChange }) => {
-  const [isLoading, setLoading] = useState(true);
-
-  useEffect(() => {
-    const loadingTimeout = setTimeout(() => {
-      setLoading(false);
-    }, 500);
-
-    return () => {
-      clearTimeout(loadingTimeout);
-    };
-  }, []);
-
   return (
     <Main>
       {!moviePage ? (
         <>
           <MainHeader title={title} />
-          {isLoading ? (
-            <Loading />
-          ) : data.status === "error" ? (
-            <Error />
-          ) : (
-            <>
-              <List $moviePage={moviePage}>
-                {data.results.map((person) => (
-                  <ListItem key={person.id}>
-                    <StyledLink to={`/person/${person.id}`}>
-                      <PersonTile
-                        picture={person.profile_path}
-                        name={person.name}
-                        role={person.character}
-                      />
-                    </StyledLink>
-                  </ListItem>
-                ))}
-              </List>
-            </>
-          )}
+          <>
+            <List $moviePage={moviePage}>
+              {data.results.map((person) => (
+                <ListItem key={person.id}>
+                  <StyledLink to={`/person/${person.id}`}>
+                    <PersonTile
+                      picture={person.profile_path}
+                      name={person.name}
+                      role={person.character}
+                    />
+                  </StyledLink>
+                </ListItem>
+              ))}
+            </List>
+          </>
         </>
       ) : (
         <>
