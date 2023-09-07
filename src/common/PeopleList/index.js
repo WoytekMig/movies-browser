@@ -3,8 +3,11 @@ import MainHeader from "../MainHeader";
 import { List, ListItem, StyledLink } from "./styled";
 import PersonTile from "../PersonTile";
 
-const PeopleList = ({ title, moviePage, data, currentPage, onPageChange }) => {
-  return (
+const PeopleList = ({ title, moviePage, data }) => {
+
+  
+
+   return (
     <Main>
       {!moviePage ? (
         <>
