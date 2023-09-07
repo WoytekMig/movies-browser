@@ -1,10 +1,9 @@
 import Navigation from "../../common/Navigation";
-import { HashRouter, Route, Switch } from "react-router-dom";
+import { HashRouter, Redirect, Route, Switch } from "react-router-dom";
 import PopularPeople from "./PopularPeople";
 import SearchResult from "./SearchResult";
 import MoviePage from "./MoviePage";
 import PopularMovies from "./PopularMovies";
-import { Redirect } from "react-router-dom/cjs/react-router-dom.min";
 import Profile from "./Profile";
 
 const MoviesBrowser = () => (
