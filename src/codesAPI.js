@@ -13,3 +13,10 @@ export const getMovieApiUrls = (movieId) => {
 
   return { MOVIE_API_URL, CREDITS_API_URL };
 };
+
+export const getPersonApiUrls = (personId) => {
+  const PERSON_API_URL = `https://api.themoviedb.org/3/person/${personId}?api_key=${API_KEY}`;
+  const CREDITS_API_URL = `https://api.themoviedb.org/3/person/${personId}/movie_credits?api_key=${API_KEY}`;
+
+  return { PERSON_API_URL, CREDITS_API_URL };
+};
