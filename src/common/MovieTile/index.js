@@ -10,6 +10,7 @@ import {
   StarImage,
   Votes,
   DescriptionBox,
+  PosterIMG,
 } from "./styled";
 import { genres } from "../genreIds";
 import { IMG_URL } from "../../codesAPI";
@@ -19,7 +20,10 @@ const MovieTile = ({ posterPath, title, year, tag, rating, votes }) => {
 
   return (
     <Wrapper>
-      <Poster $imageUrl={fullUrl} />
+      <Poster>
+        <PosterIMG src={fullUrl} />
+      </Poster>{" "}
+      {/* $imageUrl={fullUrl}  */}
       <DescriptionBox>
         <Title> {title}</Title>
         <Year>{year}</Year>
@@ -38,12 +42,12 @@ const MovieTile = ({ posterPath, title, year, tag, rating, votes }) => {
             return null;
           })}
         </GenreBox>
-        <RatingBox>
-          <StarImage></StarImage>
-          <Rating>{rating.toFixed(1).replace(".", ",")}</Rating>
-          <Votes>{votes} votes</Votes>
-        </RatingBox>
       </DescriptionBox>
+      <RatingBox>
+        <StarImage></StarImage>
+        <Rating>{rating.toFixed(1).replace(".", ",")}</Rating>
+        <Votes>{votes} votes</Votes>
+      </RatingBox>
     </Wrapper>
   );
 };

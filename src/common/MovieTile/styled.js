@@ -5,26 +5,25 @@ export const Wrapper = styled.div`
   /* max-width: 324px; */
   padding: 16px;
   /*   gap: 16px; */
-  justify-content: left;
+  /* justify-content: left; */
   /*   box-sizing: unset; */
+  /*   display: grid; */
   background: ${({ theme }) => theme.colors.white};
   box-shadow: ${({ theme }) => theme.common.boxShadow};
   transition: transform 0.3s ease;
   transform-origin: center;
   border: none;
+  border-radius: 5px;
+  /*  align-self: stretch; */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 
-  /*   &::before {
-    content: "";
-    /* display: block; 
-  }  */
-
-  @media (max-width: ${({ theme }) => theme.breakpoints.defaultMobile}) {
-    /*    width: 100%; */
-    /*   height: 201px; */
-    align-items: start;
-    display: flex;
-    /*  flex-flow: nowrap; */
-    /*    padding: 0 16px; */
+  @media (max-width: ${({ theme }) => theme.breakpoints.smallMobile}) {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    grid-template-rows: 1fr auto;
+    /*   grid-gap: 16px; */
   }
 
   &:hover {
@@ -33,28 +32,55 @@ export const Wrapper = styled.div`
 `;
 
 export const Poster = styled.div`
-  width: 292px;
-  height: 434px;
+  /* width: 292px; */
+  /*   width: 100%; */
+  /* height: auto; */
+  /*  height: auto; */
   border-radius: 5px;
   background-repeat: no-repeat;
-  background-image: url(${(props) => props.$imageUrl});
+  /*  background-image: url(${(props) => props.$imageUrl}); */
   background-position: center center;
-  background-size: cover;
-  flex-shrink: 0;
+
+  /* background-size: contain; */
+  /* flex-shrink: 0; */
   /* margin: 16px; */
 
+  @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
+    /*    width: 376px;
+    height: 557.4px; */
+  }
+
   @media (max-width: ${({ theme }) => theme.breakpoints.defaultMobile}) {
+    /*     width: 114px;
+    height: 169px; */
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.smallMobile}) {
     width: 114px;
     height: 169px;
+    grid-column: span 1;
+    grid-row: span 2;
+    /*  border-radius: 5px; */
   }
 `;
 
+export const PosterIMG = styled.img`
+  width: 100%;
+  height: auto;
+  border-radius: 5px;
+`;
+
 export const DescriptionBox = styled.div`
-  width: 292px;
+  /* width: 292px; */
   /*   height: 200px; */
-  position: relative;
-  padding: inherit;
+  /* height: 100%; */
+  /*  position: relative; */
+  display: flex;
+  flex-direction: column;
+  /* justify-content: space-between; */
+  padding-top: inherit;
   /* padding-bottom: inherit; */
+  /*   flex-shrink: 1; */
 
   @media (max-width: ${({ theme }) => theme.breakpoints.defaultMobile}) {
     width: auto;
@@ -62,6 +88,14 @@ export const DescriptionBox = styled.div`
     /*   position: unset; */
     padding-top: 0px;
     padding-right: 10px;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.smallMobile}) {
+    /*  padding-top: 16px; */
+    /*  display: grid;
+    grid-template-columns: 1; */
+    grid-column: span 1;
+    grid-row: span 1;
   }
 `;
 
@@ -77,7 +111,7 @@ export const Title = styled.span`
 `;
 
 export const Year = styled.span`
-  display: block;
+  /* display: block; */
   font-size: 16px;
   font-weight: 400;
   line-height: 150%;
@@ -121,17 +155,25 @@ export const GenreTile = styled.div`
 `;
 
 export const RatingBox = styled.div`
-  position: absolute;
-  bottom: 0px;
+  /*  position: absolute; */
+  margin-top: auto;
+  /* align-self: end; */
+  /* bottom: 0px; */
   display: flex;
   gap: 12px;
-  align-items: center;
+  /* align-items: center; */
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.defaultMobile}) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.smallMobile}) {
     gap: 8px;
     /* position: unset; */
     /*  padding-top: 0px; */
-    align-items: flex-start;
+    /* align-items: flex-start; */
+    /*  margin-top: inherit; */
+    /*  margin: auto; */
+    /*  align-self: flex-start; */
+    grid-column: span 1;
+    grid-row: span 1;
+    margin-top: unset;
   }
 `;
 
