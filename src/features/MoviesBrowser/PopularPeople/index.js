@@ -1,10 +1,11 @@
 import { useQuery } from "react-query";
-import PeopleList from "../../../common/PeopleList";
 import { API_KEY, ApiPopularPeople } from "../../../codesAPI";
+import { useState } from "react";
+import { usePopularPeopleData } from "./usePopularPeopleData";
 import Loading from "../../../common/Loading";
 import Error from "../../../common/Error";
-import { usePopularPeopleData } from "./usePopularPeopleData";
-import { useState } from "react";
+import PeopleList from "common/PeopleList";
+import Pagination from "../../../common/Pagination";
 
 const PopularPeople = () => {
   const [currentPage, setCurrentPage] = useState(1);
@@ -17,6 +18,13 @@ const PopularPeople = () => {
     }
     return response.json();
   });
+  const totalPages = popularPeopleData.totalPages || 1;
+
+  const handlePageChange = (newPage) => {
+    if (newPage >= 1 && newPage <= totalPages) {
+      setCurrentPage(newPage);
+    }
+  };
 
   return (
     <div>
@@ -28,9 +36,17 @@ const PopularPeople = () => {
         <div>
           <PeopleList
             currentPage={currentPage}
-            onPageChange={setCurrentPage}
+            onPageChange={handlePageChange}
             data={popularPeopleData}
             title="Popular people"
+          />
+          <Pagination
+            currentPage={currentPage}
+            totalPages={totalPages}
+            onFirstPage={() => handlePageChange(1)}
+            onPrevPage={() => handlePageChange(currentPage - 1)}
+            onNextPage={() => handlePageChange(currentPage + 1)}
+            onLastPage={() => handlePageChange(totalPages)}
           />
         </div>
       )}
