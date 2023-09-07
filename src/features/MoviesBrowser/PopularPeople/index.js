@@ -1,10 +1,10 @@
 import { useQuery } from "react-query";
-import { API_KEY, ApiPopularPeople } from "../../../codesAPI";
 import { useState } from "react";
+import { API_KEY, ApiPopularPeople } from "../../../codesAPI";
 import { usePopularPeopleData } from "./usePopularPeopleData";
 import Loading from "../../../common/Loading";
 import Error from "../../../common/Error";
-import PeopleList from "common/PeopleList";
+import PeopleList from "../../../common/PeopleList";
 import Pagination from "../../../common/Pagination";
 
 const PopularPeople = () => {
