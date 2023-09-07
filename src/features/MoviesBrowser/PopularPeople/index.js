@@ -34,12 +34,7 @@ const PopularPeople = () => {
         <Error message={error.message} />
       ) : (
         <div>
-          <PeopleList
-            currentPage={currentPage}
-            onPageChange={handlePageChange}
-            data={popularPeopleData}
-            title="Popular people"
-          />
+          <PeopleList data={popularPeopleData} title="Popular people" />
           <Pagination
             currentPage={currentPage}
             totalPages={totalPages}
