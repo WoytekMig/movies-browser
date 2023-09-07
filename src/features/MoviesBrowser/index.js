@@ -8,7 +8,7 @@ import { Redirect } from "react-router-dom/cjs/react-router-dom.min";
 import Profile from "./Profile";
 
 const MoviesBrowser = () => (
-  <HashRouter basename="/movies-browser">
+  <HashRouter>
     <Navigation />
     <Switch>
       <Route path="/movies" component={PopularMovies} />
