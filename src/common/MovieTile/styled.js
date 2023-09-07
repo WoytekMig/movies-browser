@@ -21,8 +21,9 @@ export const Wrapper = styled.div`
 
   @media (max-width: ${({ theme }) => theme.breakpoints.smallMobile}) {
     display: grid;
-    grid-template-columns: 1fr auto;
-    grid-template-rows: 1fr auto;
+    grid-template-columns: 130px auto;
+    grid-template-rows: auto 100%;
+    /* justify-content: baseline; */
     /*   grid-gap: 16px; */
   }
 
@@ -173,7 +174,7 @@ export const RatingBox = styled.div`
     /*  align-self: flex-start; */
     grid-column: span 1;
     grid-row: span 1;
-    margin-top: unset;
+    margin-top: 0px;
   }
 `;
 
