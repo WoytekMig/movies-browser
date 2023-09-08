@@ -10,16 +10,20 @@ import {
   StarImage,
   Votes,
   DescriptionBox,
+  PosterIMG,
 } from "./styled";
 import { genres } from "../genreIds";
 import { IMG_URL } from "../../codesAPI";
+import whenNoPoster from "../../images/whenNoPoster.png";
 
 const MovieTile = ({ posterPath, title, year, tag, rating, votes }) => {
-  const fullUrl = posterPath ? IMG_URL + posterPath : "../../images/logo.svg";
+  const fullUrl = posterPath ? IMG_URL + posterPath : whenNoPoster;
 
   return (
     <Wrapper>
-      <Poster $imageUrl={fullUrl} />
+      <Poster>
+        <PosterIMG src={fullUrl} />
+      </Poster>
       <DescriptionBox>
         <Title> {title}</Title>
         <Year>{year}</Year>
@@ -38,12 +42,12 @@ const MovieTile = ({ posterPath, title, year, tag, rating, votes }) => {
             return null;
           })}
         </GenreBox>
-        <RatingBox>
-          <StarImage></StarImage>
-          <Rating>{rating.toFixed(1).replace(".", ",")}</Rating>
-          <Votes>{votes} votes</Votes>
-        </RatingBox>
       </DescriptionBox>
+      <RatingBox>
+        <StarImage></StarImage>
+        <Rating>{rating.toFixed(1).replace(".", ",")}</Rating>
+        <Votes>{votes} votes</Votes>
+      </RatingBox>
     </Wrapper>
   );
 };
