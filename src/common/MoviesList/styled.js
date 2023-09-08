@@ -6,8 +6,6 @@ export const MainContainer = styled.div`
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   align-content: stretch;
-  /* flex-direction: row;
-  flex-wrap: wrap; */
   grid-gap: 24px;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {

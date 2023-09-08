@@ -22,8 +22,7 @@ const MovieTile = ({ posterPath, title, year, tag, rating, votes }) => {
     <Wrapper>
       <Poster>
         <PosterIMG src={fullUrl} />
-      </Poster>{" "}
-      {/* $imageUrl={fullUrl}  */}
+      </Poster>
       <DescriptionBox>
         <Title> {title}</Title>
         <Year>{year}</Year>
