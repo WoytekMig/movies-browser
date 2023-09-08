@@ -15,24 +15,20 @@ export const List = styled.ul`
       margin: 0;
     `}
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
+  @media (max-width: 1300px) {
     grid-template-columns: repeat(5, 1fr);
   }
 
-  @media (max-width: 950px) {
+  @media (max-width: 1050px) {
     grid-template-columns: repeat(4, 1fr);
   }
 
-  @media (max-width: 750px) {
-    display: grid;
+  @media (max-width: 850px) {
     grid-template-columns: repeat(3, 1fr);
-    place-items: center;
   }
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.smallMobile}) {
-    display: grid;
+  @media (max-width: 605px) {
     grid-template-columns: repeat(2, 1fr);
-    place-items: center;
   }
 `;
 

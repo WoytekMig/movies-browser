@@ -53,6 +53,7 @@ const PeopleList = ({ title, moviePage, data, currentPage, onPageChange }) => {
                         picture={person.profile_path}
                         name={person.name}
                         role={person.character}
+                        $moviePage={moviePage}
                       />
                     </StyledLink>
                   </ListItem>
