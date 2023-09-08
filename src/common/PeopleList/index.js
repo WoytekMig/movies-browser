@@ -3,8 +3,9 @@ import MainHeader from "../MainHeader";
 import { List, ListItem, StyledLink } from "./styled";
 import PersonTile from "../PersonTile";
 
-const PeopleList = ({ title, moviePage, data }) => {
-
+const PeopleList = ({ title, moviePage, data, currentPage }) => {
+  console.log("Data in PeopleList:", data);
+  console.log("currentPage in PeopleList:", currentPage);
   
 
    return (
