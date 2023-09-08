@@ -14,9 +14,10 @@ import {
 } from "./styled";
 import { genres } from "../genreIds";
 import { IMG_URL } from "../../codesAPI";
+import whenNoPoster from "../../images/whenNoPoster.png";
 
 const MovieTile = ({ posterPath, title, year, tag, rating, votes }) => {
-  const fullUrl = posterPath ? IMG_URL + posterPath : "../../images/logo.svg";
+  const fullUrl = posterPath ? IMG_URL + posterPath : whenNoPoster;
 
   return (
     <Wrapper>

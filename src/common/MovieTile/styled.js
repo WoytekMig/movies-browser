@@ -26,10 +26,6 @@ export const Wrapper = styled.div`
 `;
 
 export const Poster = styled.div`
-  border-radius: 5px;
-  background-repeat: no-repeat;
-  background-position: center center;
-
   @media (max-width: ${({ theme }) => theme.breakpoints.smallMobile}) {
     width: 114px;
     height: 169px;
