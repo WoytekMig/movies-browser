@@ -53,6 +53,11 @@ export const Name = styled.span`
   @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
     font-size: 1.8vh;
   }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.smallMobile}) {
+    margin: 0;
+    font-size: 1.5vh;
+  }
 `;
 
 export const Role = styled.span`
@@ -61,5 +66,9 @@ export const Role = styled.span`
 
   @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
     font-size: 1.5vh;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.smallMobile}) {
+    font-size: 1.3vh;
   }
 `;
