@@ -11,7 +11,6 @@ import Pagination from "../../../common/Pagination";
 const SearchResult = () => {
   const location = useLocation();
   const queryParam = new URLSearchParams(location.search).get("query");
-  console.log("queryParam:", queryParam);
 
   const [currentPage, setCurrentPage] = useState(1);
   const [isLoading, setLoading] = useState(true);
@@ -20,7 +19,6 @@ const SearchResult = () => {
   const [totalPages, setTotalPages] = useState(1);
 
   useEffect(() => {
-    console.log("currentPage in SearchResult:", currentPage);
     const loadingTimeout = setTimeout(() => {
       setLoading(false);
     }, 300);
@@ -30,7 +28,6 @@ const SearchResult = () => {
   }, [currentPage]);
 
   const { data, isError } = useSearchPeopleQuery(queryParam);
-  console.log("API response:", data);
 
   useEffect(() => {
     if (data !== undefined) {
@@ -40,11 +37,11 @@ const SearchResult = () => {
   }, [data]);
   const handleSearchPageChange = (newPage) => {
     if (newPage >= 1 && newPage <= totalPages) {
-      console.log("Changing page to:", newPage);
       setCurrentPage(newPage);
       setLoading(true);
     }
   };
+
   return (
     <Main>
       <MainHeader

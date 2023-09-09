@@ -13,7 +13,6 @@ const PopularPeople = () => {
 
   const handlePageChange = (newPage) => {
     if (newPage >= 1 && newPage <= totalPages) {
-      console.log("Changing page to:", newPage);
       setIsLoading(true);
       setCurrentPage(newPage);
     }
