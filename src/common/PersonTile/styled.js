@@ -2,7 +2,7 @@ import { css, styled } from "styled-components";
 
 export const Wrapper = styled.div`
   display: grid;
-  grid-template-rows: 3fr minmax(64px, 90px);
+  grid-template-rows: 3fr minmax(43px, 64px);
   justify-items: center;
   height: 100%;
   max-height: 420px;
@@ -11,6 +11,12 @@ export const Wrapper = styled.div`
   text-align: center;
   background-color: ${({ theme }) => theme.colors.white};
   box-shadow: ${({ theme }) => theme.common.boxShadow};
+
+  ${({ $moviePage }) =>
+    $moviePage &&
+    css`
+      grid-template-rows: 3fr minmax(64px, 100px);
+    `}
 
   @media (max-width: ${({ theme }) => theme.breakpoints.defaultMobile}) {
     border-radius: 5px;
@@ -38,29 +44,6 @@ export const Container = styled.div`
   margin-top: 4px;
   display: grid;
   row-gap: 8px;
-  height: auto;
-  /* 
-  @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
-    min-height: 52px;
-  }
-
-  @media (max-width: ${({ theme }) => theme.breakpoints.defaultMobile}) {
-    min-height: 43px;
-  } */
-
-  /* ${({ $moviePage }) =>
-    $moviePage &&
-    css`
-      min-height: 90px;
-
-      @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
-        min-height: 75px;
-      }
-
-      @media (max-width: ${({ theme }) => theme.breakpoints.defaultMobile}) {
-        min-height: 60px;
-      }
-    `} */
 `;
 
 export const Name = styled.span`
@@ -70,16 +53,6 @@ export const Name = styled.span`
   @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
     font-size: 1.8vh;
   }
-
-  @media (max-width: ${({ theme }) => theme.breakpoints.defaultMobile}) {
-    margin: 0;
-    font-size: 1.7vh;
-  }
-
-  @media (max-width: ${({ theme }) => theme.breakpoints.smallMobile}) {
-    margin: 0;
-    font-size: 1.5vh;
-  }
 `;
 
 export const Role = styled.span`
@@ -88,13 +61,5 @@ export const Role = styled.span`
 
   @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
     font-size: 1.5vh;
-  }
-
-  @media (max-width: ${({ theme }) => theme.breakpoints.defaultMobile}) {
-    font-size: 1.4vh;
-  }
-  @media (max-width: ${({ theme }) => theme.breakpoints.smallMobile}) {
-    margin: 0;
-    font-size: 1.3vh;
   }
 `;
