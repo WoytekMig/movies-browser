@@ -1,6 +1,6 @@
 import { Container, Name, Picture, Role, Wrapper } from "./styled";
 import { PersonImageAPI } from "../../codesAPI";
-import nullPersonImage from "../../images/noPersonImage.png";
+import nullPersonImage from "../../images/alternativeNoPersonImage.svg";
 
 const PersonTile = ({ picture, name, role, moviePage }) => (
   <Wrapper $moviePage={moviePage}>
