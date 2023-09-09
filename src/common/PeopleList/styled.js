@@ -15,19 +15,19 @@ export const List = styled.ul`
       margin: 0;
     `}
 
-  @media (max-width: 1300px) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.desktop}) {
     grid-template-columns: repeat(5, 1fr);
   }
 
-  @media (max-width: 1050px) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.tabletAlternative}) {
     grid-template-columns: repeat(4, 1fr);
   }
 
-  @media (max-width: 800px) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.hugeMobile}) {
     grid-template-columns: repeat(3, 1fr);
   }
 
-  @media (max-width: 585px) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.mediumMobile}) {
     grid-template-columns: repeat(2, 1fr);
   }
 `;
