@@ -12,13 +12,6 @@ export const Wrapper = styled.div`
   background-color: ${({ theme }) => theme.colors.white};
   box-shadow: ${({ theme }) => theme.common.boxShadow};
 
-  ${({ $moviePage }) =>
-    $moviePage &&
-    css`
-      grid-template-rows: 3fr minmax(64px, 100px);
-      max-height: calc(100% - 1vw);
-    `}
-
   @media (max-width: ${({ theme }) => theme.breakpoints.defaultMobile}) {
     border-radius: 5px;
   }
@@ -27,6 +20,17 @@ export const Wrapper = styled.div`
     padding: 8px;
     border-radius: 5px;
   }
+
+  ${({ $moviePage }) =>
+    $moviePage &&
+    css`
+      grid-template-rows: 3fr minmax(64px, 100px);
+      max-height: calc(100% - 1vw);
+
+      @media (max-width: ${({ theme }) => theme.breakpoints.defaultMobile}) {
+        max-height: calc(100% - 2vw);
+      }
+    `}
 `;
 
 export const Picture = styled.img`
