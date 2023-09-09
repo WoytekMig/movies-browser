@@ -3,9 +3,9 @@ import { PersonImageAPI } from "../../codesAPI";
 import nullPersonImage from "../../images/noPersonImage.png";
 
 const PersonTile = ({ picture, name, role, moviePage }) => (
-  <Wrapper>
+  <Wrapper $moviePage={moviePage}>
     <Picture src={picture ? `${PersonImageAPI}${picture}` : nullPersonImage} />
-    <Container $moviePage={moviePage}>
+    <Container>
       <Name>{name}</Name>
       <Role>{role}</Role>
     </Container>
