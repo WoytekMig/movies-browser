@@ -27,7 +27,7 @@ const SearchResult = () => {
     };
   }, [currentPage]);
 
-  const { data, isError } = useSearchPeopleQuery(queryParam);
+  const { data, isError } = useSearchPeopleQuery(queryParam, currentPage);
 
   useEffect(() => {
     if (data !== undefined) {

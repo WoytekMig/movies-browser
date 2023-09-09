@@ -1,9 +1,9 @@
 import { useQuery } from "react-query";
 import searchPeople from "./getSearch";
 
-const useSearchPeopleQuery = (query) => {
+const useSearchPeopleQuery = (query, whichPage) => {
   return useQuery(["searchPeople", query], () =>
-    searchPeople({ query, page: 1 })
+    searchPeople({ query, page: whichPage })
   );
 };
 
