@@ -5,7 +5,7 @@ export const Wrapper = styled.div`
   grid-template-rows: 3fr minmax(43px, 64px);
   justify-items: center;
   height: 100%;
-  max-height: 420px;
+  max-height: calc(100% - 2vh);
   padding: 16px;
   gap: 8px;
   text-align: center;
@@ -16,6 +16,7 @@ export const Wrapper = styled.div`
     $moviePage &&
     css`
       grid-template-rows: 3fr minmax(64px, 100px);
+      max-height: calc(100% - 1vw);
     `}
 
   @media (max-width: ${({ theme }) => theme.breakpoints.defaultMobile}) {
@@ -25,7 +26,6 @@ export const Wrapper = styled.div`
   @media (max-width: ${({ theme }) => theme.breakpoints.smallMobile}) {
     padding: 8px;
     border-radius: 5px;
-    max-height: 330px;
   }
 `;
 
