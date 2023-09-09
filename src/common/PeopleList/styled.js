@@ -23,24 +23,20 @@ export const List = styled.ul`
     grid-template-columns: repeat(4, 1fr);
   }
 
-  @media (max-width: 850px) {
+  @media (max-width: 800px) {
     grid-template-columns: repeat(3, 1fr);
   }
 
-  @media (max-width: 605px) {
+  @media (max-width: 585px) {
     grid-template-columns: repeat(2, 1fr);
   }
 `;
 
 export const ListItem = styled.li`
   list-style: none;
-  height: 100%;
-  width: 100%;
 `;
 
 export const StyledLink = styled(Link)`
   text-decoration: none;
   color: ${({ theme }) => theme.colors.black};
-  display: flex;
-  height: 100%;
 `;

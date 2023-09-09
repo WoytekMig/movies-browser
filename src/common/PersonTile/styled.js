@@ -1,48 +1,54 @@
 import { css, styled } from "styled-components";
 
 export const Wrapper = styled.div`
-  flex-grow: 1;
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-rows: 3fr 1fr;
+  justify-items: center;
+  height: 100%;
+  max-height: 420px;
   padding: 16px;
   gap: 8px;
-
   text-align: center;
   background-color: ${({ theme }) => theme.colors.white};
   box-shadow: ${({ theme }) => theme.common.boxShadow};
 
   @media (max-width: ${({ theme }) => theme.breakpoints.defaultMobile}) {
-    padding: 12px;
     border-radius: 5px;
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.smallMobile}) {
     padding: 8px;
     border-radius: 5px;
+    max-height: 330px;
   }
 `;
 
 export const Picture = styled.img`
   border-radius: 5px;
-  flex-grow: 1;
-  max-width: 100%;
+  width: 100%;
+  height: 100%;
+  max-height: 264px;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.smallMobile}) {
+    max-height: 200px;
+  }
 `;
 
 export const Container = styled.div`
+  margin-top: 4px;
   display: grid;
-  align-items: center;
-  align-content: space-evenly;
-  min-height: 64px;
-
+  row-gap: 8px;
+  height: auto;
+  /* 
   @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
     min-height: 52px;
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.defaultMobile}) {
     min-height: 43px;
-  }
+  } */
 
-  ${({ $moviePage }) =>
+  /* ${({ $moviePage }) =>
     $moviePage &&
     css`
       min-height: 90px;
@@ -54,13 +60,12 @@ export const Container = styled.div`
       @media (max-width: ${({ theme }) => theme.breakpoints.defaultMobile}) {
         min-height: 60px;
       }
-    `}
+    `} */
 `;
 
 export const Name = styled.span`
   font-weight: 500;
   font-size: 1.9vh;
-  margin-top: 4px;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
     font-size: 1.8vh;
