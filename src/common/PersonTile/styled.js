@@ -2,7 +2,7 @@ import { css, styled } from "styled-components";
 
 export const Wrapper = styled.div`
   display: grid;
-  grid-template-rows: 3fr 1fr;
+  grid-template-rows: 3fr minmax(64px, 90px);
   justify-items: center;
   height: 100%;
   max-height: 420px;
