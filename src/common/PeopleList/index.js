@@ -53,13 +53,11 @@ const PeopleList = ({ title, moviePage, data, currentPage, onPageChange }) => {
                         picture={person.profile_path}
                         name={person.name}
                         role={person.character}
-                        $moviePage={moviePage}
                       />
                     </StyledLink>
                   </ListItem>
                 ))}
               </List>
-
               <Pagination
                 currentPage={currentPage}
                 totalPages={totalPages}
@@ -85,6 +83,7 @@ const PeopleList = ({ title, moviePage, data, currentPage, onPageChange }) => {
                     picture={person.profile_path}
                     name={person.name}
                     role={person.character ?? person.job}
+                    moviePage={moviePage}
                   />
                 </StyledLink>
               </ListItem>
