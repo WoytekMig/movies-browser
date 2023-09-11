@@ -1,9 +1,11 @@
 import SpecialData from "../../../../common/SpecialData";
 import { StyledAbout, DataWrapper, Description, Image, Name } from "./styled";
+import { IMG_URL } from "../../../../codesAPI";
+import nullPersonImage from "../../../../images/alternativeNoPersonImage.svg";
 
-const About = ({ name, birthdate, birthplace, description, picture }) => (
+const About = ({ name, birthdate, birthplace, description, picturePath }) => (
   <StyledAbout>
-    <Image src={picture} />
+    <Image src={picturePath ? `${IMG_URL}${picturePath}` : nullPersonImage} />
     <Name>{name}</Name>
     <DataWrapper>
       <SpecialData

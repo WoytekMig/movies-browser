@@ -2,52 +2,79 @@ import { styled } from "styled-components";
 
 export const Wrapper = styled.div`
   flex-grow: 1;
-  max-width: 208px;
-  height: 339px;
   display: flex;
   flex-direction: column;
-  place-items: center;
-  grid-gap: 8px;
   padding: 16px;
+  gap: 8px;
   text-align: center;
+  transition: transform 0.3s ease;
   background-color: ${({ theme }) => theme.colors.white};
   box-shadow: ${({ theme }) => theme.common.boxShadow};
 
+  &:hover {
+    transform: scale(108%);
+  }
+
   @media (max-width: ${({ theme }) => theme.breakpoints.defaultMobile}) {
+    border-radius: 5px;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.mediumMobile}) {
+    padding: 4vw;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.tinyMobile}) {
     padding: 8px;
     border-radius: 5px;
-    max-width: 136px;
-    height: 245px;
   }
 `;
 
 export const Picture = styled.img`
-  max-width: 176px;
-  height: 231px;
   border-radius: 5px;
-  flex-shrink: 1;
+  width: 100%;
+  flex-grow: 0;
+  flex-shrink: 0;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.defaultMobile}) {
-    margin: 0;
-    max-width: 120px;
-    max-height: 178px;
+    max-height: 285px;
   }
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.smalltMobile}) {
-    margin: 0;
-    max-width: 100%;
-    height: auto;
+  @media (max-width: ${({ theme }) => theme.breakpoints.smallMobile}) {
+    max-height: 230px;
+  }
+`;
+
+export const Container = styled.div`
+  margin-top: 4px;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  row-gap: 8px;
+  min-height: 64px;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.defaultMobile}) {
+    min-height: 43px;
   }
 `;
 
 export const Name = styled.span`
   font-weight: 500;
   font-size: 22px;
-  margin-top: 4px;
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.defaultMobile}) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
+    font-size: 20px;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.hugeMobile}) {
+    font-size: 17px;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.smallMobile}) {
+    font-size: 15px;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.tinyMobile}) {
     font-size: 14px;
-    margin: 0;
   }
 `;
 
@@ -55,7 +82,15 @@ export const Role = styled.span`
   font-size: 18px;
   color: ${({ theme }) => theme.colors.waterloo};
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.defaultMobile}) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
+    font-size: 16px;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.hugeMobile}) {
+    font-size: 15px;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.smallMobile}) {
     font-size: 13px;
   }
 `;

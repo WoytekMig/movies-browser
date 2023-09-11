@@ -1,23 +1,46 @@
 import { Main } from "../../../common/Main";
 import About from "./About";
 import { ProfileWrapper } from "./styled";
+import { usePersonData } from "./usePersonData";
+import Error from "../../../common/Error";
+import Loading from "../../../common/Loading";
+import { useSelector } from "react-redux";
+import { selectPersonId } from "../moviesSlice";
+import MoviesList from "../../../common/MoviesList";
+import MainHeader from "../../../common/MainHeader";
 
-const Profile = ({ birthdate, birthplace, description }) => (
-  <Main>
-    <ProfileWrapper>
-      <About
-        birthdate={birthdate}
-        birthplace={birthplace}
-        description={description}
-      />
-    </ProfileWrapper>
-    {/* This section will be adjusted in the future
+const Profile = () => {
+  const personId = useSelector(selectPersonId);
 
-    <MainHeader profile title={"Movies - cast (4)"} />
-    <MoviesList />
-    <MainHeader profile title={"Movies - crew (4)"} />
-    <MoviesList /> */}
-  </Main>
-);
+  const { status, person, credits } = usePersonData(personId);
+
+  const modifiedBirthday = person.birthday
+    ? person.birthday.split("-").reverse().join(".")
+    : "";
+
+  return (
+    <>
+      {status === "loading" && <Loading />}
+      {status === "error" && <Error />}
+      {status === "success" && (
+        <Main>
+          <ProfileWrapper>
+            <About
+              name={person.name}
+              birthdate={modifiedBirthday}
+              birthplace={person.place_of_birth}
+              description={person.biography}
+              picturePath={person.profile_path}
+            />
+            <MainHeader title={`Movies - cast (${credits.cast.length})`} />
+            <MoviesList profile moviesData={credits.cast} />
+            <MainHeader title={`Movies - crew (${credits.crew.length})`} />
+            <MoviesList profile moviesData={credits.crew} />
+          </ProfileWrapper>
+        </Main>
+      )}
+    </>
+  );
+};
 
 export default Profile;
