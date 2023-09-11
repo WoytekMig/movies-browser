@@ -7,7 +7,7 @@ export const List = styled.ul`
   grid-gap: 24px;
   padding: 0;
   margin: 0 0 24px 0;
-  align-items: center;
+  align-items: stretch;
   list-style: none;
 
   ${({ $moviePage }) =>
@@ -38,6 +38,8 @@ export const ListItem = styled.li`
 `;
 
 export const StyledLink = styled(Link)`
+  display: flex;
+  height: 100%;
   text-decoration: none;
   color: ${({ theme }) => theme.colors.black};
 `;

@@ -1,11 +1,9 @@
-import { css, styled } from "styled-components";
+import { styled } from "styled-components";
 
 export const Wrapper = styled.div`
-  display: grid;
-  grid-template-rows: 3fr minmax(43px, 64px);
-  justify-items: center;
-  height: 100%;
-  max-height: calc(100% - 2vh);
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
   padding: 16px;
   gap: 8px;
   text-align: center;
@@ -24,24 +22,13 @@ export const Wrapper = styled.div`
     padding: 8px;
     border-radius: 5px;
   }
-
-  ${({ $moviePage }) =>
-    $moviePage &&
-    css`
-      grid-template-rows: 3fr minmax(64px, 100px);
-      max-height: calc(100% - 1vw);
-
-      @media (max-width: ${({ theme }) => theme.breakpoints.defaultMobile}) {
-        max-height: calc(100% - 2vw);
-      }
-    `}
 `;
 
 export const Picture = styled.img`
   border-radius: 5px;
   width: 100%;
-  height: 100%;
-  max-height: 264px;
+  flex-grow: 0;
+  flex-shrink: 0;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.defaultMobile}) {
     max-height: 285px;
@@ -54,8 +41,10 @@ export const Picture = styled.img`
 
 export const Container = styled.div`
   margin-top: 4px;
+  flex-grow: 1;
   display: grid;
   row-gap: 8px;
+  min-height: 43px;
 `;
 
 export const Name = styled.span`
