@@ -51,6 +51,10 @@ export const Name = styled.span`
   font-weight: 500;
   font-size: 1.9vh;
 
+  @media (min-width: 1921px) and (min-height: 1081px) {
+    font-size: 22px;
+  }
+
   @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
     font-size: 1.8vh;
   }
@@ -64,6 +68,10 @@ export const Name = styled.span`
 export const Role = styled.span`
   font-size: 1.6vh;
   color: ${({ theme }) => theme.colors.waterloo};
+
+  @media (min-width: 1921px) and (min-height: 1081px) {
+    font-size: 18px;
+  }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
     font-size: 1.5vh;
