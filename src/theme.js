@@ -18,7 +18,7 @@ export const theme = {
     tabletAlternative: "1050px",
     hugeMobile: "850px",
     defaultMobile: "767px",
-    mediumMobile: "585px",
+    mediumMobile: "550px",
     smallMobile: "450px",
     tinyMobile: "320px",
   },
