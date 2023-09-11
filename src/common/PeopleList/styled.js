@@ -23,7 +23,7 @@ export const List = styled.ul`
     grid-template-columns: repeat(4, 1fr);
   }
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.hugeMobile}) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.defaultMobile}) {
     grid-template-columns: repeat(3, 1fr);
   }
 
