@@ -47,9 +47,14 @@ export const Picture = styled.img`
 export const Container = styled.div`
   margin-top: 4px;
   flex-grow: 1;
-  display: grid;
+  display: flex;
+  flex-direction: column;
   row-gap: 8px;
-  min-height: 43px;
+  min-height: 64px;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.defaultMobile}) {
+    min-height: 43px;
+  }
 `;
 
 export const Name = styled.span`
