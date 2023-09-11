@@ -54,34 +54,38 @@ export const Container = styled.div`
 
 export const Name = styled.span`
   font-weight: 500;
-  font-size: 1.9vh;
-
-  @media (min-width: 1921px) or (min-height: 1081px) {
-    font-size: 22px;
-  }
+  font-size: 22px;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
-    font-size: 1.8vh;
+    font-size: 20px;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.hugeMobile}) {
+    font-size: 17px;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.smallMobile}) {
+    font-size: 15px;
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.tinyMobile}) {
-    font-size: 1.5vh;
+    font-size: 14px;
   }
 `;
 
 export const Role = styled.span`
-  font-size: 1.6vh;
+  font-size: 18px;
   color: ${({ theme }) => theme.colors.waterloo};
 
-  @media (min-width: 1921px) or (min-height: 1081px) {
-    font-size: 18px;
-  }
-
   @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
-    font-size: 1.5vh;
+    font-size: 16px;
   }
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.tinyMobile}) {
-    font-size: 1.3vh;
+  @media (max-width: ${({ theme }) => theme.breakpoints.hugeMobile}) {
+    font-size: 15px;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.smallMobile}) {
+    font-size: 13px;
   }
 `;
