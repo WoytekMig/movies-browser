@@ -26,26 +26,37 @@ export const useMoviesData = (pageWanted) => {
         setMoviesData({
           status: "loading",
         });
+
         const response = await fetch(usedFetchAddress, options);
         if (!response.ok) {
           throw new Error(`HTTP error: ${response.status}`);
         }
 
         const { page, results, total_pages } = await response.json();
-        setMoviesData({
-          status: "success",
-          page,
-          results,
-          total_pages,
-        });
+
+        setTimeout(
+          () =>
+            setMoviesData({
+              status: "success",
+              page,
+              results,
+              total_pages,
+            }),
+          500
+        );
       } catch (error) {
-        setMoviesData({
-          status: "error",
-        });
+        setTimeout(
+          () =>
+            setMoviesData({
+              status: "error",
+            }),
+          500
+        );
       }
     };
+
     fetchMoviesData();
   }, [pageWanted, usedFetchAddress]);
 
-  return moviesData;
+  return { moviesData, setMoviesData };
 };
