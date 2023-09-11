@@ -7,8 +7,13 @@ export const Wrapper = styled.div`
   padding: 16px;
   gap: 8px;
   text-align: center;
+  transition: transform 0.3s ease;
   background-color: ${({ theme }) => theme.colors.white};
   box-shadow: ${({ theme }) => theme.common.boxShadow};
+
+  &:hover {
+    transform: scale(108%);
+  }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.defaultMobile}) {
     border-radius: 5px;
