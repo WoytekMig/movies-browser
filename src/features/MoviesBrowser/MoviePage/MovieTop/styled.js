@@ -7,14 +7,26 @@ export const Wrapper = styled.div`
   background: ${({ theme }) => theme.colors.black};
 
   @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
-    height: 525px;
+    height: 600px;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.tabletAlternative}) {
+    height: 500px;
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.defaultMobile}) {
-    height: 350px;
+    height: 375px;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.mediumMobile}) {
+    height: 300px;
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.smallMobile}) {
+    height: 250px;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.tinyMobile}) {
     height: 148px;
   }
 `;
@@ -106,13 +118,11 @@ export const Poster = styled.div`
       ),
       url(${({ $poster }) => $poster});
     background-position: center;
-    background-size: cover;
+    background-size: 100% 100%;
     background-repeat: no-repeat;
   }
   @media (max-width: ${({ theme }) => theme.breakpoints.smallMobile}) {
-    flex-basis: 148px;
     padding-bottom: 8px;
-    background-size: 100% 100%;
   }
 `;
 
