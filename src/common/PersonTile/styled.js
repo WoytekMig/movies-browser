@@ -64,8 +64,7 @@ export const Name = styled.span`
     font-size: 1.8vh;
   }
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.smallMobile}) {
-    margin: 0;
+  @media (max-width: ${({ theme }) => theme.breakpoints.tinyMobile}) {
     font-size: 1.5vh;
   }
 `;
@@ -82,7 +81,7 @@ export const Role = styled.span`
     font-size: 1.5vh;
   }
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.smallMobile}) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.tinyMobile}) {
     font-size: 1.3vh;
   }
 `;
