@@ -41,7 +41,7 @@ const PopularMovies = () => {
       ) : (
         <Main>
           <MainHeader title="Popular movies" />
-          <MoviesList moviesData={moviesData.results} title="Popular movies" />
+          <MoviesList moviesData={moviesData.results} />
           <Pagination
             currentPage={currentPage}
             totalPages={totalPages()}
