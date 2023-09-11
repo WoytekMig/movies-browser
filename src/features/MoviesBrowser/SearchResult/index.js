@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { useLocation } from "react-router-dom/cjs/react-router-dom";
 import { Main } from "../../../common/Main";
 import MainHeader from "../../../common/MainHeader";
@@ -15,8 +15,9 @@ const SearchResult = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [isLoading, setLoading] = useState(true);
   const [dataLoaded, setDataLoaded] = useState(false);
-
   const [totalPages, setTotalPages] = useState(1);
+
+  const currentPageRef = useRef(currentPage);
 
   useEffect(() => {
     const loadingTimeout = setTimeout(() => {
@@ -27,14 +28,22 @@ const SearchResult = () => {
     };
   }, [currentPage]);
 
+  useEffect(() => {
+    currentPageRef.current = currentPage;
+  }, [currentPage]);
+
   const { data, isError } = useSearchPeopleQuery(queryParam, currentPage);
+
+  console.log("pierwszy:", data, currentPage); //do usunięcia, ale pokazuje, że strona się zmienia, ale dane pozostają te same..
 
   useEffect(() => {
     if (data !== undefined) {
       setDataLoaded(true);
       setTotalPages(data.total_pages || 1);
+      /*      setLoading(false); */
     }
   }, [data]);
+
   const handleSearchPageChange = (newPage) => {
     if (newPage >= 1 && newPage <= totalPages) {
       setCurrentPage(newPage);
