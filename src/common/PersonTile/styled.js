@@ -23,7 +23,7 @@ export const Wrapper = styled.div`
     padding: 4vw;
   }
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.smallMobile}) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.tinyMobile}) {
     padding: 8px;
     border-radius: 5px;
   }
