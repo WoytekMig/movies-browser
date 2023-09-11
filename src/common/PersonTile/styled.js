@@ -39,8 +39,12 @@ export const Picture = styled.img`
   height: 100%;
   max-height: 264px;
 
+  @media (max-width: ${({ theme }) => theme.breakpoints.defaultMobile}) {
+    max-height: 285px;
+  }
+
   @media (max-width: ${({ theme }) => theme.breakpoints.smallMobile}) {
-    max-height: 200px;
+    max-height: 230px;
   }
 `;
 
