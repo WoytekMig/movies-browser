@@ -4,9 +4,10 @@ import { Link } from "react-router-dom";
 export const List = styled.ul`
   display: grid;
   grid-template-columns: repeat(6, 1fr);
-  gap: 24px;
+  grid-gap: 24px;
   padding: 0;
   margin: 0 0 24px 0;
+  align-items: center;
   list-style: none;
 
   ${({ $moviePage }) =>
