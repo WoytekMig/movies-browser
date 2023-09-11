@@ -2,8 +2,12 @@ import { Main } from "../Main";
 import MainHeader from "../MainHeader";
 import { List, ListItem, StyledLink } from "./styled";
 import PersonTile from "../PersonTile";
+import { useDispatch } from "react-redux";
+import { setPersonId } from "../../features/MoviesBrowser/moviesSlice";
 
-const PeopleList = ({ title, moviePage, data, currentPage }) => {
+const PeopleList = ({ title, moviePage, data }) => {
+  const dispatch = useDispatch();
+
   return (
     <Main>
       {!moviePage ? (
@@ -13,7 +17,10 @@ const PeopleList = ({ title, moviePage, data, currentPage }) => {
             <List $moviePage={moviePage}>
               {data.results.map((person) => (
                 <ListItem key={person.id}>
-                  <StyledLink to={`/person/${person.id}`}>
+                  <StyledLink
+                    onClick={() => dispatch(setPersonId(person.id))}
+                    to={`/person/${person.id}`}
+                  >
                     <PersonTile
                       picture={person.profile_path}
                       name={person.name}
