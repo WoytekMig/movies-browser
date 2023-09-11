@@ -38,7 +38,10 @@ const PeopleList = ({ title, moviePage, data }) => {
           <List $moviePage={moviePage}>
             {data.map((person) => (
               <ListItem key={person.credit_id}>
-                <StyledLink to={`/person/${person.id}`}>
+                <StyledLink
+                  onClick={() => dispatch(setPersonId(person.id))}
+                  to={`/person/${person.id}`}
+                >
                   <PersonTile
                     picture={person.profile_path}
                     name={person.name}
