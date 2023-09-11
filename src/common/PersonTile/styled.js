@@ -56,7 +56,7 @@ export const Name = styled.span`
   font-weight: 500;
   font-size: 1.9vh;
 
-  @media (min-width: 1921px) and (min-height: 1081px) {
+  @media (min-width: 1921px) or (min-height: 1081px) {
     font-size: 22px;
   }
 
@@ -74,7 +74,7 @@ export const Role = styled.span`
   font-size: 1.6vh;
   color: ${({ theme }) => theme.colors.waterloo};
 
-  @media (min-width: 1921px) and (min-height: 1081px) {
+  @media (min-width: 1921px) or (min-height: 1081px) {
     font-size: 18px;
   }
 
