@@ -7,7 +7,11 @@ export const Wrapper = styled.div`
   background: ${({ theme }) => theme.colors.black};
 
   @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
-    height: 525px;
+    height: 600px;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.tabletAlternative}) {
+    height: 500px;
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.defaultMobile}) {
