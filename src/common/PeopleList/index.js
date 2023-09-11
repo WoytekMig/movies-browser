@@ -15,7 +15,7 @@ const PeopleList = ({ title, moviePage, data }) => {
           <MainHeader title={title} />
           <>
             <List $moviePage={moviePage}>
-              {data.results.map((person) => (
+              {data.map((person) => (
                 <ListItem key={person.id}>
                   <StyledLink
                     onClick={() => dispatch(setPersonId(person.id))}

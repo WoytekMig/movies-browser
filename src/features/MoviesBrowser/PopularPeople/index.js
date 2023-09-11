@@ -35,7 +35,7 @@ const PopularPeople = () => {
         <Error />
       ) : (
         <div>
-          <PeopleList data={popularPeopleData} title="Popular people" />
+          <PeopleList data={popularPeopleData.results} title="Popular people" />
           <Pagination
             currentPage={currentPage}
             totalPages={totalPages}

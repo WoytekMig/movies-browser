@@ -63,7 +63,7 @@ const SearchResult = () => {
         <NoResult query={queryParam} />
       ) : (
         <>
-          <PeopleList data={data} currentPage={currentPage} />
+          <PeopleList data={data.results} currentPage={currentPage} />
           <Pagination
             currentPage={currentPage}
             totalPages={totalPages}
