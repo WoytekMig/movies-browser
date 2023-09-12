@@ -11,9 +11,9 @@ import { getMovieImageUrl } from "../../../codesAPI";
 
 const MoviePage = () => {
   const movieId = useSelector(selectMovieId);
+  const isMobile = useSelector((state) => state.responsive.is.smallMobile);
 
   const { status, movie, credits } = useMovieData(movieId);
-
   const topPoster = getMovieImageUrl(movie.backdrop_path);
   const poster = getMovieImageUrl(movie.poster_path);
 
@@ -36,7 +36,9 @@ const MoviePage = () => {
           <MovieInfo
             title={movie.title}
             productionYear={new Date(movie.release_date).getFullYear()}
-            productionPlace={movie.production_countries.map(({ name }) => name)}
+            productionPlace={movie.production_countries.map((country) =>
+              isMobile ? country.iso_3166_1 ?? country.name : country.name
+            )}
             releaseDate={modifiedReleaseDate}
             tags={movie.genres}
             rate={movie.vote_average}
