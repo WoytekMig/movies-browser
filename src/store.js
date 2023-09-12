@@ -7,20 +7,19 @@ import { createResponsiveStateReducer } from "redux-responsive";
 
 const sagaMiddleware = createSagaMiddleware();
 
-const media = {
-  smallMobile: 450,
-  defaultMobile: 767,
-};
-
 const store = configureStore({
   reducer: {
     movies: moviesReducer,
-    responsive: createResponsiveStateReducer(media),
+    responsive: createResponsiveStateReducer({
+      defaultMobile: 767,
+    }),
   },
   middleware: [sagaMiddleware],
   enhancers: [responsiveStoreEnhancer],
 });
 
 sagaMiddleware.run(moviesSaga);
+
+export const selectIsMedia = (state) => state.responsive.is.defaultMobile;
 
 export default store;
