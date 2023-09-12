@@ -1,4 +1,5 @@
-import { useMediaQuery } from "react-responsive";
+import { useSelector } from "react-redux";
+import { selectIsMedia } from "../../store";
 import {
   ArrowLeft,
   ArrowRight,
@@ -17,7 +18,7 @@ const Pagination = ({
   onNextPage,
   onLastPage,
 }) => {
-  const isMobile = useMediaQuery({ maxWidth: 767 });
+  const isMobile = useSelector(selectIsMedia);
 
   return (
     <Wrapper>

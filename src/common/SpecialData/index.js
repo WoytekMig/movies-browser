@@ -1,5 +1,6 @@
-import { useMediaQuery } from "react-responsive";
+import { useSelector } from "react-redux";
 import { Data, DataWrapper, StyledSpecialData } from "./styled";
+import { selectIsMedia } from "../../store";
 
 const SpecialData = ({
   profile,
@@ -10,7 +11,7 @@ const SpecialData = ({
   desktopUpperData,
   desktopLowerData,
 }) => {
-  const isMedia = useMediaQuery({ maxWidth: 767 });
+  const isMobile = useSelector(selectIsMedia);
 
   const correctedUpperContent = Array.isArray(upperContent)
     ? upperContent.join(", ")
@@ -19,11 +20,11 @@ const SpecialData = ({
   return (
     <StyledSpecialData>
       <DataWrapper $profile={profile}>
-        {isMedia ? mobileUpperData : desktopUpperData}
+        {isMobile ? mobileUpperData : desktopUpperData}
         <Data>{upperContent ? correctedUpperContent : "Unknown"}</Data>
       </DataWrapper>
       <DataWrapper $profileSpecial={profile} $profile={profile}>
-        {isMedia ? mobileLowerData : desktopLowerData}
+        {isMobile ? mobileLowerData : desktopLowerData}
         <Data>{lowerContent ? lowerContent : "Unknown"}</Data>
       </DataWrapper>
     </StyledSpecialData>
