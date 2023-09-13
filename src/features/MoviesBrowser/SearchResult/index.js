@@ -7,16 +7,24 @@ import NoResult from "../../../common/NoResult";
 import useSearchPeopleQuery from "./useSearchPeopleQuery";
 import PeopleList from "../../../common/PeopleList";
 import Pagination from "../../../common/Pagination";
+import MoviesList from "../../../common/MoviesList";
 
 const SearchResult = () => {
   const location = useLocation();
+
   const queryParam = new URLSearchParams(location.search).get("query");
+
+  const topic = "person"; // this of course should be generated automatically... and it will be soon ;)
 
   const [currentPage, setCurrentPage] = useState(1);
   const [isLoading, setLoading] = useState(true);
   const [dataLoaded, setDataLoaded] = useState(false);
   const [totalPages, setTotalPages] = useState(1);
-  const { data, isError } = useSearchPeopleQuery(queryParam, currentPage);
+  const { data, isError } = useSearchPeopleQuery(
+    queryParam,
+    currentPage,
+    topic
+  );
 
   useEffect(() => {
     const loadingTimeout = setTimeout(() => {
@@ -61,7 +69,7 @@ const SearchResult = () => {
         !data.results ||
         data.results.length === 0 ? (
         <NoResult query={queryParam} />
-      ) : (
+      ) : topic === "person" ? (
         <>
           <PeopleList data={data} currentPage={currentPage} />
           <Pagination
@@ -74,6 +82,21 @@ const SearchResult = () => {
             onLastPage={() => handleSearchPageChange(totalPages)}
           />
         </>
+      ) : topic === "movie" ? (
+        <>
+          <MoviesList moviesData={data.results} currentPage={currentPage} />
+          <Pagination
+            currentPage={currentPage}
+            totalPages={totalPages}
+            onPageChange={handleSearchPageChange}
+            onFirstPage={() => handleSearchPageChange(1)}
+            onPrevPage={() => handleSearchPageChange(currentPage - 1)}
+            onNextPage={() => handleSearchPageChange(currentPage + 1)}
+            onLastPage={() => handleSearchPageChange(totalPages)}
+          />
+        </>
+      ) : (
+        Error
       )}
     </Main>
   );

@@ -14,8 +14,13 @@ export const Search = () => {
 
   const handleSearchChange = (event) => {
     const newValue = event.target.value;
+
     setSearchValue(newValue);
     history.push(`/search?query=${newValue}`);
+
+    /*     const currentPath = location.pathname.replace("/search", "");
+    const newURL = `${currentPath}/search?query=${newValue}`;
+    history.push(newURL); */ // I think this code is future way, but for now, I don't know why it doesn't work...
   };
 
   useEffect(() => {
