@@ -14,7 +14,9 @@ const MoviePage = () => {
 
   const { status, movie, credits } = useMovieData(movieId);
 
-  const topPoster = getMovieImageUrl(movie.backdrop_path);
+  const topPoster = movie.backdrop_path
+    ? getMovieImageUrl(movie.backdrop_path)
+    : null;
   const poster = getMovieImageUrl(movie.poster_path);
 
   const modifiedReleaseDate = movie.vote_average
@@ -26,13 +28,15 @@ const MoviePage = () => {
       {status === "loading" && <Loading />}
       {status === "error" && <Error />}
       {status === "success" && (
-        <MoviePageWrapper>
-          <MovieTop
-            poster={topPoster}
-            title={movie.original_title}
-            rate={movie.vote_average}
-            votes={movie.vote_count}
-          />
+        <MoviePageWrapper $noPoster={!topPoster}>
+          {topPoster && (
+            <MovieTop
+              poster={topPoster}
+              title={movie.original_title}
+              rate={movie.vote_average}
+              votes={movie.vote_count}
+            />
+          )}
           <MovieInfo
             title={movie.title}
             productionYear={new Date(movie.release_date).getFullYear()}
@@ -44,8 +48,12 @@ const MoviePage = () => {
             description={movie.overview}
             poster={poster}
           />
-          <PeopleList title="Cast" data={credits.cast} moviePage />
-          <PeopleList title={"Crew"} data={credits.crew} moviePage />
+          {credits.cast && (
+            <PeopleList title="Cast" data={credits.cast} moviePage />
+          )}
+          {credits.crew && (
+            <PeopleList title={"Crew"} data={credits.crew} moviePage />
+          )}
         </MoviePageWrapper>
       )}
     </>

@@ -1,10 +1,20 @@
-import { styled } from "styled-components";
+import { css, styled } from "styled-components";
 
 export const MoviePageWrapper = styled.div`
   display: flex;
   flex-direction: column;
   gap: 64px;
   margin-bottom: 336px;
+
+  ${({ $noPoster }) =>
+    $noPoster &&
+    css`
+      margin-top: 56px;
+
+      @media (max-width: ${({ theme }) => theme.breakpoints.smallMobile}) {
+        margin-top: 23px;
+      }
+    `}
 
   @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
     gap: 48px;
