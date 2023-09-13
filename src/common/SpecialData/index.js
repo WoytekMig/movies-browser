@@ -20,7 +20,9 @@ const SpecialData = ({
     <StyledSpecialData>
       <DataWrapper $profile={profile}>
         {isMedia ? mobileUpperData : desktopUpperData}
-        <Data>{upperContent ? correctedUpperContent : "Unknown"}</Data>
+        <Data>
+          {upperContent.length > 0 ? correctedUpperContent : "Unknown"}
+        </Data>
       </DataWrapper>
       <DataWrapper $profileSpecial={profile} $profile={profile}>
         {isMedia ? mobileLowerData : desktopLowerData}
