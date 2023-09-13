@@ -3,6 +3,7 @@ import Error from "../../../common/Error";
 import PeopleList from "../../../common/PeopleList";
 import MovieInfo from "./MovieInfo";
 import MovieTop from "./MovieTop";
+import noPoster from "../../../images/whenNoPoster.png";
 import { MoviePageWrapper } from "./styled";
 import { useMovieData } from "./useMovieData";
 import { useSelector } from "react-redux";
@@ -17,7 +18,9 @@ const MoviePage = () => {
   const topPoster = movie.backdrop_path
     ? getMovieImageUrl(movie.backdrop_path)
     : null;
-  const poster = getMovieImageUrl(movie.poster_path);
+  const poster = movie.poster_path
+    ? getMovieImageUrl(movie.poster_path)
+    : noPoster;
 
   const modifiedReleaseDate = movie.vote_average
     ? movie.release_date.split("-").reverse().join(".")
