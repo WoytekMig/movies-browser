@@ -48,10 +48,10 @@ const MoviePage = () => {
             description={movie.overview}
             poster={poster}
           />
-          {credits.cast && (
+          {credits.cast.length !== 0 && (
             <PeopleList title="Cast" data={credits.cast} moviePage />
           )}
-          {credits.crew && (
+          {credits.crew.length !== 0 && (
             <PeopleList title={"Crew"} data={credits.crew} moviePage />
           )}
         </MoviePageWrapper>
