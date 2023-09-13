@@ -9,7 +9,9 @@ const Rating = ({ rate, votes, type }) => {
     <Container $type={type}>
       <RatingWrapper $type={type}>
         <Star type={type} />
-        <Rate $type={type}>{rate.toFixed(1).replace(".", ",")}</Rate>
+        <Rate $type={type}>
+          {rate ? rate.toFixed(1).replace(".", ",") : rate}
+        </Rate>
         {!type && isMedia ? null : <Scale $type={type}>{"/ 10"}</Scale>}
       </RatingWrapper>
       <Votes $type={type}>
