@@ -12,7 +12,9 @@ const Rating = ({ rate, votes, type }) => {
         <Rate $type={type}>{rate.toFixed(1).replace(".", ",")}</Rate>
         {!type && isMedia ? null : <Scale $type={type}>{"/ 10"}</Scale>}
       </RatingWrapper>
-      <Votes $type={type}>{votes} votes</Votes>
+      <Votes $type={type}>
+        {votes > 0 ? `${votes} votes` : "no votes yet"}
+      </Votes>
     </Container>
   );
 };
