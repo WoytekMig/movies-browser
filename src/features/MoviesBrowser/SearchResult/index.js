@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { useLocation } from "react-router-dom/cjs/react-router-dom";
+import { useLocation } from "react-router-dom";
 import { Main } from "../../../common/Main";
 import MainHeader from "../../../common/MainHeader";
 import Loading from "../../../common/Loading";

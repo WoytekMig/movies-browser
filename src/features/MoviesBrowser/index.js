@@ -1,5 +1,5 @@
-import Navigation from "../../common/Navigation";
 import { HashRouter, Redirect, Route, Switch } from "react-router-dom";
+import Navigation from "../../common/Navigation";
 import PopularPeople from "./PopularPeople";
 import SearchResult from "./SearchResult";
 import MoviePage from "./MoviePage";
