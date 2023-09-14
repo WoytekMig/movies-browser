@@ -32,9 +32,13 @@ const Profile = () => {
               description={person.biography}
               picturePath={person.profile_path}
             />
-            <MainHeader title={`Movies - cast (${credits.cast.length})`} />
+            {credits.cast.length !== 0 && (
+              <MainHeader title={`Movies - cast (${credits.cast.length})`} />
+            )}
             <MoviesList profile moviesData={credits.cast} />
-            <MainHeader title={`Movies - crew (${credits.crew.length})`} />
+            {credits.crew.length !== 0 && (
+              <MainHeader title={`Movies - crew (${credits.crew.length})`} />
+            )}
             <MoviesList profile moviesData={credits.crew} />
           </ProfileWrapper>
         </Main>

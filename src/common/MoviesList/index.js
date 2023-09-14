@@ -10,7 +10,9 @@ const MoviesList = ({ moviesData, profile }) => {
     <MainContainer>
       {moviesData.map((movie) => {
         const year = new Date(movie.release_date).getFullYear();
-        const roleAndYear = `${movie.character ?? movie.job} (${year})`;
+        const roleAndYear = `${movie.character ?? movie.job} ${
+          year ? `(${year})` : ""
+        }`;
 
         return (
           <StyledLink
