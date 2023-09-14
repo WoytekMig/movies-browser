@@ -1,4 +1,4 @@
-import { styled } from "styled-components";
+import { keyframes, styled } from "styled-components";
 
 export const Wrapper = styled.div`
   display: flex;
@@ -30,6 +30,14 @@ export const Wrapper = styled.div`
     height: 148px;
   }
 `;
+
+const brightnessAnimation = keyframes` 
+from {
+  filter: brightness(0)
+}
+to {
+  filter: brightness(1)
+}`;
 
 export const Poster = styled.div`
   display: grid;
@@ -75,6 +83,7 @@ export const Poster = styled.div`
   background-position: center;
   background-size: auto 100%;
   background-repeat: no-repeat;
+  animation: ${brightnessAnimation} 2s ease;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
     background-size: 100% 100%;

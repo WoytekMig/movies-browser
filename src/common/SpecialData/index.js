@@ -21,7 +21,9 @@ const SpecialData = ({
     <StyledSpecialData>
       <DataWrapper $profile={profile}>
         {isMobile ? mobileUpperData : desktopUpperData}
-        <Data>{upperContent ? correctedUpperContent : "Unknown"}</Data>
+        <Data>
+          {upperContent.length > 0 ? correctedUpperContent : "Unknown"}
+        </Data>
       </DataWrapper>
       <DataWrapper $profileSpecial={profile} $profile={profile}>
         {isMobile ? mobileLowerData : desktopLowerData}

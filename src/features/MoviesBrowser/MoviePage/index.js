@@ -3,6 +3,7 @@ import Error from "../../../common/Error";
 import PeopleList from "../../../common/PeopleList";
 import MovieInfo from "./MovieInfo";
 import MovieTop from "./MovieTop";
+import noPoster from "../../../images/whenNoPoster.png";
 import { MoviePageWrapper } from "./styled";
 import { useMovieData } from "./useMovieData";
 import { useSelector } from "react-redux";
@@ -15,8 +16,13 @@ const MoviePage = () => {
   const isMobile = useSelector(selectIsMedia);
 
   const { status, movie, credits } = useMovieData(movieId);
-  const topPoster = getMovieImageUrl(movie.backdrop_path);
-  const poster = getMovieImageUrl(movie.poster_path);
+
+  const topPoster = movie.backdrop_path
+    ? getMovieImageUrl(movie.backdrop_path)
+    : null;
+  const poster = movie.poster_path
+    ? getMovieImageUrl(movie.poster_path)
+    : noPoster;
 
   const modifiedReleaseDate = movie.vote_average
     ? movie.release_date.split("-").reverse().join(".")
@@ -27,13 +33,15 @@ const MoviePage = () => {
       {status === "loading" && <Loading />}
       {status === "error" && <Error />}
       {status === "success" && (
-        <MoviePageWrapper>
-          <MovieTop
-            poster={topPoster}
-            title={movie.original_title}
-            rate={movie.vote_average}
-            votes={movie.vote_count}
-          />
+        <MoviePageWrapper $noPoster={!topPoster}>
+          {topPoster && (
+            <MovieTop
+              poster={topPoster}
+              title={movie.original_title}
+              rate={movie.vote_average}
+              votes={movie.vote_count}
+            />
+          )}
           <MovieInfo
             title={movie.title}
             productionYear={new Date(movie.release_date).getFullYear()}
@@ -47,8 +55,12 @@ const MoviePage = () => {
             description={movie.overview}
             poster={poster}
           />
-          <PeopleList title="Cast" data={credits.cast} moviePage />
-          <PeopleList title={"Crew"} data={credits.crew} moviePage />
+          {credits.cast.length !== 0 && (
+            <PeopleList title="Cast" data={credits.cast} moviePage />
+          )}
+          {credits.crew.length !== 0 && (
+            <PeopleList title={"Crew"} data={credits.crew} moviePage />
+          )}
         </MoviePageWrapper>
       )}
     </>
