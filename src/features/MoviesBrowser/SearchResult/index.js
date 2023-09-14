@@ -4,27 +4,21 @@ import { Main } from "../../../common/Main";
 import MainHeader from "../../../common/MainHeader";
 import Loading from "../../../common/Loading";
 import NoResult from "../../../common/NoResult";
-import useSearchPeopleQuery from "./useSearchPeopleQuery";
+import useSearchQuery from "./useSearchPeopleQuery";
 import PeopleList from "../../../common/PeopleList";
 import Pagination from "../../../common/Pagination";
 import MoviesList from "../../../common/MoviesList";
 
 const SearchResult = () => {
   const location = useLocation();
-
   const queryParam = new URLSearchParams(location.search).get("query");
-
-  const topic = "person"; // this of course should be generated automatically... and it will be soon ;)
+  const topic = location.pathname.includes("movies") ? "movie" : "person";
 
   const [currentPage, setCurrentPage] = useState(1);
   const [isLoading, setLoading] = useState(true);
   const [dataLoaded, setDataLoaded] = useState(false);
   const [totalPages, setTotalPages] = useState(1);
-  const { data, isError } = useSearchPeopleQuery(
-    queryParam,
-    currentPage,
-    topic
-  );
+  const { data, isError } = useSearchQuery(queryParam, currentPage);
 
   useEffect(() => {
     const loadingTimeout = setTimeout(() => {
@@ -69,22 +63,13 @@ const SearchResult = () => {
         !data.results ||
         data.results.length === 0 ? (
         <NoResult query={queryParam} />
-      ) : topic === "person" ? (
+      ) : topic ? (
         <>
-          <PeopleList data={data} currentPage={currentPage} />
-          <Pagination
-            currentPage={currentPage}
-            totalPages={totalPages}
-            onPageChange={handleSearchPageChange}
-            onFirstPage={() => handleSearchPageChange(1)}
-            onPrevPage={() => handleSearchPageChange(currentPage - 1)}
-            onNextPage={() => handleSearchPageChange(currentPage + 1)}
-            onLastPage={() => handleSearchPageChange(totalPages)}
-          />
-        </>
-      ) : topic === "movie" ? (
-        <>
-          <MoviesList moviesData={data.results} currentPage={currentPage} />
+          {topic === "person" ? (
+            <PeopleList data={data} currentPage={currentPage} />
+          ) : (
+            <MoviesList moviesData={data.results} currentPage={currentPage} />
+          )}
           <Pagination
             currentPage={currentPage}
             totalPages={totalPages}

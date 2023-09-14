@@ -10,9 +10,10 @@ const MoviesBrowser = () => (
   <HashRouter>
     <Navigation />
     <Switch>
-      <Route path="/movies" component={PopularMovies} />
-      <Route path="/people" component={PopularPeople} />
-      <Route path="/search" component={SearchResult} />
+      <Route exact path="/movies" component={PopularMovies} />
+      <Route exact path="/people" component={PopularPeople} />
+      <Route path="/movies/search" component={SearchResult} />
+      <Route path="/people/search" component={SearchResult} />
       <Route path="/movie/" component={MoviePage} />
       <Route path="/person/" component={Profile} />
       <Route>
