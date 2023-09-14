@@ -9,9 +9,11 @@ import { useMovieData } from "./useMovieData";
 import { useSelector } from "react-redux";
 import { selectMovieId } from "../moviesSlice";
 import { getMovieImageUrl } from "../../../codesAPI";
+import { selectIsMedia } from "../../../store";
 
 const MoviePage = () => {
   const movieId = useSelector(selectMovieId);
+  const isMobile = useSelector(selectIsMedia);
 
   const { status, movie, credits } = useMovieData(movieId);
 
@@ -43,7 +45,9 @@ const MoviePage = () => {
           <MovieInfo
             title={movie.title}
             productionYear={new Date(movie.release_date).getFullYear()}
-            productionPlace={movie.production_countries.map(({ name }) => name)}
+            productionPlace={movie.production_countries.map((country) =>
+              isMobile ? country.iso_3166_1 ?? country.name : country.name
+            )}
             releaseDate={modifiedReleaseDate}
             tags={movie.genres}
             rate={movie.vote_average}
