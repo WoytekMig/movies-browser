@@ -1,17 +1,25 @@
 import { Main } from "../../../common/Main";
 import About from "./About";
 import { ProfileWrapper } from "./styled";
-import { usePersonData } from "./usePersonData";
+
 import Error from "../../../common/Error";
 import Loading from "../../../common/Loading";
 import MoviesList from "../../../common/MoviesList";
 import MainHeader from "../../../common/MainHeader";
 import { useParams } from "react-router-dom/cjs/react-router-dom.min";
+import { fetchPersonDataById, selectPersonData } from "../moviesSlice";
+import { useDispatch, useSelector } from "react-redux";
+import { useEffect } from "react";
 
 const Profile = () => {
   const { id } = useParams();
+  const dispatch = useDispatch();
 
-  const { status, person, credits } = usePersonData(id);
+  useEffect(() => {
+    dispatch(fetchPersonDataById(id));
+  }, [id, dispatch]);
+
+  const { status, person, credits } = useSelector(selectPersonData);
 
   const modifiedBirthday = person.birthday
     ? person.birthday.split("-").reverse().join(".")
