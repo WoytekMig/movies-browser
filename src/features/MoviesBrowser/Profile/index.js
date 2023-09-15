@@ -1,7 +1,6 @@
 import { Main } from "../../../common/Main";
 import About from "./About";
 import { ProfileWrapper } from "./styled";
-
 import Error from "../../../common/Error";
 import Loading from "../../../common/Loading";
 import MoviesList from "../../../common/MoviesList";
