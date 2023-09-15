@@ -13,8 +13,8 @@ const MoviesBrowser = () => (
       <Route path="/movies" component={PopularMovies} />
       <Route path="/people" component={PopularPeople} />
       <Route path="/search" component={SearchResult} />
-      <Route path="/movie/" component={MoviePage} />
-      <Route path="/person/" component={Profile} />
+      <Route path="/movie/:id" component={MoviePage} />
+      <Route path="/person/:id" component={Profile} />
       <Route>
         <Redirect to="/movies" />
       </Route>
