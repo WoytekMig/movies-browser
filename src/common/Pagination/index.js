@@ -1,4 +1,5 @@
 import { useSelector } from "react-redux";
+import { useHistory, useLocation } from "react-router-dom";
 import { selectIsMedia } from "../../store";
 import {
   ArrowLeft,
@@ -10,19 +11,23 @@ import {
   Wrapper,
 } from "./styled";
 
-const Pagination = ({
-  currentPage,
-  totalPages,
-  onFirstPage,
-  onPrevPage,
-  onNextPage,
-  onLastPage,
-}) => {
+const Pagination = ({ onPageChange, currentPage, totalPages }) => {
   const isMobile = useSelector(selectIsMedia);
+  const history = useHistory();
+  const location = useLocation();
+  const queryParams = new URLSearchParams(location.search);
+
+  const handlePageChange = (newPage) => {
+    if (newPage >= 1 && newPage <= totalPages) {
+      onPageChange(newPage);
+      queryParams.set("page", newPage);
+      history.push(`${location.pathname}?${queryParams.toString()}`);
+    }
+  };
 
   return (
     <Wrapper>
-      <Button onClick={onFirstPage} disabled={currentPage === 1}>
+      <Button onClick={() => handlePageChange(1)} disabled={currentPage === 1}>
         {isMobile ? (
           <>
             <ArrowLeft />
@@ -33,7 +38,10 @@ const Pagination = ({
         )}
         <ButtonText>First</ButtonText>
       </Button>
-      <Button onClick={onPrevPage} disabled={currentPage === 1}>
+      <Button
+        onClick={() => handlePageChange(currentPage - 1)}
+        disabled={currentPage === 1}
+      >
         <ArrowLeft />
         <ButtonText>Previous</ButtonText>
       </Button>
@@ -41,11 +49,17 @@ const Pagination = ({
         Page <PageNumber>{currentPage}</PageNumber>
         of <PageNumber>{totalPages}</PageNumber>
       </PageCounter>
-      <Button onClick={onNextPage} disabled={currentPage === totalPages}>
+      <Button
+        onClick={() => handlePageChange(currentPage + 1)}
+        disabled={currentPage === totalPages}
+      >
         <ButtonText>Next</ButtonText>
         <ArrowRight />
       </Button>
-      <Button onClick={onLastPage} disabled={currentPage === totalPages}>
+      <Button
+        onClick={() => handlePageChange(totalPages)}
+        disabled={currentPage === totalPages}
+      >
         <ButtonText>Last</ButtonText>
         {isMobile ? (
           <>

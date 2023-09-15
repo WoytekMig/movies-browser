@@ -15,13 +15,24 @@ const SearchResult = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [isLoading, setLoading] = useState(true);
   const [dataLoaded, setDataLoaded] = useState(false);
-  const [totalPages, setTotalPages] = useState(1);
   const { data, isError } = useSearchPeopleQuery(queryParam, currentPage);
+
+  const handlePageChange = (newPage) => {
+    if (newPage >= 1 && newPage <= data.total_pages) {
+      setCurrentPage(newPage);
+      setLoading(true);
+    }
+  };
+
+  useEffect(() => {
+    setCurrentPage(1);
+  }, [queryParam]);
 
   useEffect(() => {
     const loadingTimeout = setTimeout(() => {
       setLoading(false);
     }, 300);
+
     return () => {
       clearTimeout(loadingTimeout);
     };
@@ -30,16 +41,8 @@ const SearchResult = () => {
   useEffect(() => {
     if (data !== undefined) {
       setDataLoaded(true);
-      setTotalPages(data.total_pages || 1);
     }
   }, [data]);
-
-  const handleSearchPageChange = (newPage) => {
-    if (newPage >= 1 && newPage <= totalPages) {
-      setCurrentPage(newPage);
-      setLoading(true);
-    }
-  };
 
   return (
     <Main>
@@ -66,16 +69,13 @@ const SearchResult = () => {
           <PeopleList data={data.results} currentPage={currentPage} />
           <Pagination
             currentPage={currentPage}
-            totalPages={totalPages}
-            onPageChange={handleSearchPageChange}
-            onFirstPage={() => handleSearchPageChange(1)}
-            onPrevPage={() => handleSearchPageChange(currentPage - 1)}
-            onNextPage={() => handleSearchPageChange(currentPage + 1)}
-            onLastPage={() => handleSearchPageChange(totalPages)}
+            totalPages={data.total_pages}
+            onPageChange={handlePageChange}
           />
         </>
       )}
     </Main>
   );
 };
+
 export default SearchResult;

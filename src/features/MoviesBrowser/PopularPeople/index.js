@@ -11,7 +11,7 @@ const PopularPeople = () => {
   const popularPeopleData = usePopularPeopleData(currentPage);
   const totalPages = popularPeopleData.totalPages || 1;
 
-  const handlePageChange = (newPage) => {
+  const onPageChange = (newPage) => {
     if (newPage >= 1 && newPage <= totalPages) {
       setIsLoading(true);
       setCurrentPage(newPage);
@@ -39,10 +39,7 @@ const PopularPeople = () => {
           <Pagination
             currentPage={currentPage}
             totalPages={totalPages}
-            onFirstPage={() => handlePageChange(1)}
-            onPrevPage={() => handlePageChange(currentPage - 1)}
-            onNextPage={() => handlePageChange(currentPage + 1)}
-            onLastPage={() => handlePageChange(totalPages)}
+            onPageChange={onPageChange}
           />
         </div>
       )}
