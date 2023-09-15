@@ -7,15 +7,15 @@ import noPoster from "../../../images/whenNoPoster.png";
 import { MoviePageWrapper } from "./styled";
 import { useMovieData } from "./useMovieData";
 import { useSelector } from "react-redux";
-import { selectMovieId } from "../moviesSlice";
 import { getMovieImageUrl } from "../../../codesAPI";
 import { selectIsMedia } from "../../../store";
+import { useParams } from "react-router-dom/cjs/react-router-dom.min";
 
 const MoviePage = () => {
-  const movieId = useSelector(selectMovieId);
   const isMobile = useSelector(selectIsMedia);
+  const { id } = useParams();
 
-  const { status, movie, credits } = useMovieData(movieId);
+  const { status, movie, credits } = useMovieData(id);
 
   const topPoster = movie.backdrop_path
     ? getMovieImageUrl(movie.backdrop_path)

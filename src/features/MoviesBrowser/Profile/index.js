@@ -4,15 +4,14 @@ import { ProfileWrapper } from "./styled";
 import { usePersonData } from "./usePersonData";
 import Error from "../../../common/Error";
 import Loading from "../../../common/Loading";
-import { useSelector } from "react-redux";
-import { selectPersonId } from "../moviesSlice";
 import MoviesList from "../../../common/MoviesList";
 import MainHeader from "../../../common/MainHeader";
+import { useParams } from "react-router-dom/cjs/react-router-dom.min";
 
 const Profile = () => {
-  const personId = useSelector(selectPersonId);
+  const { id } = useParams();
 
-  const { status, person, credits } = usePersonData(personId);
+  const { status, person, credits } = usePersonData(id);
 
   const modifiedBirthday = person.birthday
     ? person.birthday.split("-").reverse().join(".")
