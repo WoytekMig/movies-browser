@@ -4,7 +4,7 @@ import { Main } from "../../../common/Main";
 import MainHeader from "../../../common/MainHeader";
 import Loading from "../../../common/Loading";
 import NoResult from "../../../common/NoResult";
-import useSearchQuery from "./useSearchPeopleQuery";
+import useSearchQuery from "./useSearchQuery";
 import PeopleList from "../../../common/PeopleList";
 import Pagination from "../../../common/Pagination";
 import MoviesList from "../../../common/MoviesList";
@@ -15,23 +15,15 @@ const SearchResult = () => {
   const topic = location.pathname.includes("movies") ? "movie" : "person";
 
   const [currentPage, setCurrentPage] = useState(1);
-  const [isLoading, setLoading] = useState(true);
-  const [dataLoaded, setDataLoaded] = useState(false);
   const [totalPages, setTotalPages] = useState(1);
-  const { data, isError } = useSearchQuery(queryParam, currentPage);
-
-  useEffect(() => {
-    const loadingTimeout = setTimeout(() => {
-      setLoading(false);
-    }, 300);
-    return () => {
-      clearTimeout(loadingTimeout);
-    };
-  }, [currentPage]);
+  const { data, isError, isLoading } = useSearchQuery(
+    queryParam,
+    currentPage,
+    topic
+  );
 
   useEffect(() => {
     if (data !== undefined) {
-      setDataLoaded(true);
       setTotalPages(data.total_pages || 1);
     }
   }, [data]);
@@ -39,7 +31,6 @@ const SearchResult = () => {
   const handleSearchPageChange = (newPage) => {
     if (newPage >= 1 && newPage <= totalPages) {
       setCurrentPage(newPage);
-      setLoading(true);
     }
   };
 
@@ -48,20 +39,18 @@ const SearchResult = () => {
       <MainHeader
         data={data}
         title={
-          isError || !data || data.results.length === 0
-            ? `Sorry, there are no results for "${queryParam || ""}"`
-            : `Search result for "${queryParam || ""}" (${
+          isLoading
+            ? `Search result for "${queryParam || ""}" (${
                 data?.results.length || 0
               })`
+            : isError || data.results.length === 0 || !data
+            ? `Sorry, there are no results for "${queryParam || ""}"`
+            : `Search result for "${queryParam || ""}" (${data.total_results})`
         }
       />
       {isLoading ? (
         <Loading />
-      ) : isError ||
-        !dataLoaded ||
-        !data ||
-        !data.results ||
-        data.results.length === 0 ? (
+      ) : isError || data.results.length === 0 ? (
         <NoResult query={queryParam} />
       ) : topic ? (
         <>
