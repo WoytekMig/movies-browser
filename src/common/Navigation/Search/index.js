@@ -10,14 +10,20 @@ export const Search = () => {
   const placeholderText = location.pathname.includes("movie")
     ? "Search for movies..."
     : "Search for people...";
-  const topic = location.pathname.includes("movie") ? "movies" : "people";
+
   /*   const newPath = `${topic}/search?query=${newValue}`; */
+  const path = location.pathname.includes(`movie/`)
+    ? location.pathname.replace(`movie/`, `movies/search`)
+    : location.pathname.includes(`person/`)
+    ? location.pathname.replace(`person/`, `people/search`)
+    : location.pathname;
 
   const handleSearchChange = (event) => {
     const newValue = event.target.value;
     setSearchValue(newValue);
     /* const topic = location.pathname.includes("movie") ? "movies" : "people"; */ // to change
-    const currentPath = location.pathname.replace(`/search`, ``); // to change
+
+    const currentPath = path.replace(`/search`, ``); // to change
     const newURL = `${currentPath}/search?query=${newValue}`; // to change
     history.push(newURL);
   };
