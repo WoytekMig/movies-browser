@@ -1,4 +1,3 @@
-import { useState } from "react";
 import MoviesList from "../../../common/MoviesList";
 import { useMoviesData } from "./useMoviesData";
 import Loading from "../../../common/Loading";
@@ -6,19 +5,19 @@ import Error from "../../../common/Error";
 import Pagination from "../../../common/Pagination";
 import { Main } from "../../../common/Main";
 import MainHeader from "../../../common/MainHeader";
+import usePageQueryParam from "../usePageQueryParam";
 
 const PopularMovies = () => {
-  const [currentPage, setCurrentPage] = useState(1);
-
+  const [currentPage, setCurrentPage] = usePageQueryParam();
   const { moviesData, setMoviesData } = useMoviesData(currentPage);
 
   const totalPages = () =>
     moviesData.total_pages > 500 ? 500 : moviesData.total_pages;
 
-  const whichPage = (page) => {
-    if (page >= 1 && page <= totalPages()) {
+  const onPageChange = (newPage) => {
+    if (newPage >= 1 && newPage <= totalPages()) {
       setMoviesData({ status: "loading" });
-      setCurrentPage(page);
+      setCurrentPage(newPage);
     }
   };
 
@@ -35,10 +34,7 @@ const PopularMovies = () => {
           <Pagination
             currentPage={currentPage}
             totalPages={totalPages()}
-            onFirstPage={() => whichPage(1)}
-            onPrevPage={() => whichPage(currentPage - 1)}
-            onNextPage={() => whichPage(currentPage + 1)}
-            onLastPage={() => whichPage(totalPages())}
+            onPageChange={onPageChange}
           />
         </Main>
       )}

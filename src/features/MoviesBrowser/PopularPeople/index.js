@@ -4,14 +4,17 @@ import Loading from "../../../common/Loading";
 import Error from "../../../common/Error";
 import PeopleList from "../../../common/PeopleList";
 import Pagination from "../../../common/Pagination";
+import usePageQueryParam from "../usePageQueryParam";
+import { useHistory } from "react-router-dom";
 
 const PopularPeople = () => {
-  const [currentPage, setCurrentPage] = useState(1);
+  const [currentPage, setCurrentPage] = usePageQueryParam();
   const [isLoading, setIsLoading] = useState(true);
   const popularPeopleData = usePopularPeopleData(currentPage);
   const totalPages = popularPeopleData.totalPages || 1;
+  const history = useHistory();
 
-  const handlePageChange = (newPage) => {
+  const onPageChange = (newPage) => {
     if (newPage >= 1 && newPage <= totalPages) {
       setIsLoading(true);
       setCurrentPage(newPage);
@@ -22,10 +25,16 @@ const PopularPeople = () => {
     const loadingTimeout = setTimeout(() => {
       setIsLoading(false);
     }, 500);
+
+    const unlisten = history.listen(() => {
+      setIsLoading(true);
+    });
+
     return () => {
       clearTimeout(loadingTimeout);
+      unlisten();
     };
-  }, [currentPage]);
+  }, [currentPage, history]);
 
   return (
     <div>
@@ -39,10 +48,7 @@ const PopularPeople = () => {
           <Pagination
             currentPage={currentPage}
             totalPages={totalPages}
-            onFirstPage={() => handlePageChange(1)}
-            onPrevPage={() => handlePageChange(currentPage - 1)}
-            onNextPage={() => handlePageChange(currentPage + 1)}
-            onLastPage={() => handlePageChange(totalPages)}
+            onPageChange={onPageChange}
           />
         </div>
       )}

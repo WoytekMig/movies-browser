@@ -65,7 +65,7 @@ export const StyledNavLink = styled(NavLink)`
   color: ${({ theme }) => theme.colors.white};
   font-weight: 600;
   line-height: 21px;
-  padding: 10px;
+  padding: 14px 24px;
   background-color: ${({ theme }) => theme.colors.woodSmoke};
   text-transform: uppercase;
   text-decoration: none;
@@ -80,7 +80,7 @@ export const StyledNavLink = styled(NavLink)`
   }
 
   &.active {
-    outline: 2px solid ${({ theme }) => theme.colors.white};
+    outline: 1px solid ${({ theme }) => theme.colors.white};
     border-radius: 24px;
   }
 `;

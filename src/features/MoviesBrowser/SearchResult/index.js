@@ -7,48 +7,61 @@ import NoResult from "../../../common/NoResult";
 import useSearchPeopleQuery from "./useSearchPeopleQuery";
 import PeopleList from "../../../common/PeopleList";
 import Pagination from "../../../common/Pagination";
+import usePageQueryParam from "../usePageQueryParam";
 
 const SearchResult = () => {
   const location = useLocation();
   const queryParam = new URLSearchParams(location.search).get("query");
-
-  const [currentPage, setCurrentPage] = useState(1);
-  const [isLoading, setLoading] = useState(true);
+  const [currentPage, setCurrentPage] = usePageQueryParam();
+  const [isLoading, setLoading] = useState(false);
   const [dataLoaded, setDataLoaded] = useState(false);
-  const [totalPages, setTotalPages] = useState(1);
-  const { data, isError } = useSearchPeopleQuery(queryParam, currentPage);
+  const [searchQuery, setSearchQuery] = useState(queryParam || "");
+  const [showNoResult, setShowNoResult] = useState(false);
 
-  useEffect(() => {
-    const loadingTimeout = setTimeout(() => {
-      setLoading(false);
-    }, 300);
-    return () => {
-      clearTimeout(loadingTimeout);
-    };
-  }, [currentPage]);
-
-  useEffect(() => {
-    if (data !== undefined) {
-      setDataLoaded(true);
-      setTotalPages(data.total_pages || 1);
-    }
-  }, [data]);
-
-  const handleSearchPageChange = (newPage) => {
-    if (newPage >= 1 && newPage <= totalPages) {
+  const handlePageChange = (newPage) => {
+    if (newPage >= 1) {
       setCurrentPage(newPage);
       setLoading(true);
     }
   };
+
+  useEffect(() => {
+    setLoading(true);
+    const delayTimer = setTimeout(() => {
+      setSearchQuery(queryParam || "");
+    }, 500);
+
+    return () => {
+      clearTimeout(delayTimer);
+    };
+  }, [queryParam]);
+
+  const { data, isError } = useSearchPeopleQuery(searchQuery, currentPage);
+
+  useEffect(() => {
+    const loadingTimeout = setTimeout(() => {
+      if (data !== undefined) {
+        setLoading(false);
+        setDataLoaded(true);
+        setShowNoResult(data.results.length === 0);
+      }
+    }, 500);
+
+    return () => {
+      clearTimeout(loadingTimeout);
+    };
+  }, [data]);
 
   return (
     <Main>
       <MainHeader
         data={data}
         title={
-          isError || !data || data.results.length === 0
-            ? `Sorry, there are no results for "${queryParam || ""}"`
-            : `Search result for "${queryParam || ""}" (${
+          isError || (!dataLoaded && !showNoResult)
+            ? ``
+            : showNoResult
+            ? `Sorry, there are no results for "${searchQuery || ""}"`
+            : `Search result for "${searchQuery || ""}" (${
                 data?.results.length || 0
               })`
         }
@@ -60,22 +73,19 @@ const SearchResult = () => {
         !data ||
         !data.results ||
         data.results.length === 0 ? (
-        <NoResult query={queryParam} />
+        <NoResult query={searchQuery} />
       ) : (
         <>
           <PeopleList data={data.results} currentPage={currentPage} />
           <Pagination
             currentPage={currentPage}
-            totalPages={totalPages}
-            onPageChange={handleSearchPageChange}
-            onFirstPage={() => handleSearchPageChange(1)}
-            onPrevPage={() => handleSearchPageChange(currentPage - 1)}
-            onNextPage={() => handleSearchPageChange(currentPage + 1)}
-            onLastPage={() => handleSearchPageChange(totalPages)}
+            totalPages={data.total_pages}
+            onPageChange={handlePageChange}
           />
         </>
       )}
     </Main>
   );
 };
+
 export default SearchResult;
