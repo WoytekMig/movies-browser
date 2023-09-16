@@ -14,8 +14,9 @@ export const Search = () => {
   const handleSearchChange = (event) => {
     const newValue = event.target.value;
     setSearchValue(newValue);
-    const currentPath = location.pathname.replace("/search", "");
-    const newURL = `${currentPath}/search?query=${newValue}`;
+    const topic = location.pathname.includes("movie") ? "movies" : "people"; // to change
+    /*     const currentPath = location.pathname.replace(`/search`, ``); */ // to change
+    const newURL = `${topic}/search?query=${newValue}`; // to change
     history.push(newURL);
   };
 

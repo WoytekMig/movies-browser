@@ -12,7 +12,7 @@ import MoviesList from "../../../common/MoviesList";
 const SearchResult = () => {
   const location = useLocation();
   const queryParam = new URLSearchParams(location.search).get("query");
-  const topic = location.pathname.includes("movies") ? "movie" : "person";
+  const topic = location.pathname.includes("movie") ? "movie" : "person";
 
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
