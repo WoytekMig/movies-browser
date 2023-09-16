@@ -3,7 +3,7 @@ import fetchSearchToAPI from "./getSearch";
 
 const useSearchQuery = (query, currentPage, topic) => {
   const fetchSearchData = async () => {
-    await new Promise((resolve) => setTimeout(resolve, 300));
+    await new Promise((resolve) => setTimeout(resolve, 500));
 
     return fetchSearchToAPI({ query, page: currentPage, topic });
   };
