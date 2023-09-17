@@ -60,12 +60,12 @@ const SearchResult = () => {
       <MainHeader
         data={data}
         title={
-          isError || (!dataLoaded && !showNoResult)
+          !dataLoaded && !showNoResult
             ? ``
             : showNoResult
             ? `Sorry, there are no results for "${searchQuery || ""}"`
             : `Search result for "${searchQuery || ""}" (${
-                data?.results.length || 0
+                data?.total_results || 0
               })`
         }
       />
