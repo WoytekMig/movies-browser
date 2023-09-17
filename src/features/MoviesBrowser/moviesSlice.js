@@ -1,27 +1,46 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { getDataFromLocalStorage } from "./dataInLocalStorage";
 
 const moviesSlice = createSlice({
   name: "movies",
   initialState: {
-    movieId: getDataFromLocalStorage("movieId") ?? null,
-    personId: getDataFromLocalStorage("personId") ?? null,
+    movieData: {
+      id: null,
+      data: { movie: [], credits: [], status: "loading" },
+    },
+    personData: {
+      id: null,
+      data: { person: [], credits: [], status: "loading" },
+    },
   },
   reducers: {
-    setMovieId: (state, { payload: movieId }) => {
-      state.movieId = movieId;
+    fetchMovieDataById: (state, { payload: movieId }) => {
+      state.movieData.id = movieId;
     },
-    setPersonId: (state, { payload: personId }) => {
-      state.personId = personId;
+    setMovieData: (state, { payload: fetchedData }) => {
+      state.movieData.data = fetchedData;
+    },
+    fetchPersonDataById: (state, { payload: personId }) => {
+      state.personData.id = personId;
+    },
+    setPersonData: (state, { payload: person }) => {
+      state.personData.data = person;
     },
   },
 });
 
 const selectMovies = (state) => state.movies;
 
-export const selectMovieId = (state) => selectMovies(state).movieId;
-export const selectPersonId = (state) => selectMovies(state).personId;
+export const selectMovieId = (state) => selectMovies(state).movieData.id;
+export const selectMovieData = (state) => selectMovies(state).movieData.data;
 
-export const { setMovieId, setPersonId } = moviesSlice.actions;
+export const selectPersonId = (state) => selectMovies(state).personData.id;
+export const selectPersonData = (state) => selectMovies(state).personData.data;
+
+export const {
+  fetchMovieDataById,
+  setMovieData,
+  fetchPersonDataById,
+  setPersonData,
+} = moviesSlice.actions;
 
 export default moviesSlice.reducer;

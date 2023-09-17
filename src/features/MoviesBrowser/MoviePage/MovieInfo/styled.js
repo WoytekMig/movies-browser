@@ -105,6 +105,7 @@ export const Year = styled.span`
 
   @media (max-width: ${({ theme }) => theme.breakpoints.defaultMobile}) {
     font-size: 16px;
+    color: ${({ theme }) => theme.colors.stormGray};
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.smallMobile}) {

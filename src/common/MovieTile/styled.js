@@ -35,8 +35,8 @@ export const Poster = styled.div`
 `;
 
 export const PosterIMG = styled.img`
+  aspect-ratio: 0.673;
   width: 100%;
-  height: auto;
   border-radius: 5px;
 `;
 

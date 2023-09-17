@@ -3,19 +3,33 @@ import Error from "../../../common/Error";
 import PeopleList from "../../../common/PeopleList";
 import MovieInfo from "./MovieInfo";
 import MovieTop from "./MovieTop";
+import noPoster from "../../../images/whenNoPoster.png";
 import { MoviePageWrapper } from "./styled";
-import { useMovieData } from "./useMovieData";
-import { useSelector } from "react-redux";
-import { selectMovieId } from "../moviesSlice";
+import { useDispatch, useSelector } from "react-redux";
 import { getMovieImageUrl } from "../../../codesAPI";
+import { selectIsMedia } from "../../../store";
+import { useParams } from "react-router-dom/cjs/react-router-dom.min";
+import { fetchMovieDataById, selectMovieData } from "../moviesSlice";
+import { useEffect } from "react";
 
 const MoviePage = () => {
-  const movieId = useSelector(selectMovieId);
+  const isMobile = useSelector(selectIsMedia);
+  const dispatch = useDispatch();
 
-  const { status, movie, credits } = useMovieData(movieId);
+  const { id } = useParams();
 
-  const topPoster = getMovieImageUrl(movie.backdrop_path);
-  const poster = getMovieImageUrl(movie.poster_path);
+  useEffect(() => {
+    dispatch(fetchMovieDataById(id));
+  }, [id, dispatch]);
+
+  const { movie, credits, status } = useSelector(selectMovieData);
+
+  const topPoster = movie.backdrop_path
+    ? getMovieImageUrl(movie.backdrop_path)
+    : null;
+  const poster = movie.poster_path
+    ? getMovieImageUrl(movie.poster_path)
+    : noPoster;
 
   const modifiedReleaseDate = movie.vote_average
     ? movie.release_date.split("-").reverse().join(".")
@@ -26,17 +40,21 @@ const MoviePage = () => {
       {status === "loading" && <Loading />}
       {status === "error" && <Error />}
       {status === "success" && (
-        <MoviePageWrapper>
-          <MovieTop
-            poster={topPoster}
-            title={movie.original_title}
-            rate={movie.vote_average}
-            votes={movie.vote_count}
-          />
+        <MoviePageWrapper $noPoster={!topPoster}>
+          {topPoster && (
+            <MovieTop
+              poster={topPoster}
+              title={movie.original_title}
+              rate={movie.vote_average}
+              votes={movie.vote_count}
+            />
+          )}
           <MovieInfo
             title={movie.title}
             productionYear={new Date(movie.release_date).getFullYear()}
-            productionPlace={movie.production_countries.map(({ name }) => name)}
+            productionPlace={movie.production_countries.map((country) =>
+              isMobile ? country.iso_3166_1 ?? country.name : country.name
+            )}
             releaseDate={modifiedReleaseDate}
             tags={movie.genres}
             rate={movie.vote_average}
@@ -44,8 +62,12 @@ const MoviePage = () => {
             description={movie.overview}
             poster={poster}
           />
-          <PeopleList title="Cast" data={credits.cast} moviePage />
-          <PeopleList title={"Crew"} data={credits.crew} moviePage />
+          {credits.cast.length !== 0 && (
+            <PeopleList title="Cast" data={credits.cast} moviePage />
+          )}
+          {credits.crew.length !== 0 && (
+            <PeopleList title={"Crew"} data={credits.crew} moviePage />
+          )}
         </MoviePageWrapper>
       )}
     </>

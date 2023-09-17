@@ -8,31 +8,58 @@ import useSearchQuery from "./useSearchQuery";
 import PeopleList from "../../../common/PeopleList";
 import Pagination from "../../../common/Pagination";
 import MoviesList from "../../../common/MoviesList";
+import usePageQueryParam from "../usePageQueryParam";
 
 const SearchResult = () => {
   const location = useLocation();
   const queryParam = new URLSearchParams(location.search).get("query");
-  const topic = location.pathname.includes("movie") ? "movie" : "person";
 
-  const [currentPage, setCurrentPage] = useState(1);
-  const [totalPages, setTotalPages] = useState(1);
+  const topic = location.pathname.includes("movie") ? "movie" : "person";
+  console.log("topic: ", topic);
+  const [currentPage, setCurrentPage] = usePageQueryParam();
+  const [searchQuery, setSearchQuery] = useState(queryParam || "");
   const { data, isError, isLoading } = useSearchQuery(
-    queryParam,
+    searchQuery,
     currentPage,
     topic
   );
 
-  useEffect(() => {
-    if (data !== undefined) {
-      setTotalPages(data.total_pages || 1);
-    }
-  }, [data]);
+  const [isLoadingOn, setLoadingOn] = useState(false);
+  const [dataLoaded, setDataLoaded] = useState(false);
 
-  const handleSearchPageChange = (newPage) => {
-    if (newPage >= 1 && newPage <= totalPages) {
+  const [showNoResult, setShowNoResult] = useState(false);
+
+  const handlePageChange = (newPage) => {
+    if (newPage >= 1) {
       setCurrentPage(newPage);
+      setLoadingOn(true);
     }
   };
+
+  useEffect(() => {
+    setLoadingOn(true);
+    const delayTimer = setTimeout(() => {
+      setSearchQuery(queryParam || "");
+    }, 500);
+
+    return () => {
+      clearTimeout(delayTimer);
+    };
+  }, [queryParam]);
+
+  useEffect(() => {
+    const loadingTimeout = setTimeout(() => {
+      if (data !== undefined) {
+        setLoadingOn(false);
+        setDataLoaded(true);
+        setShowNoResult(data.results.length === 0);
+      }
+    }, 500);
+
+    return () => {
+      clearTimeout(loadingTimeout);
+    };
+  }, [data]);
 
   return (
     <Main>
@@ -55,18 +82,15 @@ const SearchResult = () => {
       ) : topic ? (
         <>
           {topic === "person" ? (
-            <PeopleList data={data} currentPage={currentPage} />
+            <PeopleList data={data.results} currentPage={currentPage} />
           ) : (
             <MoviesList moviesData={data.results} currentPage={currentPage} />
           )}
+
           <Pagination
             currentPage={currentPage}
-            totalPages={totalPages}
-            onPageChange={handleSearchPageChange}
-            onFirstPage={() => handleSearchPageChange(1)}
-            onPrevPage={() => handleSearchPageChange(currentPage - 1)}
-            onNextPage={() => handleSearchPageChange(currentPage + 1)}
-            onLastPage={() => handleSearchPageChange(totalPages)}
+            totalPages={data.total_pages}
+            onPageChange={handlePageChange}
           />
         </>
       ) : (
@@ -75,4 +99,5 @@ const SearchResult = () => {
     </Main>
   );
 };
+
 export default SearchResult;

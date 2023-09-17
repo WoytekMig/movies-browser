@@ -1,4 +1,4 @@
-import { styled } from "styled-components";
+import { keyframes, styled } from "styled-components";
 
 export const Wrapper = styled.div`
   display: flex;
@@ -7,17 +7,37 @@ export const Wrapper = styled.div`
   background: ${({ theme }) => theme.colors.black};
 
   @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
-    height: 525px;
+    height: 600px;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.tabletAlternative}) {
+    height: 500px;
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.defaultMobile}) {
-    height: 350px;
+    height: 375px;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.mediumMobile}) {
+    height: 300px;
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.smallMobile}) {
+    height: 250px;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.tinyMobile}) {
     height: 148px;
   }
 `;
+
+const brightnessAnimation = keyframes` 
+from {
+  filter: brightness(0)
+}
+to {
+  filter: brightness(1)
+}`;
 
 export const Poster = styled.div`
   display: grid;
@@ -63,6 +83,7 @@ export const Poster = styled.div`
   background-position: center;
   background-size: auto 100%;
   background-repeat: no-repeat;
+  animation: ${brightnessAnimation} 2s ease;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
     background-size: 100% 100%;
@@ -106,13 +127,11 @@ export const Poster = styled.div`
       ),
       url(${({ $poster }) => $poster});
     background-position: center;
-    background-size: cover;
+    background-size: 100% 100%;
     background-repeat: no-repeat;
   }
   @media (max-width: ${({ theme }) => theme.breakpoints.smallMobile}) {
-    flex-basis: 148px;
     padding-bottom: 8px;
-    background-size: 100% 100%;
   }
 `;
 
