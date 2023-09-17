@@ -22,7 +22,12 @@ export const Search = () => {
   };
 
   useEffect(() => {
-    if (location.pathname === "/people" || location.pathname === "/movies") {
+    if (
+      location.pathname === "/people" ||
+      location.pathname === "/movies" ||
+      location.pathname.includes(`movie/`) ||
+      location.pathname.includes(`person`)
+    ) {
       setSearchValue("");
     }
   }, [location.pathname]);
