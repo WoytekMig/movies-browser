@@ -11,21 +11,14 @@ export const Search = () => {
     ? "Search for movies..."
     : "Search for people...";
 
-  /*   const newPath = `${topic}/search?query=${newValue}`; */
-  const path = location.pathname.includes(`movie/`)
-    ? location.pathname.replace(`movie/`, `movies/search`)
-    : location.pathname.includes(`person/`)
-    ? location.pathname.replace(`person/`, `people/search`)
-    : location.pathname;
+  const moviePath = location.pathname.includes(`movie`) ? true : false;
 
   const handleSearchChange = (event) => {
     const newValue = event.target.value;
     setSearchValue(newValue);
-    /* const topic = location.pathname.includes("movie") ? "movies" : "people"; */ // to change
-
-    const currentPath = path.replace(`/search`, ``); // to change
-    const newURL = `${currentPath}/search?query=${newValue}`; // to change
-    history.push(newURL);
+    history.push(
+      `/${moviePath ? "movies" : "people"}/search?query=${newValue}`
+    );
   };
 
   useEffect(() => {
