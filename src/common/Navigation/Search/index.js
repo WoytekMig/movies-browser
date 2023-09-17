@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
-import { useHistory } from "react-router-dom";
+import { useHistory, useLocation } from "react-router-dom";
 import { SearchIcon, StyledForm, StyledInput, Wrapper } from "./styled";
-import { useLocation } from "react-router-dom/cjs/react-router-dom";
 
 export const Search = () => {
   const location = useLocation();
@@ -12,14 +11,23 @@ export const Search = () => {
     ? "Search for movies..."
     : "Search for people...";
 
+  const moviePath = location.pathname.includes(`movie`) ? true : false;
+
   const handleSearchChange = (event) => {
     const newValue = event.target.value;
     setSearchValue(newValue);
-    history.push(`/search?query=${newValue}`);
+    history.push(
+      `/${moviePath ? "movies" : "people"}/search?query=${newValue}`
+    );
   };
 
   useEffect(() => {
-    if (location.pathname === "/people" || location.pathname === "/movies") {
+    if (
+      location.pathname === "/people" ||
+      location.pathname === "/movies" ||
+      location.pathname.includes(`movie/`) ||
+      location.pathname.includes(`person`)
+    ) {
       setSearchValue("");
     }
   }, [location.pathname]);
