@@ -40,6 +40,6 @@ Thanks to integration with TMDb, we provide extensive information about movies, 
 
 ### Intuitive Interface:
 
-Our application has been designed with the user in mind, providing a simple and intuitive interface.
+Our application has been designed with the user in mind, providing a simple and intuitive interface. Check it out !
 
 #### This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
