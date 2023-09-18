@@ -7,11 +7,10 @@ export const Search = () => {
   const history = useHistory();
   const [searchValue, setSearchValue] = useState("");
 
-  const placeholderText = location.pathname.includes("movie")
+  const moviePath = location.pathname.includes("movie");
+  const placeholderText = moviePath
     ? "Search for movies..."
     : "Search for people...";
-
-  const moviePath = location.pathname.includes(`movie`) ? true : false;
 
   const handleSearchChange = (event) => {
     const newValue = event.target.value;
@@ -25,8 +24,8 @@ export const Search = () => {
     if (
       location.pathname === "/people" ||
       location.pathname === "/movies" ||
-      location.pathname.includes(`movie/`) ||
-      location.pathname.includes(`person`)
+      location.pathname.includes("movie/") ||
+      location.pathname.includes("person")
     ) {
       setSearchValue("");
     }

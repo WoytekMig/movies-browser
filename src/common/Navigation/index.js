@@ -1,6 +1,5 @@
+import { Link, useLocation } from "react-router-dom";
 import { Search } from "./Search";
-import { useLocation } from "react-router-dom";
-import { Link } from "react-router-dom/cjs/react-router-dom.min";
 import {
   StyledLogo,
   StyledNavigation,
@@ -12,6 +11,10 @@ import {
 const Navigation = () => {
   const location = useLocation();
 
+  const isMovieActive = location.pathname.includes("/movie");
+  const isPeopleActive =
+    location.pathname === "/search" || location.pathname.includes("/person/");
+
   return (
     <StyledNavigation>
       <Container>
@@ -19,20 +22,12 @@ const Navigation = () => {
           <Link to="/movies">
             <StyledLogo />
           </Link>
-          <StyledNavLink
-            to="/movies"
-            className={location.pathname.includes("/movie") ? "active" : ""}
-          >
+          <StyledNavLink to="/movies" className={isMovieActive ? "active" : ""}>
             Movies
           </StyledNavLink>
           <StyledNavLink
             to="/people"
-            className={
-              location.pathname === "/search" ||
-              location.pathname.includes("/person/")
-                ? "active"
-                : ""
-            }
+            className={isPeopleActive ? "active" : ""}
           >
             People
           </StyledNavLink>
