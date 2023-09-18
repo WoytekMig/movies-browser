@@ -6,7 +6,7 @@ Visit our website here ----> [Movies Browser](https://woytekmig.github.io/movies
 
 ## 👇 Preview
 
-![Movies Browser Gif](/movies-browser.gif)
+![Movies Browser Gif](/movies-browser-demo.gif)
 
 ## 🤝 Autors
 
