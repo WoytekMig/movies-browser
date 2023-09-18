@@ -12,11 +12,9 @@ Visit our website here ----> [Movies Browser](https://woytekmig.github.io/movies
 
 This is a group project co-created with
 
-<ul style="list-style: none; padding-left: 0;">
-  <li>✅ <a href="https://github.com/WoytekMig">Wojciech Migdał</a></li>
-  <li>✅ <a href="https://github.com/KrystianZybura">Krystian Żybura</a></li>
-  <li>✅ <a href="https://github.com/Arcziwald">Artur Mochnia</a></li>
-</ul>
+  <h4>✅ <a href="https://github.com/WoytekMig">Wojciech Migdał</a></h4>
+  <h4>✅ <a href="https://github.com/KrystianZybura">Krystian Żybura</a></h4>
+  <h4>✅ <a href="https://github.com/Arcziwald">Artur Mochnia</a></h4>
 
 ## 💻 Technologies
 
@@ -30,7 +28,7 @@ Our project is an advanced movie and actor search engine that utilizes a rich da
 
 ### Movies Search:
 
-Our app allows users to easily search for movies by title, genre, year of production and many other criteria.
+Our app allows users to easily search for movies by title.
 
 ### Actors Search:
 
