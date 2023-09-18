@@ -6,15 +6,17 @@ Visit our website here ----> [Movies Browser](https://woytekmig.github.io/movies
 
 ## 👇 Preview
 
-![Movies Browser Gif](/movies-browser-demo.gif)
+![Movies Browser Gif](public/movies-browser-demo.gif)
 
-## 🤝 Autors
+## 🤝 Authors
 
 This is a group project co-created with
 
-- ✅ [Wojciech Migdał](https://github.com/WoytekMig)
-- ✅ [Krystian Żybura](https://github.com/KrystianZybura)
-- ✅ [Artur Mochnia](https://github.com/Arcziwald)
+<ul style="list-style: none; padding-left: 0;">
+  <li>✅ <a href="https://github.com/WoytekMig">Wojciech Migdał</a></li>
+  <li>✅ <a href="https://github.com/KrystianZybura">Krystian Żybura</a></li>
+  <li>✅ <a href="https://github.com/Arcziwald">Artur Mochnia</a></li>
+</ul>
 
 ## 💻 Technologies
 
