@@ -16,7 +16,11 @@ const SearchResult = () => {
   const topic = location.pathname.includes("movie") ? "movie" : "person";
   const [currentPage, setCurrentPage] = usePageQueryParam();
   const [searchQuery, setSearchQuery] = useState(queryParam || "");
-  const { data, isError } = useSearchQuery(searchQuery, currentPage, topic);
+  const { data, isError, totalResults } = useSearchQuery(
+    searchQuery,
+    currentPage,
+    topic
+  );
 
   const [isLoading, setIsLoading] = useState(false);
   const [dataLoaded, setDataLoaded] = useState(false);
@@ -65,9 +69,7 @@ const SearchResult = () => {
             ? `Sorry, there are no results for "${searchQuery || ""}"`
             : isLoading
             ? `Search result for "${searchQuery || ""}"`
-            : `Search result for "${searchQuery || ""}" (${
-                data?.results.length || 0
-              })`
+            : `Search result for "${searchQuery || ""}" (${totalResults || 0})`
         }
       />
       {isLoading ? (
