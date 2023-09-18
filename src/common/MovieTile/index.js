@@ -27,7 +27,7 @@ const MovieTile = ({ posterPath, title, year, tag, rating, votes }) => {
         </Poster>
         <DescriptionBox>
           <Title> {title}</Title>
-          <Year>{!isNaN(year) ? year : "Unknown"}</Year>
+          <Year>{year}</Year>
           <GenreBox>
             {tag.map((element) => {
               const matchingGenre = genres.find(
