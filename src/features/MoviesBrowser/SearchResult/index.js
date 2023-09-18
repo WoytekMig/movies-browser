@@ -16,7 +16,11 @@ const SearchResult = () => {
   const topic = location.pathname.includes("movie") ? "movie" : "person";
   const [currentPage, setCurrentPage] = usePageQueryParam();
   const [searchQuery, setSearchQuery] = useState(queryParam || "");
-  const { data, isError } = useSearchQuery(searchQuery, currentPage, topic);
+  const { data, isError, totalResults } = useSearchQuery(
+    searchQuery,
+    currentPage,
+    topic
+  );
 
   const [isLoading, setIsLoading] = useState(false);
   const [dataLoaded, setDataLoaded] = useState(false);
@@ -68,23 +72,19 @@ const SearchResult = () => {
       <MainHeader
         data={data}
         title={
-          !dataLoaded && !showNoResult
-            ? ``
+          isError || (!dataLoaded && !showNoResult)
+            ? `Search result for "${searchQuery || ""}"`
             : showNoResult
             ? `Sorry, there are no results for "${searchQuery || ""}"`
-            : `Search result for "${searchQuery || ""}" (${
-                data?.total_results || 0
-              })`
+            : isLoading
+            ? `Search result for "${searchQuery || ""}"`
+            : `Search result for "${searchQuery || ""}" (${totalResults || 0})`
         }
       />
       {isLoading ? (
         <Loading />
-      ) : isError ||
-        !dataLoaded ||
-        !data ||
-        !data.results ||
-        data.results.length === 0 ? (
-        <NoResult query={queryParam} />
+      ) : isError || !dataLoaded || !data ? null : data.results.length === 0 ? (
+        <NoResult query={searchQuery} />
       ) : topic ? (
         <>
           {topic === "person" ? (

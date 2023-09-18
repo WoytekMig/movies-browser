@@ -8,7 +8,17 @@ const useSearchQuery = (query, currentPage, topic) => {
     return fetchSearchToAPI({ query, page: currentPage, topic });
   };
 
-  return useQuery(["search", query, currentPage], fetchSearchData);
+  const { data, ...rest } = useQuery(
+    ["search", query, currentPage],
+    fetchSearchData
+  );
+  const totalResults = data?.total_results || 0;
+
+  return {
+    data,
+    totalResults,
+    ...rest,
+  };
 };
 
 export default useSearchQuery;
