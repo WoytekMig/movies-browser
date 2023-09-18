@@ -12,9 +12,9 @@ Visit our website here ----> [Movies Browser](https://woytekmig.github.io/movies
 
 This is a group project co-created with
 
-  <h4>✅ <a href="https://github.com/WoytekMig">Wojciech Migdał</a></h4>
-  <h4>✅ <a href="https://github.com/KrystianZybura">Krystian Żybura</a></h4>
-  <h4>✅ <a href="https://github.com/Arcziwald">Artur Mochnia</a></h4>
+  <div>✅ <a href="https://github.com/WoytekMig">Wojciech Migdał</a></div>
+  <div>✅ <a href="https://github.com/KrystianZybura">Krystian Żybura</a></div>
+  <div>✅ <a href="https://github.com/Arcziwald">Artur Mochnia</a></div>
 
 ## 💻 Technologies
 
