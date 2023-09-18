@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, useHistory } from "react-router-dom";
 import { Main } from "../../../common/Main";
 import MainHeader from "../../../common/MainHeader";
 import Loading from "../../../common/Loading";
@@ -20,7 +20,6 @@ const SearchResult = () => {
 
   const [isLoading, setIsLoading] = useState(false);
   const [dataLoaded, setDataLoaded] = useState(false);
-
   const [showNoResult, setShowNoResult] = useState(false);
 
   const handlePageChange = (newPage) => {
@@ -54,6 +53,15 @@ const SearchResult = () => {
       clearTimeout(loadingTimeout);
     };
   }, [data]);
+
+  const history = useHistory();
+
+  useEffect(() => {
+    if (data && data.results.length === 0 && searchQuery === "") {
+      const cleanPathname = location.pathname.replace(/\/search/, "");
+      history.replace(cleanPathname);
+    }
+  }, [data, searchQuery, history, location.pathname]);
 
   return (
     <Main>
