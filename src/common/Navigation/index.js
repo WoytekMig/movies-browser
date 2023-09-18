@@ -16,7 +16,7 @@ const Navigation = () => {
     <StyledNavigation>
       <Container>
         <StyledDiv>
-          <Link to="/movies">
+          <Link to="/movies?page=1">
             <StyledLogo />
           </Link>
           <StyledNavLink
