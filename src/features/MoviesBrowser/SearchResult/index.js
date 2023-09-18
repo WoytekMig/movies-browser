@@ -20,7 +20,6 @@ const SearchResult = () => {
 
   const [isLoading, setIsLoading] = useState(false);
   const [dataLoaded, setDataLoaded] = useState(false);
-
   const [showNoResult, setShowNoResult] = useState(false);
 
   const handlePageChange = (newPage) => {
@@ -61,9 +60,11 @@ const SearchResult = () => {
         data={data}
         title={
           isError || (!dataLoaded && !showNoResult)
-            ? ``
+            ? `Search result for "${searchQuery || ""}"`
             : showNoResult
             ? `Sorry, there are no results for "${searchQuery || ""}"`
+            : isLoading
+            ? `Search result for "${searchQuery || ""}"`
             : `Search result for "${searchQuery || ""}" (${
                 data?.results.length || 0
               })`
@@ -71,12 +72,8 @@ const SearchResult = () => {
       />
       {isLoading ? (
         <Loading />
-      ) : isError ||
-        !dataLoaded ||
-        !data ||
-        !data.results ||
-        data.results.length === 0 ? (
-        <NoResult query={queryParam} />
+      ) : isError || !dataLoaded || !data ? null : data.results.length === 0 ? (
+        <NoResult query={searchQuery} />
       ) : topic ? (
         <>
           {topic === "person" ? (
