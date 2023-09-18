@@ -27,7 +27,7 @@ const MovieTile = ({ posterPath, title, year, tag, rating, votes }) => {
         </Poster>
         <DescriptionBox>
           <Title> {title}</Title>
-          <Year>{!isNaN(year) ? year : "Unknown"}</Year>
+          <Year>{year}</Year>
           <GenreBox>
             {tag.map((element) => {
               const matchingGenre = genres.find(
@@ -46,8 +46,10 @@ const MovieTile = ({ posterPath, title, year, tag, rating, votes }) => {
         </DescriptionBox>
         <RatingBox>
           <StarImage></StarImage>
-        <Rating>{rating ? rating.toFixed(1).replace(".", ",") : rating}</Rating>
-        <Votes>{votes > 0 ? `${votes} votes` : "no votes yet"}</Votes>
+          <Rating>
+            {rating ? rating.toFixed(1).replace(".", ",") : rating}
+          </Rating>
+          <Votes>{votes > 0 ? `${votes} votes` : "no votes yet"}</Votes>
         </RatingBox>
       </Wrapper>
     )

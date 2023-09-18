@@ -14,7 +14,7 @@ const MoviesList = ({ moviesData, profile }) => (
           <MovieTile
             posterPath={movie.poster_path}
             title={movie.title}
-            year={profile ? roleAndYear : year}
+            year={profile ? roleAndYear : !isNaN(year) ? year : "Unknown"}
             rating={movie.vote_average}
             votes={movie.vote_count}
             tag={movie.genre_ids}
