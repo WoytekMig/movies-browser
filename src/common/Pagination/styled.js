@@ -30,7 +30,7 @@ export const Button = styled.button`
 
   &:disabled {
     background-color: ${({ theme }) => theme.colors.mystic};
-    cursor: default;
+    cursor: not-allowed;
 
     &:hover {
       filter: none;

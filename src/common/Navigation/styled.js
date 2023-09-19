@@ -79,7 +79,8 @@ export const StyledNavLink = styled(NavLink)`
     filter: brightness(90%);
   }
 
-  &.active {
+  &.active,
+  &:not(.active):hover {
     outline: 1px solid ${({ theme }) => theme.colors.white};
     border-radius: 24px;
   }
