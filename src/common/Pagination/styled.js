@@ -25,12 +25,12 @@ export const Button = styled.button`
   cursor: pointer;
 
   &:hover:not(:disabled) {
-    filter: brightness(103%);
+    filter: brightness(90%);
   }
 
   &:disabled {
     background-color: ${({ theme }) => theme.colors.mystic};
-    cursor: not-allowed;
+    cursor: default;
 
     &:hover {
       filter: none;
