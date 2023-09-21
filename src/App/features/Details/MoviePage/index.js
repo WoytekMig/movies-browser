@@ -9,7 +9,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { getMovieImageUrl } from "../../common/ApiUrls";
 import { selectIsMedia } from "../../../store";
 import { useParams } from "react-router-dom/cjs/react-router-dom.min";
-import { fetchMovieDataById, selectMovieData } from "../moviesSlice";
+import { fetchMovieDataById, selectMovieData } from "../Details/detailsSlice";
 import { useEffect } from "react";
 
 const MoviePage = () => {

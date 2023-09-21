@@ -6,7 +6,7 @@ import Loading from "../../common/Loading";
 import MoviesList from "../../common/MoviesList";
 import MainHeader from "../../common/MainHeader";
 import { useParams } from "react-router-dom/cjs/react-router-dom.min";
-import { fetchPersonDataById, selectPersonData } from "../moviesSlice";
+import { fetchPersonDataById, selectPersonData } from "../Details/detailsSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 
