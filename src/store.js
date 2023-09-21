@@ -1,7 +1,7 @@
 import { configureStore } from "@reduxjs/toolkit";
-import moviesReducer from "./features/MoviesBrowser/moviesSlice";
+import moviesReducer from "./App/features/moviesSlice";
 import createSagaMiddleware from "@redux-saga/core";
-import { moviesSaga } from "./features/MoviesBrowser/moviesSaga";
+import { moviesSaga } from "./App/features/moviesSaga";
 import { responsiveStoreEnhancer } from "redux-responsive";
 import { createResponsiveStateReducer } from "redux-responsive";
 
