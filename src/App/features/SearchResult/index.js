@@ -8,7 +8,7 @@ import useSearchQuery from "./useSearchQuery";
 import PeopleList from "../../common/PeopleList";
 import Pagination from "../../common/Pagination";
 import MoviesList from "../../common/MoviesList";
-import usePageQueryParam from "../PopularMovies/usePageQueryParam";
+import usePageQueryParam from "../../common/Helpers/usePageQueryParam";
 
 const SearchResult = () => {
   const location = useLocation();

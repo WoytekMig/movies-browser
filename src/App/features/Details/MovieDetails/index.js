@@ -1,18 +1,21 @@
-import Loading from "../../common/Loading";
-import Error from "../../common/Error";
-import PeopleList from "../../common/PeopleList";
+import Loading from "../../../common/Loading";
+import Error from "../../../common/Error";
+import PeopleList from "../../../common/PeopleList";
 import MovieInfo from "./MovieInfo";
 import MovieTop from "./MovieTop";
-import noPoster from "../../images/whenNoPoster.png";
-import { MoviePageWrapper } from "./styled";
+import noPoster from "../../../images/whenNoPoster.png";
+import { MovieDetailsWrapper } from "./styled";
 import { useDispatch, useSelector } from "react-redux";
-import { getMovieImageUrl } from "../../common/ApiUrls";
-import { selectIsMedia } from "../../../store";
+import { getMovieImageUrl } from "../../../common/Helpers/ApiUrls";
+import { selectIsMedia } from "../../../../store";
 import { useParams } from "react-router-dom/cjs/react-router-dom.min";
-import { fetchMovieDataById, selectMovieData } from "../Details/detailsSlice";
+import {
+  fetchMovieDataById,
+  selectMovieData,
+} from "../../Details/detailsSlice";
 import { useEffect } from "react";
 
-const MoviePage = () => {
+const MovieDetails = () => {
   const isMobile = useSelector(selectIsMedia);
   const dispatch = useDispatch();
 
@@ -40,7 +43,7 @@ const MoviePage = () => {
       {status === "loading" && <Loading />}
       {status === "error" && <Error />}
       {status === "success" && (
-        <MoviePageWrapper $noPoster={!topPoster}>
+        <MovieDetailsWrapper $noPoster={!topPoster}>
           {topPoster && (
             <MovieTop
               poster={topPoster}
@@ -63,15 +66,15 @@ const MoviePage = () => {
             poster={poster}
           />
           {credits.cast.length !== 0 && (
-            <PeopleList title="Cast" data={credits.cast} moviePage />
+            <PeopleList title="Cast" data={credits.cast} movieDetails />
           )}
           {credits.crew.length !== 0 && (
-            <PeopleList title={"Crew"} data={credits.crew} moviePage />
+            <PeopleList title={"Crew"} data={credits.crew} movieDetails />
           )}
-        </MoviePageWrapper>
+        </MovieDetailsWrapper>
       )}
     </>
   );
 };
 
-export default MoviePage;
+export default MovieDetails;

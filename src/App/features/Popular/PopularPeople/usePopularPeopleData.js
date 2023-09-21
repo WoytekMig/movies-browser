@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { API_KEY, ApiPopularPeople } from "../../common/ApiUrls";
+import { API_KEY, ApiPopularPeople } from "../../../common/Helpers/ApiUrls";
 
 export const usePopularPeopleData = (currentPage) => {
   const [popularPeopleData, setPopularPeopleData] = useState({

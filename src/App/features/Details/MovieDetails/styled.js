@@ -1,6 +1,6 @@
 import { css, styled } from "styled-components";
 
-export const MoviePageWrapper = styled.div`
+export const MovieDetailsWrapper = styled.div`
   display: flex;
   flex-direction: column;
   gap: 64px;

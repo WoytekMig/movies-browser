@@ -1,10 +1,10 @@
 import { HashRouter, Redirect, Route, Switch } from "react-router-dom";
 import Navigation from "./common/Navigation";
-import PopularPeople from "./features/PopularPeople";
+import PopularPeople from "./features/Popular/PopularPeople";
 import SearchResult from "./features/SearchResult";
-import MoviePage from "./features/MoviePage";
-import PopularMovies from "./features/PopularMovies";
-import Profile from "./features/Profile";
+import MoviePage from "./features/Details/MovieDetails";
+import PopularMovies from "./features/Popular/PopularMovies";
+import Profile from "./features/Details/PersonDetails";
 
 const App = () => (
   <HashRouter>

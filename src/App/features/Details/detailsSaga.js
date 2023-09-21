@@ -7,8 +7,8 @@ import {
   setMovieData,
   setPersonData,
 } from "./detailsSlice";
-import { getMovie } from "../getMovie";
-import { getPerson } from "../getPerson";
+import { getMovie } from "./getMovie";
+import { getPerson } from "./getPerson";
 
 function* fetchMovieDataHandler() {
   yield put(setMovieData({ movie: [], credits: [], status: "loading" }));

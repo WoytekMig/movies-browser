@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
 import { usePopularPeopleData } from "./usePopularPeopleData";
-import Loading from "../../common/Loading";
-import Error from "../../common/Error";
-import PeopleList from "../../common/PeopleList";
-import Pagination from "../../common/Pagination";
-import usePageQueryParam from "../PopularMovies/usePageQueryParam";
+import Loading from "../../../common/Loading";
+import Error from "../../../common/Error";
+import PeopleList from "../../../common/PeopleList";
+import Pagination from "../../../common/Pagination";
+import usePageQueryParam from "../../../common/Helpers/usePageQueryParam";
 import { useHistory } from "react-router-dom";
 
 const PopularPeople = () => {

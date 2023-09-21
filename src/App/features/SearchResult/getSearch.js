@@ -1,5 +1,5 @@
 import axios from "axios";
-import { API_KEY, API_URL } from "../../common/ApiUrls";
+import { API_KEY, API_URL } from "../../common/Helpers/ApiUrls";
 
 const fetchSearchToAPI = async ({ page, query, topic }) => {
   const response = await axios.get(

@@ -1,5 +1,5 @@
 import axios from "axios";
-import { getMovieApiUrls } from "../common/ApiUrls";
+import { getMovieApiUrls } from "../../common/Helpers/ApiUrls";
 
 const getMovie = async (movieId) => {
   const { MOVIE_API_URL, CREDITS_API_URL } = getMovieApiUrls(movieId);

@@ -1,11 +1,11 @@
-import MoviesList from "../../common/MoviesList";
+import MoviesList from "../../../common/MoviesList";
 import { useMoviesData } from "./useMoviesData";
-import Loading from "../../common/Loading";
-import Error from "../../common/Error";
-import Pagination from "../../common/Pagination";
-import { Main } from "../../common/Main";
-import MainHeader from "../../common/MainHeader";
-import usePageQueryParam from "./usePageQueryParam";
+import Loading from "../../../common/Loading";
+import Error from "../../../common/Error";
+import Pagination from "../../../common/Pagination";
+import { Main } from "../../../common/Main";
+import MainHeader from "../../../common/MainHeader";
+import usePageQueryParam from "../../../common/Helpers/usePageQueryParam";
 
 const PopularMovies = () => {
   const [currentPage, setCurrentPage] = usePageQueryParam();

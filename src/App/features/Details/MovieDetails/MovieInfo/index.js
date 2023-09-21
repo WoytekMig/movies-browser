@@ -9,9 +9,9 @@ import {
   Year,
 } from "./styled";
 
-import Rating from "../../../common/Rating";
-import { Main } from "../../../common/Main";
-import SpecialData from "../../../common/SpecialData";
+import Rating from "../../../../common/Rating";
+import { Main } from "../../../../common/Main";
+import SpecialData from "../../../../common/SpecialData";
 
 const MovieInfo = ({
   title,

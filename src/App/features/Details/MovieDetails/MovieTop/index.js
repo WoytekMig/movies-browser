@@ -1,4 +1,4 @@
-import Rating from "../../../common/Rating";
+import Rating from "../../../../common/Rating";
 import { Details, Poster, Title, Wrapper } from "./styled";
 
 const MovieTop = ({ title, poster, rate, votes }) => (

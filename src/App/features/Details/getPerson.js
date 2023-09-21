@@ -1,5 +1,5 @@
 import axios from "axios";
-import { getPersonApiUrls } from "../common/ApiUrls";
+import { getPersonApiUrls } from "../../common/Helpers/ApiUrls";
 
 const getPerson = async (personId) => {
   const { PERSON_API_URL, CREDITS_API_URL } = getPersonApiUrls(personId);

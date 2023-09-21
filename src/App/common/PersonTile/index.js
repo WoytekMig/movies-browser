@@ -1,5 +1,5 @@
 import { Container, Name, Picture, Role, Wrapper } from "./styled";
-import { PersonImageAPI } from "../../common/ApiUrls";
+import { PersonImageAPI } from "../Helpers/ApiUrls";
 import nullPersonImage from "../../images/alternativeNoPersonImage.svg";
 
 const PersonTile = ({ picture, name, role, moviePage }) => (

@@ -29,7 +29,7 @@ const detailsSlice = createSlice({
   },
 });
 
-const selectMovies = (state) => state.movies;
+const selectMovies = (state) => state.details;
 
 export const selectMovieId = (state) => selectMovies(state).movieData.id;
 export const selectMovieData = (state) => selectMovies(state).movieData.data;
