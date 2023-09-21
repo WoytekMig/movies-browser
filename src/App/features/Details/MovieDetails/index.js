@@ -6,7 +6,7 @@ import MovieTop from "./MovieTop";
 import noPoster from "../../../images/whenNoPoster.png";
 import { MovieDetailsWrapper } from "./styled";
 import { useDispatch, useSelector } from "react-redux";
-import { getMovieImageUrl } from "../../../common/Helpers/ApiUrls";
+import { getMovieImageUrl } from "../../../common/Helpers/codesAPI";
 import { selectIsMedia } from "../../../../store";
 import { useParams } from "react-router-dom/cjs/react-router-dom.min";
 import {

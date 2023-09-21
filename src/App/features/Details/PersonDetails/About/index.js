@@ -1,6 +1,6 @@
 import SpecialData from "../../../../common/SpecialData";
 import { StyledAbout, DataWrapper, Description, Image, Name } from "./styled";
-import { IMG_URL } from "../../../../common/Helpers/ApiUrls";
+import { IMG_URL } from "../../../../common/Helpers/codesAPI";
 import nullPersonImage from "../../../../images/alternativeNoPersonImage.svg";
 
 const About = ({ name, birthdate, birthplace, description, picturePath }) => (
