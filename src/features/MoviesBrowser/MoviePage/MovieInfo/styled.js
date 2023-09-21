@@ -6,15 +6,9 @@ export const Wrapper = styled.div`
   grid-row-gap: 24px;
   grid-template-areas:
     "pic data"
-    "pic desc"
-    "pic desc"
-    "pic desc"
-    "pic desc"
-    "pic desc"
-    "pic desc"
-    "pic desc"
     "pic desc";
   grid-template-columns: 312px 1fr;
+  grid-template-rows: auto 1fr;
   background: ${({ theme }) => theme.colors.white};
   box-shadow: ${({ theme }) => theme.common.boxShadow};
   padding: 40px;
