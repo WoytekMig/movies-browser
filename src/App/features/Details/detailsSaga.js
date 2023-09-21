@@ -6,9 +6,9 @@ import {
   selectPersonId,
   setMovieData,
   setPersonData,
-} from "./moviesSlice";
-import { getMovie } from "./getMovie";
-import { getPerson } from "./getPerson";
+} from "./detailsSlice";
+import { getMovie } from "../getMovie";
+import { getPerson } from "../getPerson";
 
 function* fetchMovieDataHandler() {
   yield put(setMovieData({ movie: [], credits: [], status: "loading" }));
@@ -40,9 +40,9 @@ function* fetchPersonDataHandler() {
   }
 }
 
-function* moviesSaga() {
+function* detailsSaga() {
   yield takeEvery(fetchMovieDataById.type, fetchMovieDataHandler);
   yield takeEvery(fetchPersonDataById.type, fetchPersonDataHandler);
 }
 
-export { moviesSaga };
+export { detailsSaga };

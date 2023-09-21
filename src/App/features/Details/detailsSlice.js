@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const moviesSlice = createSlice({
-  name: "movies",
+const detailsSlice = createSlice({
+  name: "details",
   initialState: {
     movieData: {
       id: null,
@@ -19,6 +19,7 @@ const moviesSlice = createSlice({
     setMovieData: (state, { payload: fetchedData }) => {
       state.movieData.data = fetchedData;
     },
+
     fetchPersonDataById: (state, { payload: personId }) => {
       state.personData.id = personId;
     },
@@ -41,6 +42,6 @@ export const {
   setMovieData,
   fetchPersonDataById,
   setPersonData,
-} = moviesSlice.actions;
+} = detailsSlice.actions;
 
-export default moviesSlice.reducer;
+export default detailsSlice.reducer;
