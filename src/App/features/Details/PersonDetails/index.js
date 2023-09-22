@@ -21,7 +21,7 @@ const Profile = () => {
     dispatch(fetchPersonDataById(id));
   }, [id, dispatch]);
 
-  const { status, person, credits } = useSelector(selectPersonData);
+  const { person, credits, status } = useSelector(selectPersonData);
 
   const modifiedBirthday = person.birthday
     ? person.birthday.split("-").reverse().join(".")
