@@ -1,7 +1,7 @@
 import { configureStore } from "@reduxjs/toolkit";
-import moviesReducer from "./features/MoviesBrowser/moviesSlice";
+import detailsReducer from "./App/features/Details/detailsSlice";
 import createSagaMiddleware from "@redux-saga/core";
-import { moviesSaga } from "./features/MoviesBrowser/moviesSaga";
+import { detailsSaga } from "./App/features/Details/detailsSaga";
 import { responsiveStoreEnhancer } from "redux-responsive";
 import { createResponsiveStateReducer } from "redux-responsive";
 
@@ -9,7 +9,7 @@ const sagaMiddleware = createSagaMiddleware();
 
 const store = configureStore({
   reducer: {
-    movies: moviesReducer,
+    details: detailsReducer,
     responsive: createResponsiveStateReducer({
       defaultMobile: 767,
     }),
@@ -18,7 +18,7 @@ const store = configureStore({
   enhancers: [responsiveStoreEnhancer],
 });
 
-sagaMiddleware.run(moviesSaga);
+sagaMiddleware.run(detailsSaga);
 
 export const selectIsMedia = (state) => state.responsive.is.defaultMobile;
 
