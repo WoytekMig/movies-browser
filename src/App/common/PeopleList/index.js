@@ -8,7 +8,7 @@ const PeopleList = ({ title, moviePage, data }) => (
     <MainHeader title={title} />
     <List $moviePage={moviePage}>
       {data.map((person) => (
-        <ListItem key={person.id || person.credit_id}>
+        <ListItem key={person.credit_id || person.id}>
           <StyledLink to={`/person/${person.id}`}>
             <PersonTile
               picture={person.profile_path}
