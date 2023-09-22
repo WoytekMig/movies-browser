@@ -12,7 +12,7 @@ import {
   DescriptionBox,
   PosterIMG,
 } from "./styled";
-import { genres } from "../Helpers/genreIds";
+import { genres } from "./genreIds";
 import { IMG_URL } from "../Helpers/codesAPI";
 import whenNoPoster from "../../images/whenNoPoster.png";
 
