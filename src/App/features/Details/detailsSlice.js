@@ -5,19 +5,19 @@ const detailsSlice = createSlice({
   initialState: {
     movieData: {
       id: null,
-      data: { details: [], credits: [], status: "loading" },
+      data: { movie: [], credits: [], status: "loading" },
     },
     personData: {
       id: null,
-      data: { details: [], credits: [], status: "loading" },
+      data: { person: [], credits: [], status: "loading" },
     },
   },
   reducers: {
     fetchMovieDataById: (state, { payload: movieId }) => {
       state.movieData.id = movieId;
     },
-    setMovieData: (state, { payload: fetchedData }) => {
-      state.movieData.data = fetchedData;
+    setMovieData: (state, { payload: movie }) => {
+      state.movieData.data = movie;
     },
 
     fetchPersonDataById: (state, { payload: personId }) => {
