@@ -7,36 +7,35 @@ import {
   setMovieData,
   setPersonData,
 } from "./detailsSlice";
-import { getMovie } from "./getMovie";
-import { getPerson } from "./getPerson";
+import { getDetailsData } from "./getDetailsData";
 
 function* fetchMovieDataHandler() {
-  yield put(setMovieData({ movie: [], credits: [], status: "loading" }));
+  yield put(setMovieData({ details: [], credits: [], status: "loading" }));
   yield delay(500);
 
   try {
     const movieId = yield select(selectMovieId);
-    const { movie, credits } = yield call(getMovie, movieId);
+    const { details, credits } = yield call(getDetailsData, movieId, "movie");
 
-    yield put(setMovieData({ movie, credits, status: "success" }));
+    yield put(setMovieData({ details, credits, status: "success" }));
   } catch (error) {
     console.error(error);
-    yield put(setMovieData({ movie: [], credits: [], status: "error" }));
+    yield put(setMovieData({ details: [], credits: [], status: "error" }));
   }
 }
 
 function* fetchPersonDataHandler() {
-  yield put(setPersonData({ person: [], credits: [], status: "loading" }));
+  yield put(setPersonData({ details: [], credits: [], status: "loading" }));
   yield delay(500);
 
   try {
     const personId = yield select(selectPersonId);
-    const { person, credits } = yield call(getPerson, personId);
+    const { details, credits } = yield call(getDetailsData, personId, "person");
 
-    yield put(setPersonData({ person, credits, status: "success" }));
+    yield put(setPersonData({ details, credits, status: "success" }));
   } catch (error) {
     console.error(error);
-    yield put(setPersonData({ person: [], credits: [], status: "error" }));
+    yield put(setPersonData({ details: [], credits: [], status: "error" }));
   }
 }
 

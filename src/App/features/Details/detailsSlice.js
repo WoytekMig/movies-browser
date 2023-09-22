@@ -5,11 +5,11 @@ const detailsSlice = createSlice({
   initialState: {
     movieData: {
       id: null,
-      data: { movie: [], credits: [], status: "loading" },
+      data: { details: [], credits: [], status: "loading" },
     },
     personData: {
       id: null,
-      data: { person: [], credits: [], status: "loading" },
+      data: { details: [], credits: [], status: "loading" },
     },
   },
   reducers: {
@@ -29,13 +29,13 @@ const detailsSlice = createSlice({
   },
 });
 
-const selectMovies = (state) => state.details;
+const selectDetails = (state) => state.details;
 
-export const selectMovieId = (state) => selectMovies(state).movieData.id;
-export const selectMovieData = (state) => selectMovies(state).movieData.data;
+export const selectMovieId = (state) => selectDetails(state).movieData.id;
+export const selectMovieData = (state) => selectDetails(state).movieData.data;
 
-export const selectPersonId = (state) => selectMovies(state).personData.id;
-export const selectPersonData = (state) => selectMovies(state).personData.data;
+export const selectPersonId = (state) => selectDetails(state).personData.id;
+export const selectPersonData = (state) => selectDetails(state).personData.data;
 
 export const {
   fetchMovieDataById,
