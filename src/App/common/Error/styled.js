@@ -13,6 +13,7 @@ export const Wrapper = styled.div`
     margin: 100px 0 0px 0;
   }
 `;
+
 export const StyledImg = styled(ErrorIcon)`
   display: grid;
   justify-self: center;
@@ -64,4 +65,9 @@ export const StyledButton = styled(Link)`
   text-decoration: none;
   color: ${({ theme }) => theme.colors.white};
   background-color: ${({ theme }) => theme.colors.scienceBlue};
+  transition: filter 0.3s;
+
+  &:hover {
+    filter: brightness(120%);
+  }
 `;
