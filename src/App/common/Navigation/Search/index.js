@@ -21,6 +21,13 @@ export const Search = () => {
   };
 
   useEffect(() => {
+    const queryParam = new URLSearchParams(location.search).get("query");
+    if (queryParam !== null) {
+      setSearchValue(queryParam);
+    }
+  }, [location.search]);
+
+  useEffect(() => {
     if (
       location.pathname === "/people" ||
       location.pathname === "/movies" ||
